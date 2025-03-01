@@ -3,7 +3,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useRouter } from "next/navigation";
 import logo from "../assets/logo2.png";
 import Image from "next/image";
 
@@ -11,7 +10,6 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
-  const router = useRouter();
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
   const [isScrolled, setIsScrolled] = useState(false);
