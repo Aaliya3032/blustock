@@ -12,18 +12,20 @@ const Hero = () => {
             MASTER TRADING AND INVESTMENT IN STOCK MARKET
           </h3>
           <span className="my-8 text-white sm:text-sm text-xs">
-            At BluStock Consultants,we are dedicated to providing top-tier
-            education in stock market trading and investment. Our expert
+            At BluStock Consultants, we are dedicated to providing top-tier
+            education in Stock Market Trading and Investment. Our expert
             programs are designed to equip our clients with the essentials
             skills and knowledge needed to navigate and excel in the financial
-            markets. Join us to master the art of trading and investment with
+            markets. Join us to Master the Art of Trading and Investment with
             confidence.
           </span>
-          <a className="z-20 relative inline-flex items-center justify-start px-5 py-3 overflow-hidden font-bold rounded-full group cursor-pointer">
+          <a
+          onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSeDyzfidlAE2inprG_UQbEByRXniIfIPpGnexereTkCTEik0Q/viewform", "_blank")}
+          className="z-20 relative inline-flex items-center justify-start px-5 py-3 overflow-hidden font-bold rounded-full group cursor-pointer">
             <span className="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
             <span className="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-8"></span>
             <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-gray-900">
-              Enroll now
+              ENROLL NOW
             </span>
             <span className="absolute inset-0 border-2 border-white rounded-full"></span>
           </a>

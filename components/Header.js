@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo2.png";
 import Image from "next/image";
 
 const Header = () => {
@@ -40,6 +40,8 @@ const Header = () => {
     ); // Avoid hydration issues
 
   return (
+    <div className="relative">
+      {isScrolled && <div className="h-[80px] w-full"></div>}
     <div
       className={`bg-white shadow-sm ${
         isScrolled ? "fixed top-0 left-0 right-0" : "relative"
@@ -49,16 +51,16 @@ const Header = () => {
 
         {/* Logo */}
         <div className="flex-shrink-0">
-          <Image src={logo} alt="logo" className="h-32 w-32" />
+          <Image src={logo} alt="logo" className="sm:h-32 h-24 sm:w-32 w-24 py-2" />
         </div>
 
         {/* Tag name */}
-        <div className="flex flex-col text-primary ">
-          <h1 className="sm:text-3xl text-xl font-bold">
+        <div className="flex flex-col text-primary ml-4">
+          <h1 className="sm:text-3xl text-xl font-bold ">
             BluStock Consultants
           </h1>
-          <p className="flex sm:text-sm text-xs justify-end font-medium">
-            A stock market academy
+          <p className="sm:flex hidden sm:text-sm text-xs justify-end font-medium">
+            A Stock Market Academy
           </p>
         </div>
 
@@ -168,6 +170,7 @@ const Header = () => {
           </nav>
         </div>
       )}
+    </div>
     </div>
   );
 };
