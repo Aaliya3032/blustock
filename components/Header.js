@@ -6,29 +6,15 @@ import { usePathname } from "next/navigation";
 import logo from "../assets/logo2.png";
 import Image from "next/image";
 
-const Header = () => {
+const Header = ({ onHeightChange }) => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
-  const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  useEffect(() => setMounted(true), []);
 
   if (!mounted)
     return (
@@ -38,14 +24,8 @@ const Header = () => {
     ); // Avoid hydration issues
 
   return (
-    <div className="relative">
-      {isScrolled && <div className="h-[80px] w-full"></div>}
-    <div
-      className={`bg-white shadow-sm ${
-        isScrolled ? "fixed top-0 left-0 right-0" : "relative"
-      } z-30 transition-[top] duration-300 ease-in-out`}
-    >
-      <div className="w-[85%] mx-auto flex items-center py-4">
+    <div className="sticky z-30 bg-white shadow-sm w-full top-0 left-0 right-0">
+      <div className="w-[85%] mx-auto flex items-center py-1">
 
         {/* Logo */}
         <div className="flex-shrink-0">
@@ -168,7 +148,6 @@ const Header = () => {
           </nav>
         </div>
       )}
-    </div>
     </div>
   );
 };
