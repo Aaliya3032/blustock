@@ -9,18 +9,23 @@ import "aos/dist/aos.css";
 const Hero = () => {
   useEffect(() => {
     AOS.init({
+      offset: 100,
       duration: 1000, 
-      once: true, 
+      once: false, 
+      mirror: true,   
     });
+    setTimeout(() => {
+      AOS.refresh();
+    }, 100);
   }, []);
   return (
     <div className="w-full bg-primary overflow-hidden flex flex-col items-center py-12">
       <div className="flex md:flex-row flex-col items-center w-[85%] mx-auto gap-4 ">
-        <div data-aos="fade-right" className="md:w-1/2 w-full flex flex-col items-start">
-          <h3 className="sm:text-3xl text-2xl font-bold text-white">
+        <div  className="md:w-1/2 w-full flex flex-col items-start">
+          <h3 data-aos="zoom-in" className="sm:text-3xl text-2xl font-bold text-white">
             MASTER TRADING AND INVESTMENT IN STOCK MARKET
           </h3>
-          <span className="my-8 text-white sm:text-sm text-xs">
+          <span data-aos="fade-up" className="my-8 text-white sm:text-sm text-xs">
             At BluStock Consultants, we are dedicated to providing top-tier
             education in Stock Market Trading and Investment. Our expert
             programs are designed to equip our clients with the essentials
@@ -29,6 +34,7 @@ const Hero = () => {
             confidence.
           </span>
           <a
+          data-aos="fade-up"
             onClick={() =>
               window.open(
                 "https://docs.google.com/forms/d/e/1FAIpQLSeDyzfidlAE2inprG_UQbEByRXniIfIPpGnexereTkCTEik0Q/viewform",
