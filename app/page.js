@@ -8,9 +8,7 @@ export default function Home() {
    <main>
     <Hero/>
     <Services/>
-    <Hero/>
-    <Hero/>
-    <Hero/>
+    <Hero/> 
    </main>
   );
 }
