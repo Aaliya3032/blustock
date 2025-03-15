@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Head from "next/head";
 import "./globals.css";
 import { Theme } from "./theme/page";
+import Sidenav from "@/components/Sidenav";
 
 
 export default function RootLayout({ children }) {
@@ -18,7 +19,12 @@ export default function RootLayout({ children }) {
         <Theme>
           <Header/>
           <main
+          className="relative"
           >
+            <div className="fixed right-0 top-1/2 transform -translate-y-1/2 z-40">
+            <Sidenav/>
+            </div>
+          
             {children}
           </main>
         </Theme>

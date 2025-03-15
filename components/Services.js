@@ -15,8 +15,8 @@ import Image from "next/image";
 
 const Services = () => {
   return (
-    <div className="w-full">
-      <div className="w-[85%] mx-auto mb-8 mt-4">
+    <div className="w-full bg-[#f0f0f0]">
+      <div className="w-[85%] mx-auto pb-8 pt-4">
         <div className="flex md:flex-row flex-col">
           <div className="md:w-[60%] w-full flex flex-col justify-center">
             <div
@@ -40,7 +40,7 @@ const Services = () => {
         <div className="flex flex-col py-8 w-full gap-4">
           <div className="flex sm:flex-row flex-col justify-between w-full gap-4">
             {/* LONG TERM */}
-            <div className="relative sm:w-1/2 w-full flex items-center justify-center py-8 px-4 rounded-xl hover:text-white text-primary overflow-hidden transition-all duration-500 group" data-aos="fade-right">
+            <div className="relative sm:w-1/2 w-full flex items-center justify-center py-8 px-4 rounded-xl hover:text-white text-primary overflow-hidden transition-all duration-500 group">
               {/* Background Image - Initially Hidden, Appears on Hover */}
               <div className="absolute inset-0 transition-all duration-500 opacity-0 group-hover:opacity-100">
                 <Image
@@ -53,7 +53,7 @@ const Services = () => {
               </div>
 
               {/* Dark Overlay - Always Present, Becomes Lighter on Hover */}
-              <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-primary opacity-10 group-hover:opacity-60 transition-opacity duration-500"></div>
 
               {/* Content */}
               <div className="relative z-10 text-center">
@@ -72,7 +72,7 @@ const Services = () => {
             </div>
 
             {/* PORTFOLIO */}
-            <div className="relative sm:w-1/2 w-full flex items-center justify-center py-8 px-4 rounded-xl hover:text-white text-primary overflow-hidden transition-all duration-500 group" data-aos="fade-left">
+            <div className="relative sm:w-1/2 w-full flex items-center justify-center py-8 px-4 rounded-xl hover:text-white text-primary overflow-hidden transition-all duration-500 group">
               {/* Background Image - Initially Hidden, Appears on Hover */}
               <div className="absolute inset-0 transition-all duration-500 opacity-0 group-hover:opacity-100">
                 <Image
@@ -106,7 +106,7 @@ const Services = () => {
 
           <div className="flex sm:flex-row flex-col justify-between w-full gap-4">
             {/* INTRADAY */}
-            <div className="relative sm:w-1/2 w-full flex items-center justify-center py-8 px-4 rounded-xl hover:text-white text-primary overflow-hidden transition-all duration-500 group" data-aos="fade-right">
+            <div className="relative sm:w-1/2 w-full flex items-center justify-center py-8 px-4 rounded-xl hover:text-white text-primary overflow-hidden transition-all duration-500 group">
               {/* Background Image - Initially Hidden, Appears on Hover */}
               <div className="absolute inset-0 transition-all duration-500 opacity-0 group-hover:opacity-100">
                 <Image
@@ -138,7 +138,7 @@ const Services = () => {
             </div>
 
             {/* PSYCHOLOGY */}
-            <div className="relative sm:w-1/2 w-full flex items-center justify-center py-8 px-4 rounded-xl hover:text-white text-primary overflow-hidden transition-all duration-500 group" data-aos="fade-left">
+            <div className="relative sm:w-1/2 w-full flex items-center justify-center py-8 px-4 rounded-xl hover:text-white text-primary overflow-hidden transition-all duration-500 group">
               {/* Background Image - Initially Hidden, Appears on Hover */}
               <div className="absolute inset-0 transition-all duration-500 opacity-0 group-hover:opacity-100">
                 <Image
@@ -151,7 +151,7 @@ const Services = () => {
               </div>
 
               {/* Dark Overlay - Always Present, Becomes Lighter on Hover */}
-              <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-primary opacity-10 group-hover:opacity-60 transition-opacity duration-500"></div>
 
               {/* Content */}
               <div className="relative z-10 text-center">

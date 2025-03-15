@@ -29,7 +29,7 @@ const Header = ({ onHeightChange }) => {
 
         {/* Logo */}
         <div className="flex-shrink-0">
-          <Image src={logo} alt="logo" className="sm:h-32 h-24 sm:w-32 w-24 py-2" />
+          <Image src={logo} alt="logo" className="sm:h-28 h-24 sm:w-28 w-24 py-2" />
         </div>
 
         {/* Tag name */}
