@@ -34,7 +34,7 @@ const Services = () => {
           </div>
 
           <div className="md:w-[40%] sm:w-[50%] w-[80%] mx-auto">
-            <Image src={longterm2} alt="lt2" className="" />
+            <Image src={longterm2} alt="lt2" />
           </div>
         </div>
         <div className="flex flex-col py-8 w-full gap-4">

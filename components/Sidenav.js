@@ -2,7 +2,7 @@ import React from 'react'
 
 const Sidenav = () => {
   return (
-    <ul className="text-white space-y-6 w-12 ml-auto bg-[#ffd680] p-2">
+    <ul className="text-white space-y-6 w-12 ml-auto bg-tertiary p-2">
     <li>
       <a
         href="tel:8955934636"
@@ -16,9 +16,9 @@ const Sidenav = () => {
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             className="w-7 hover:scale-110 ease-in-out duration-100 hover:text-white"
           >
             <path
