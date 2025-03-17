@@ -2,7 +2,7 @@ import React from 'react'
 
 const Sidenav = () => {
   return (
-    <ul className="text-white space-y-6 w-12 ml-auto bg-tertiary p-2">
+    <ul className="text-white sm:space-y-6 space-y-4 sm:w-12 w-10 ml-auto bg-tertiary p-2">
     <li>
       <a
         href="tel:8955934636"
@@ -19,7 +19,7 @@ const Sidenav = () => {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="w-7 hover:scale-110 ease-in-out duration-100 hover:text-white"
+            className="sm:w-7 w-5 hover:scale-110 ease-in-out duration-100 hover:text-white"
           >
             <path
               d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
@@ -38,7 +38,7 @@ const Sidenav = () => {
             focusable="false"
             data-prefix="fab"
             data-icon="whatsapp"
-            className="w-7 svg-inline--fa fa-whatsapp fa-w-14 hover:scale-110 ease-in-out duration-100 hover:text-white"
+            className="sm:w-7 w-5 svg-inline--fa fa-whatsapp fa-w-14 hover:scale-110 ease-in-out duration-100 hover:text-white"
             role="img"
             xmlns="http://www.w3.org/2000/svg"
             width="28"
@@ -59,7 +59,7 @@ const Sidenav = () => {
         rel="noopener noreferrer"
       >
         <svg
-          className="w-7 hover:scale-110 ease-in-out duration-100 hover:text-white"
+          className="sm:w-7 w-5 hover:scale-110 ease-in-out duration-100 hover:text-white"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
         >
@@ -77,7 +77,7 @@ const Sidenav = () => {
         rel="noopener noreferrer"
       >
         <svg
-          className="w-7 hover:text-white hover:scale-110 ease-in-out duration-100"
+          className="sm:w-7 w-5 hover:text-white hover:scale-110 ease-in-out duration-100"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 448 512"
         >
@@ -94,7 +94,7 @@ const Sidenav = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <svg className="w-7 hover:scale-110 ease-in-out duration-100 hover:text-white" width="28" height="28" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg"><title>Facebook icon</title><path fill="currentColor" d="M23.9981 11.9991C23.9981 5.37216 18.626 0 11.9991 0C5.37216 0 0 5.37216 0 11.9991C0 17.9882 4.38789 22.9522 10.1242 23.8524V15.4676H7.07758V11.9991H10.1242V9.35553C10.1242 6.34826 11.9156 4.68714 14.6564 4.68714C15.9692 4.68714 17.3424 4.92149 17.3424 4.92149V7.87439H15.8294C14.3388 7.87439 13.8739 8.79933 13.8739 9.74824V11.9991H17.2018L16.6698 15.4676H13.8739V23.8524C19.6103 22.9522 23.9981 17.9882 23.9981 11.9991Z"/></svg>
+        <svg className="sm:w-7 w-5 hover:scale-110 ease-in-out duration-100 hover:text-white" width="28" height="28" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg"><title>Facebook icon</title><path fill="currentColor" d="M23.9981 11.9991C23.9981 5.37216 18.626 0 11.9991 0C5.37216 0 0 5.37216 0 11.9991C0 17.9882 4.38789 22.9522 10.1242 23.8524V15.4676H7.07758V11.9991H10.1242V9.35553C10.1242 6.34826 11.9156 4.68714 14.6564 4.68714C15.9692 4.68714 17.3424 4.92149 17.3424 4.92149V7.87439H15.8294C14.3388 7.87439 13.8739 8.79933 13.8739 9.74824V11.9991H17.2018L16.6698 15.4676H13.8739V23.8524C19.6103 22.9522 23.9981 17.9882 23.9981 11.9991Z"/></svg>
       </a>
     </li>
   </ul>  

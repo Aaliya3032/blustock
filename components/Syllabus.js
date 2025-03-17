@@ -10,9 +10,9 @@ const Syllabus = () => {
     <div className="py-2 flex flex-col gap-8 ">
       <div className="font-bold text-xl">Stock Trading Course Outline</div>
 
-      <div className="flex flex-row items-center justify-center">
-        <div className="flex flex-col gap-4 w-1/2 shadow-[8px_8px_16px_-6px_rgba(0,0,0,0.4)]">
-          <div className="text-lg font-medium">
+      <div className="flex flex-row md:items-center items-start md:justify-center justify-start">
+        <div className="flex flex-col gap-4 md:w-[50%] sm:w-[75%] w-[95%] pr-2 pt-2 shadow-[8px_8px_16px_-6px_rgba(0,0,0,0.4)]">
+          <div className="sm:text-lg text-md font-medium">
             Module 1: Introduction To Financial Markets
           </div>
           <ul className="text-[#406191] list-disc ml-8 mb-4">
@@ -26,17 +26,17 @@ const Syllabus = () => {
             <li>Japanese Candlesticks</li>
           </ul>
         </div>
-        <div className="w-1/2"  data-aos="zoom-in">
-          <Image src={Hero2} alt="md1" className="w-[70%] ml-auto" />
+        <div className="w-[50%] md:block hidden"  data-aos="zoom-in">
+          <Image src={Hero2} alt="md1" className="lg:w-[70%] w-[90%] ml-auto" />
         </div>
       </div>
 
-      <div className="flex flex-row items-center justify-center">
-        <div className="w-1/2" data-aos="zoom-in">
-          <Image src={Hero1} alt="md1" className="w-[70%] mr-auto" />
+      <div className="flex flex-row md:items-center sm:items-end items-start md:justify-center sm:justify-end justify-start">
+        <div className="w-[50%] md:block hidden" data-aos="zoom-in">
+          <Image src={Hero1} alt="md1" className="lg:w-[70%] w-[90%] mr-auto" />
         </div>
-        <div className="flex flex-col gap-4 w-1/2 shadow-[8px_8px_16px_-6px_rgba(0,0,0,0.4)]">
-          <div className="text-lg font-medium">
+        <div className="flex flex-col gap-4 md:w-[50%] sm:w-[75%] w-[95%] pr-2 pt-2 shadow-[8px_8px_16px_-6px_rgba(0,0,0,0.4)]">
+          <div className="sm:text-lg text-md font-medium">
             Module 2: Understanding Price Action & Chart Analysis
           </div>
           <ul className="text-[#406191] list-disc ml-8 mb-4">
@@ -53,9 +53,9 @@ const Syllabus = () => {
         </div>
       </div>
 
-      <div className="flex flex-row items-center justify-center">
-        <div className="flex flex-col gap-4 w-1/2 shadow-[8px_8px_16px_-6px_rgba(0,0,0,0.4)]">
-          <div className="text-lg font-medium">
+      <div className="flex flex-row md:items-center items-start md:justify-center justify-start">
+        <div className="flex flex-col gap-4 md:w-[50%] sm:w-[75%] w-[95%] pr-2 pt-2 shadow-[8px_8px_16px_-6px_rgba(0,0,0,0.4)]">
+          <div className="sm:text-lg text-md font-medium">
             Module 3: Trading Setups Equity Markets
           </div>
           <ul className="text-[#406191] list-disc ml-8 mb-4">
@@ -68,17 +68,17 @@ const Syllabus = () => {
             <li>Trading Journal and Reviewing</li>
           </ul>
         </div>
-        <div className="w-1/2" data-aos="zoom-in">
-          <Image src={Hero4} alt="md1" className="w-[70%] ml-auto" />
+        <div className="w-[50%] md:block hidden" data-aos="zoom-in">
+          <Image src={Hero4} alt="md1" className="lg:w-[70%] w-[90%] ml-auto" />
         </div>
       </div>
 
-      <div className="flex flex-row items-center justify-center">
-        <div className="w-1/2" data-aos="zoom-in">
-          <Image src={longterm2} alt="md1" className="w-[70%] mr-auto" />
+      <div className="flex flex-row md:items-center sm:items-end items-start md:justify-center sm:justify-end justify-start">
+        <div className="w-[50%] md:block hidden" data-aos="zoom-in">
+          <Image src={longterm2} alt="md1" className="lg:w-[70%] w-[90%] mr-auto" />
         </div>
-        <div className="flex flex-col gap-4 w-1/2 shadow-[8px_8px_16px_-6px_rgba(0,0,0,0.4)]">
-          <div className="text-lg font-medium">
+        <div className="flex flex-col gap-4 md:w-[50%] sm:w-[75%] w-[95%] pr-2 pt-2 shadow-[8px_8px_16px_-6px_rgba(0,0,0,0.4)]">
+          <div className="sm:text-lg text-md font-medium">
             Module 4: Fundamental Analysis & Long-Term Investing
           </div>
           <ul className="text-[#406191] list-disc ml-8 mb-4">
