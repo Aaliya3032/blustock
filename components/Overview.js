@@ -2,14 +2,14 @@
 import React, { useState } from "react";
 import Syllabus from "./Syllabus";
 import Candidate from "./Candidate";
-import Roadmap from "./Roadmap";
+import Included from "./Included";
 
 const Overview = () => {
   const [activeTab, setActiveTab] = useState("syllabus");
   return (
     <div className="w-full bg-gray-200">
       <div className="w-[85%] mx-auto py-12">
-        <div className="sm:text-3xl text-2xl font-bold mb-4">
+        <div className="sm:text-3xl text-2xl font-bold mb-4" data-aos="fade-right">
           Stock Trading Course Overview
         </div>
         <ul className="flex flex-row flex-wrap gap-4">
@@ -42,7 +42,7 @@ const Overview = () => {
             }`}
             onClick={() => setActiveTab("included")}
           >
-            What&apos;s Included
+            Additional Benefit
           </li>
         </ul>
 
@@ -50,7 +50,7 @@ const Overview = () => {
         <div className="mt-4">
           {activeTab === "syllabus" && <Syllabus />}
           {activeTab === "who" && <Candidate />}
-          {activeTab === "included" && <Roadmap />}
+          {activeTab === "included" && <Included/>}
         </div>
       </div>
     </div>

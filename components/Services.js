@@ -23,13 +23,16 @@ const Services = () => {
               className="sm:text-3xl text-2xl font-bold mb-4"
               data-aos="fade-right"
             >
-              Our Services our services :
+              Learn with Our Expert Training :
             </div>
             <div className="text-md font-medium flex text-[#406191]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              BluStock Consultants, with over 12 years of experience in the
+              Indian markets, is your go-to for financial education and
+              mentorship. We help you gain the knowledge and skills needed for
+              financial freedom and the freedom of time. Join us to improve your
+              financial understanding and reach your full potential. Trust
+              BluStock Consultants for expert guidance and support on your path
+              to financial success!
             </div>
           </div>
 
@@ -91,9 +94,7 @@ const Services = () => {
               <div className="relative z-10 text-center">
                 <div className="flex flex-row gap-2 justify-center">
                   <FaPenFancy className="text-xl mt-1" />
-                  <h2 className="text-xl font-bold ">
-                    Portfolio Corrections
-                  </h2>
+                  <h2 className="text-xl font-bold ">Portfolio Corrections</h2>
                 </div>
                 <p className="mt-3 text-md text-start">
                   We optimize your current investments by analyzing your
@@ -131,8 +132,9 @@ const Services = () => {
                 </div>
                 <p className="mt-3 text-md text-start">
                   For active traders, we offer expert strategies for intraday
-                  and swing trading. Whether you are trading within a day or over
-                  a few days, we provide the knowledge and tools to succeed.
+                  and swing trading. Whether you are trading within a day or
+                  over a few days, we provide the knowledge and tools to
+                  succeed.
                 </p>
               </div>
             </div>
