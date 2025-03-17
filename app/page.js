@@ -12,7 +12,6 @@ export default function Home() {
     <Services/>
     <Overview/>
     <Batch/>
-    <Hero/>
    </main>
   );
 }
