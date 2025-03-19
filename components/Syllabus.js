@@ -8,7 +8,7 @@ import Hero4 from '../assets/Hero4.jpg'
 const Syllabus = () => {
   return (
     <div className="py-2 flex flex-col gap-8 ">
-      <div className="font-bold text-xl">Stock Trading Course Outline</div>
+      <div className="font-bold text-xl"  data-aos="fade-right">Stock Trading Course Outline</div>
 
       <div className="flex flex-row md:items-center items-start md:justify-center justify-start">
         <div className="flex flex-col gap-4 md:w-[50%] sm:w-[75%] w-[95%] pr-2 pt-2 shadow-[8px_8px_16px_-6px_rgba(0,0,0,0.4)]">

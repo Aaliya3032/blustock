@@ -23,7 +23,7 @@ const Batch = () => {
         >
           Choose Your Batch :
         </div>
-        <ul className="flex flex-row flex-wrap gap-4">
+        <ul className="flex flex-row flex-wrap gap-4 mb-4">
           <li
             className={`cursor-pointer py-2 border-b-2 px-2 text-white ${
               activeTab === "offline"
@@ -46,8 +46,10 @@ const Batch = () => {
           </li>
         </ul>
 
+        <div className="font-medium text-xl text-white" data-aos="fade-right">Live Trading Session On Monday & Wednesday</div>
+
         {/* Conditionally Render Components Based on Active Tab */}
-        <div className="mt-4">
+        <div>
           {activeTab === "offline" && <Offline/>}
           {activeTab === "online" && <Online/>}
         </div>

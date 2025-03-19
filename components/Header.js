@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import logo from "../assets/logo2.png";
+import bg from '../assets/trading_bg1.webp'
 import Image from "next/image";
 
 const Header = ({ onHeightChange }) => {
@@ -18,8 +19,18 @@ const Header = ({ onHeightChange }) => {
 
   if (!mounted)
     return (
-      <div className="min-h-screen flex justify-center items-center">
+  <div
+        className="w-full bg-gray-50 relative"
+        style={{
+          backgroundImage: `url(${bg.src})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+      <div className="absolute inset-0 bg-primary opacity-60"></div>
+      <div className="min-h-screen flex justify-center items-center text-xl text-white relative z-20">
         Loading...
+      </div>
       </div>
     ); // Avoid hydration issues
 
