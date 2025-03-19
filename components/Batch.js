@@ -1,7 +1,11 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import bg from '../assets/trading_bg1.webp'
+import Offline from "./Offline";
+import Online from "./Online";
 
 const Batch = () => {
+    const [activeTab, setActiveTab] = useState("offline");
   return (
     <div
       className="w-full bg-gray-50 relative"
@@ -19,22 +23,34 @@ const Batch = () => {
         >
           Choose Your Batch :
         </div>
-        <p className="text-white">   BluStock Consultants Community is a place for traders and investors to
-        connect, share insights, and discuss market trends. Members get access
-        to expert trading plans, market analysis, and diverse strategies from
-        professionals and fellow traders. The community also trades live
-        together, making learning more interactive and practical. Engage, learn,
-        and improve your skills with regular updates and discussions. Whether
-        you&apos;re a beginner or experienced, this community helps you stay informed
-        and make better trading decisions!</p>
-        <p className="text-white">   BluStock Consultants Community is a place for traders and investors to
-        connect, share insights, and discuss market trends. Members get access
-        to expert trading plans, market analysis, and diverse strategies from
-        professionals and fellow traders. The community also trades live
-        together, making learning more interactive and practical. Engage, learn,
-        and improve your skills with regular updates and discussions. Whether
-        you&apos;re a beginner or experienced, this community helps you stay informed
-        and make better trading decisions!</p>
+        <ul className="flex flex-row flex-wrap gap-4">
+          <li
+            className={`cursor-pointer py-2 border-b-2 px-2 text-white ${
+              activeTab === "offline"
+                ? "border-white text-white font-bold bg-transparent"
+                : "border-transparent"
+            }`}
+            onClick={() => setActiveTab("offline")}
+          >
+            OFFLINE
+          </li>
+          <li
+            className={`cursor-pointer py-2 border-b-2 px-2 text-white ${
+              activeTab === "online"
+                ? "border-white text-white font-bold bg-transparent"
+                : "border-transparent"
+            }`}
+            onClick={() => setActiveTab("online")}
+          >
+            ONLINE
+          </li>
+        </ul>
+
+        {/* Conditionally Render Components Based on Active Tab */}
+        <div className="mt-4">
+          {activeTab === "offline" && <Offline/>}
+          {activeTab === "online" && <Online/>}
+        </div>
       </div>
     </div>
   );
