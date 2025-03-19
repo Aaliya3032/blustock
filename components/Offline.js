@@ -11,7 +11,7 @@ const Offline = () => {
         <div>26 APR</div>
       </div>
       <div className="flex flex-col">
-        <div>Mentorship classes</div>
+        <div>Mentorship classes</div> 
         <div>(Basic to advance)</div>
       </div>
       <div className="fleex flex-col justify-end">
