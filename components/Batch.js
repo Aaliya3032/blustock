@@ -8,7 +8,7 @@ const Batch = () => {
     const [activeTab, setActiveTab] = useState("offline");
   return (
     <div
-      className="w-full bg-gray-50 relative"
+      className="w-full relative"
       style={{
         backgroundImage: `url(${bg.src})`,
         backgroundSize: "cover",
@@ -46,7 +46,7 @@ const Batch = () => {
           </li>
         </ul>
 
-        <div className="font-medium text-xl text-white" data-aos="fade-right">Live Trading Session On Monday & Wednesday</div>
+        <div className="font-medium text-xl text-white py-4" data-aos="fade-right">Live Trading Session On Monday & Wednesday</div>
 
         {/* Conditionally Render Components Based on Active Tab */}
         <div>

@@ -7,7 +7,7 @@ import Included from "./Included";
 const Overview = () => {
   const [activeTab, setActiveTab] = useState("syllabus");
   return (
-    <div className="w-full bg-gray-200">
+    <div className="w-full bg-gradient-to-br from-[#f5f7fa] to-[#c3cfe2]">
       <div className="w-[85%] mx-auto py-12">
         <div className="sm:text-3xl text-2xl font-bold mb-4" data-aos="fade-right">
           Stock Trading Course Overview

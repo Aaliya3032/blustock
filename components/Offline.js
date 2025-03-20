@@ -4,7 +4,7 @@ import { IoMdArrowDropright } from "react-icons/io";
 const Offline = () => {
   return (
     <div className="flex md:flex-row flex-col gap-4 w-full py-8" >
-      <div className="bg-white rounded-lg md:w-1/3 w-3/4 flex flex-col justify-between" data-aos="fade-up">
+      <div className="bg-white rounded-lg md:w-1/3 w-3/4 mx-auto flex flex-col justify-between" data-aos="fade-up">
         <div className="flex flex-col h-full relative p-4">
           <div className="flex flex-col items-end justify-end">
             <div className="text-sm text-gray-400 font-medium">
@@ -58,7 +58,7 @@ const Offline = () => {
           </a>
         </div>
       </div>
-      <div className="bg-white rounded-lg md:w-1/3 w-3/4 flex flex-col justify-between" data-aos="fade-down">
+      <div className="bg-white rounded-lg md:w-1/3 w-3/4 mx-auto flex flex-col justify-between" data-aos="fade-down">
         <div className="flex flex-col h-full relative p-4">
           {/* <div className="flex flex-col items-end justify-end">
             <div className="text-sm text-gray-400 font-medium">
@@ -110,7 +110,7 @@ const Offline = () => {
           </a>
         </div>
       </div>
-      <div className="bg-white rounded-lg md:w-1/3 w-3/4 flex flex-col justify-between" data-aos="fade-up">
+      <div className="bg-white rounded-lg md:w-1/3 w-3/4 mx-auto flex flex-col justify-between" data-aos="fade-up">
         <div className="flex flex-col h-full relative p-4">
           {/* <div className="flex flex-col items-end justify-end">
             <div className="text-sm text-gray-400 font-medium">
