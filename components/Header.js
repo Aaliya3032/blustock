@@ -3,62 +3,53 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useRouter } from "next/navigation";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo2.png";
+import bg from '../assets/trading_bg1.webp'
 import Image from "next/image";
 
-const Header = () => {
+const Header = ({ onHeightChange }) => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
-  const router = useRouter();
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
-  const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  useEffect(() => setMounted(true), []);
 
   if (!mounted)
     return (
-      <div className="min-h-screen flex justify-center items-center">
+  <div
+        className="w-full bg-gray-50 relative"
+        style={{
+          backgroundImage: `url(${bg.src})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+      <div className="absolute inset-0 bg-primary opacity-60"></div>
+      <div className="min-h-screen flex justify-center items-center text-xl text-white relative z-20">
         Loading...
+      </div>
       </div>
     ); // Avoid hydration issues
 
   return (
-    <div
-      className={`bg-white shadow-sm ${
-        isScrolled ? "fixed top-0 left-0 right-0" : "relative"
-      } z-30 transition-[top] duration-300 ease-in-out`}
-    >
-      <div className="w-[85%] mx-auto flex items-center py-4">
+    <div className="sticky z-30 bg-white shadow-sm w-full top-0 left-0 right-0">
+      <div className="w-[85%] mx-auto flex items-center py-1">
 
         {/* Logo */}
         <div className="flex-shrink-0">
-          <Image src={logo} alt="logo" className="h-32 w-32" />
+          <Image src={logo} alt="logo" className="sm:h-28 h-24 sm:w-28 w-24 py-2" />
         </div>
 
         {/* Tag name */}
-        <div className="flex flex-col text-primary ">
-          <h1 className="sm:text-3xl text-xl font-bold">
+        <div className="flex flex-col text-primary ml-4">
+          <h1 className="sm:text-3xl text-xl font-bold ">
             BluStock Consultants
           </h1>
-          <p className="flex sm:text-sm text-xs justify-end font-medium">
-            A stock market academy
+          <p className="sm:flex hidden sm:text-sm text-xs justify-end font-medium">
+            A Stock Market Academy
           </p>
         </div>
 

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.0.7",
+    "aos": "^2.3.4",
     "autoprefixer": "^10.4.20",
     "clsx": "^2.1.1",
     "motion": "^12.4.7",
@@ -18,6 +19,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
+    "swiper": "^11.2.5",
     "tailwind-merge": "^3.0.1"
   },
   "devDependencies": {
