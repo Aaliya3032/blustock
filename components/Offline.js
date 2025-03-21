@@ -6,19 +6,19 @@ const Offline = () => {
     <div className="flex md:flex-row flex-col gap-4 w-full py-8" >
       <div className="bg-white rounded-lg md:w-1/3 w-3/4 mx-auto flex flex-col justify-between" data-aos="fade-up">
         <div className="flex flex-col h-full relative p-4">
-          <div className="flex flex-col items-end justify-end">
-            <div className="text-sm text-gray-400 font-medium">
-              Cohort 8 Starts on{" "}
-            </div>
-            <div className="text-xl font-bold">26 APR</div>
-          </div>
-          <div className="flex flex-col mb-10 mt-2">
+        <div className="flex flex-col mt-2">
             <div className="lg:text-3xl md:text-2xl text-3xl font-bold">
               Mentorship classes
             </div>
             <div className="text-sm text-gray-400 font-medium">
               (Basic to advance)
             </div>
+          </div>
+          <div className="flex flex-col items-end justify-end mb-10 mt-2">
+            <div className="text-sm text-gray-400 font-medium">
+              Cohort 8 Starts on{" "}
+            </div>
+            <div className="text-xl font-bold">26 APR</div>
           </div>
           <ul className="flex flex-col lg:text-sm md:text-xs sm:text-sm text-xs justify-end text-gray-500">
             <li className="flex flex-row">
@@ -60,12 +60,6 @@ const Offline = () => {
       </div>
       <div className="bg-white rounded-lg md:w-1/3 w-3/4 mx-auto flex flex-col justify-between" data-aos="fade-down">
         <div className="flex flex-col h-full relative p-4">
-          {/* <div className="flex flex-col items-end justify-end">
-            <div className="text-sm text-gray-400 font-medium">
-              Cohort 8 Starts on{" "}
-            </div>
-            <div className="text-xl font-bold">26 APR</div>
-          </div> */}
           <div className="flex flex-col mb-10 mt-2">
             <div className="lg:text-3xl md:text-2xl sm:text-3xl text-xl font-bold">
               Mentorship classes + Stock Advisory Services
@@ -112,12 +106,6 @@ const Offline = () => {
       </div>
       <div className="bg-white rounded-lg md:w-1/3 w-3/4 mx-auto flex flex-col justify-between" data-aos="fade-up">
         <div className="flex flex-col h-full relative p-4">
-          {/* <div className="flex flex-col items-end justify-end">
-            <div className="text-sm text-gray-400 font-medium">
-              Cohort 8 Starts on{" "}
-            </div>
-            <div className="text-xl font-bold">26 APR</div>
-          </div> */}
           <div className="flex flex-col mb-10 mt-2">
             <div className="lg:text-3xl md:text-2xl sm:text-3xl text-xl font-bold">
               Mentorship classes + Stock Advisory + Options Advisory Services

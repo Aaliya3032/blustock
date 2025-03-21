@@ -18,12 +18,12 @@ const Batch = () => {
         <div className="absolute inset-0 bg-primary opacity-60"></div>
       <div className="w-[85%] mx-auto py-12 relative z-10">
         <div
-          className="sm:text-3xl text-2xl font-bold mb-4 text-white"
-          data-aos="fade-right"
+          className="sm:text-3xl text-2xl font-bold mb-8 text-white flex justify-center items-center"
+          data-aos="flip-down"
         >
-          Choose Your Batch :
+          Choose Your Batch
         </div>
-        <ul className="flex flex-row flex-wrap gap-4 mb-4">
+        <ul className="flex flex-row flex-wrap gap-4 mb-4 justify-center">
           <li
             className={`cursor-pointer py-2 border-b-2 px-2 text-white ${
               activeTab === "offline"

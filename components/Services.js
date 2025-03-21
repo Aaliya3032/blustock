@@ -20,10 +20,10 @@ const Services = () => {
         <div className="flex md:flex-row flex-col">
           <div className="md:w-[60%] w-full flex flex-col justify-center">
             <div
-              className="sm:text-3xl text-2xl font-bold mb-4"
-              data-aos="fade-right"
+              className="sm:text-3xl text-2xl font-bold mb-8"
+              data-aos="flip-down"
             >
-              Learn with Our Expert Training :
+              Learn with Our Expert Training 
             </div>
             <div className="text-md font-medium flex text-[#406191]">
               BluStock Consultants, with over 12 years of experience in the
