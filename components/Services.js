@@ -16,15 +16,15 @@ import Image from "next/image";
 const Services = () => {
   return (
     <div className="w-full bg-[#f0f0f0]">
-      <div className="w-[85%] mx-auto pb-8 pt-4">
-        <div className="flex md:flex-row flex-col">
-          <div className="md:w-[60%] w-full flex flex-col justify-center">
-            <div
-              className="sm:text-3xl text-2xl font-bold mb-8"
+      <div className="w-[85%] mx-auto py-8">
+      <div
+              className="sm:text-3xl text-2xl font-bold md:mb-4 mb-8 flex justify-center"
               data-aos="flip-down"
             >
               Learn with Our Expert Training 
             </div>
+        <div className="flex md:flex-row flex-col">
+          <div className="md:w-[60%] w-full flex flex-col justify-center">
             <div className="text-md font-medium flex text-[#406191]">
               BluStock Consultants, with over 12 years of experience in the
               Indian markets, is your go-to for financial education and
