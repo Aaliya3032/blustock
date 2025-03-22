@@ -23,7 +23,7 @@ const Hero = () => {
   return (
     <div className="w-full bg-gradient-to-r from-primary to-secondary overflow-hidden flex flex-col items-center py-12">
        
-      <div className="flex md:flex-row flex-col items-center sm:w-[85%] w-[80%] mx-auto gap-4 ">
+      <div className="flex md:flex-row flex-col items-center sm:w-[85%] w-[80%] mx-auto gap-4">
         <div  className="md:w-1/2 w-full flex flex-col items-start">
           <h3 data-aos="zoom-in" className="sm:text-3xl text-2xl font-bold text-white">
             MASTER TRADING AND INVESTMENT IN STOCK MARKET

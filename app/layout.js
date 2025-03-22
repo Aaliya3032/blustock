@@ -4,6 +4,7 @@ import Head from "next/head";
 import "./globals.css";
 import { Theme } from "./theme/page";
 import Sidenav from "@/components/Sidenav";
+import Footer from "@/components/Footer";
 
 
 export default function RootLayout({ children }) {
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
           
             {children}
           </main>
+          <Footer/>
         </Theme>
       </body>
     </html>

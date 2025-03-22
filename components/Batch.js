@@ -18,7 +18,7 @@ const Batch = () => {
         <div className="absolute inset-0 bg-primary opacity-60"></div>
       <div className="w-[85%] mx-auto py-12 relative z-10">
         <div
-          className="sm:text-3xl text-2xl font-bold mb-8 text-white flex justify-center items-center"
+          className="md:text-4xl text-2xl font-bold mb-8 text-white flex justify-center items-center"
           data-aos="flip-down"
         >
           Choose Your Batch

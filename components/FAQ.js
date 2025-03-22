@@ -8,7 +8,7 @@ const FAQ = () => {
     <div className="w-full bg-gradient-to-br from-[#f5f7fa] to-[#c3cfe2]">
       <div className="w-[85%] mx-auto py-12">
         <div
-          className="sm:text-3xl text-2xl font-bold mb-4 text-primary flex items-center justify-center"
+          className="md:text-4xl text-2xl font-bold mb-4 text-primary flex items-center justify-center"
           data-aos="flip-down"
         >
           Frequently Asked Questions

@@ -9,7 +9,7 @@ const Overview = () => {
   return (
     <div className="w-full bg-gradient-to-br from-[#f5f7fa] to-[#c3cfe2]">
       <div className="w-[85%] mx-auto py-12">
-        <div className="sm:text-3xl text-2xl font-bold mb-8 flex justify-center" data-aos="flip-down">
+        <div className="md:text-4xl text-2xl font-bold mb-8 flex justify-center" data-aos="flip-down">
           Stock Trading Course Overview
         </div>
         <ul className="flex flex-row flex-wrap gap-4">

@@ -18,8 +18,7 @@ const Services = () => {
     <div className="w-full bg-[#f0f0f0]">
       <div className="w-[85%] mx-auto py-8">
       <div
-              className="sm:text-3xl text-2xl font-bold md:mb-4 mb-8 flex justify-center"
-              data-aos="flip-down"
+              className="md:text-4xl text-2xl font-bold md:mb-4 mb-8 flex justify-center"
             >
               Learn with Our Expert Training 
             </div>
@@ -61,7 +60,7 @@ const Services = () => {
               {/* Content */}
               <div className="relative z-10 text-center">
                 <div className="flex flex-row gap-2 justify-center">
-                  <MdMoreTime className="text-xl mt-1" />
+                  <MdMoreTime className="text-xl mt-1 flex-none" />
                   <h2 className="text-xl font-bold">
                     Long Term Investment Guidance
                   </h2>
@@ -93,7 +92,7 @@ const Services = () => {
               {/* Content */}
               <div className="relative z-10 text-center">
                 <div className="flex flex-row gap-2 justify-center">
-                  <FaPenFancy className="text-xl mt-1" />
+                  <FaPenFancy className="text-xl mt-1 flex-none" />
                   <h2 className="text-xl font-bold ">Portfolio Corrections</h2>
                 </div>
                 <p className="mt-3 text-md text-start">
@@ -125,7 +124,7 @@ const Services = () => {
               {/* Content */}
               <div className="relative z-10 text-center">
                 <div className="flex flex-row gap-2 justify-center">
-                  <GiDuration className="text-xl mt-1" />
+                  <GiDuration className="text-xl mt-1 flex-none" />
                   <h2 className="text-xl font-bold ">
                     Trading - Intraday & Swing
                   </h2>
@@ -158,7 +157,7 @@ const Services = () => {
               {/* Content */}
               <div className="relative z-10 text-center">
                 <div className="flex flex-row gap-2 justify-center">
-                  <MdOutlinePsychology className="text-xl mt-1" />
+                  <MdOutlinePsychology className="text-xl mt-1 flex-none" />
                   <h2 className="text-xl font-bold ">
                     {" "}
                     Mastering Financial Psychology
