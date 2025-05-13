@@ -24,7 +24,7 @@ const PersonalDetails = ({userInfo}) => {
             ...infoState, [field]: value
         });
     }
-    /// console.log(infoState);
+    // console.log(infoState);
 
     const handleUpdate = async (event) => {
         event.preventDefault();

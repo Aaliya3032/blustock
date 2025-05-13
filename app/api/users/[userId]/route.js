@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 // GET USER
 export async function GET(request,{params}){
- const {userId} = params
+ const {userId} = await params
  let user;
  try {
     user = await User.findById(userId)
@@ -19,7 +19,7 @@ export async function GET(request,{params}){
 
 // DELETE USER
 export async function DELETE(request,{params}){
-    const {userId} = params;
+    const {userId} = await params;
     try {
        await User.deleteOne({
             _id:userId

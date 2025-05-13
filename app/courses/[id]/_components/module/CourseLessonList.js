@@ -11,11 +11,11 @@ const CourseLessonList = async({lessonId}) => {
       <button
           type="button"
           className={cn(
-            "flex items-center gap-x-2 text-slate-500 text-sm font-[500]  transition-all hover:text-slate-600  w-full"
+            "flex items-center gap-x-2 text-tertiary text-sm font-[500]  transition-all hover:text-primary  w-full"
           )}
         >
           <div className="flex items-center gap-x-2">
-            <Tv size={16} className={cn("text-slate-500")} />
+            <Tv size={16} className={cn("text-tertiary hover:text-primary")} />
             {lesson?.title}
           </div>
         </button>

@@ -7,7 +7,7 @@ import Link from "next/link";
 import { formatPrice } from "@/lib/formatPrice";
 
 const courseCard = ({course}) => {
-  console.log("kjaevgdf==",course);
+  // console.log("kjaevgdf==",course);
   
   
   return (

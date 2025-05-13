@@ -14,11 +14,8 @@ const CourseDetailsIntro = ({course}) => {
             <h1 className="px-6 text-lg text-gray-600 font-inter">
               {course?.subtitle}
             </h1>
-            <p className="mt-5 text-4xl font-bold leading-tight text-gray-900 sm:leading-tight sm:text-5xl lg:text-6xl lg:leading-tight font-pj">
-              <span className="relative inline-flex sm:inline">
-                <span className="bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] blur-lg filter opacity-30 w-full h-full absolute inset-0"></span>
+            <p className="mt-5 text-4xl font-bold leading-tight text-primary sm:leading-tight sm:text-5xl lg:text-6xl lg:leading-tight font-sans">
                 <span className="relative">{course?.title}</span>
-              </span>
             </p>
 
             <div className="mt-6 flex items-center justify-center flex-wrap gap-3">

@@ -59,12 +59,12 @@ import { Button } from '@/components/ui/button';
 //   ];
 
 const RelatedCourses = ({courses}) => {
-  console.log("kljhdbf",courses);
+  // console.log("kljhdbf",courses);
   
   return (
     <section className="">
         <div className="container">
-          <SectionTitle className="mb-6">Related Courses</SectionTitle>
+          <SectionTitle className="mb-6 text-primary">Related Courses</SectionTitle>
           <Carousel
             opts={{
               align: "start",

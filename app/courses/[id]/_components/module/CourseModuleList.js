@@ -13,7 +13,7 @@ const CourseModuleList = ({module}) => {
   
   return (
     <AccordionItem className="border-none" value="item-1">
-    <AccordionTrigger>{module?.title}</AccordionTrigger>
+    <AccordionTrigger className='text-primary text-lg'>{module?.title}</AccordionTrigger>
     <AccordionContent>
       {/* header */}
       <div className="flex gap-x-5 items-center flex-wrap mt-4 mb-6 text-gray-600 text-sm">

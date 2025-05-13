@@ -26,7 +26,7 @@ const CourseInstructor = async({course}) => {
                     </div>
                     <div className="flex-1">
                       <div className="max-w-[300px]">
-                        <h4 className="text-[34px] font-bold leading-[51px]">
+                        <h4 className="text-[34px] font-bold leading-[51px] text-primary">
                         {fullName}
                         </h4>
                         <div className="text-gray-600 font-medium mb-6">

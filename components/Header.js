@@ -19,7 +19,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import MobileNav from "./Mobile_Nav";
 
 const Header = ({loggedInUser}) => {
-  console.log("lhkfbs",loggedInUser);
+  // console.log("lhkfbs",loggedInUser);
   
   const { data: session } = useSession();
   const [showMobileMenu, setShowMobileMenu] = useState(false);

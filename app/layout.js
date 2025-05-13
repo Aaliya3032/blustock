@@ -21,7 +21,6 @@ export default async function RootLayout({ children }) {
  let loggedInUser = null;
  if (session) {
   loggedInUser = await getUserByEmail(session?.user?.email);
-  console.log("Logged in user:", loggedInUser);
 }
   
   return  (

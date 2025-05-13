@@ -6,7 +6,7 @@ import Link from 'next/link'
 import React from 'react'
 
 const EnrolledCourseCard = async({enrollment}) => {
-	console.log(enrollment,"klhefs");
+	// console.log(enrollment,"klhefs");
 	
 	const courseCategory = await getCategoryDetails(enrollment?.course?.category?._id);
   return (
