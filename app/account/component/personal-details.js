@@ -37,11 +37,11 @@ const PersonalDetails = ({userInfo}) => {
     }
   return (
     <div className="p-6 rounded-md shadow dark:shadow-gray-800 bg-white dark:bg-slate-900">
-                    <h5 className="text-lg font-semibold mb-4">Personal Detail :</h5>
+                    <h5 className="text-lg font-semibold mb-4 text-primary">Personal Detail :</h5>
                     <form onSubmit={handleUpdate}>
                         <div className="grid lg:grid-cols-2 grid-cols-1 gap-5">
                             <div>
-                                <Label className="mb-2 block">
+                                <Label className="mb-2 block text-tertiary">
                                     First Name : <span className="text-red-600">*</span>
                                 </Label>
                                 <Input
@@ -55,7 +55,7 @@ const PersonalDetails = ({userInfo}) => {
                                 />
                             </div>
                             <div>
-                                <Label className="mb-2 block">
+                                <Label className="mb-2 block text-tertiary">
                                     Last Name : <span className="text-red-600">*</span>
                                 </Label>
                                 <Input
@@ -69,7 +69,7 @@ const PersonalDetails = ({userInfo}) => {
                                 />
                             </div>
                             <div>
-                                <Label className="mb-2 block">
+                                <Label className="mb-2 block text-tertiary">
                                     Your Email : <span className="text-red-600">*</span>
                                 </Label>
                                 <Input
@@ -82,7 +82,7 @@ const PersonalDetails = ({userInfo}) => {
                                 />
                             </div>
                             <div>
-                                <Label className="mb-2 block">Occupation :</Label>
+                                <Label className="mb-2 block text-tertiary">Occupation :</Label>
                                 <Input
                                     name="designation"
                                     value={infoState?.designation}
@@ -96,7 +96,7 @@ const PersonalDetails = ({userInfo}) => {
                         {/*end grid*/}
                         <div className="grid grid-cols-1">
                             <div className="mt-5">
-                                <Label className="mb-2 block">Description :</Label>
+                                <Label className="mb-2 block text-tertiary">Description :</Label>
                                 <Textarea
                                     id="bio"
                                     name="bio"

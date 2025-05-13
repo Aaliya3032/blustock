@@ -168,17 +168,17 @@ const Header = ({loggedInUser}) => {
                   </Avatar>
                 </div>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56 mt-4 bg-white text-primary">
-                <DropdownMenuItem className="cursor-pointer" asChild>
+              <DropdownMenuContent align="end" className="w-56 mt-4  bg-white text-primary">
+                <DropdownMenuItem className="cursor-pointer hover:font-medium" asChild>
                   <Link href="/account">Profile</Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer" asChild>
+                <DropdownMenuItem className="cursor-pointer hover:font-medium" asChild>
                   <Link href="account/enrolled-courses">My Courses</Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer" asChild>
+                <DropdownMenuItem className="cursor-pointer hover:font-medium" asChild>
                   <Link href="">Testimonials & Certificates</Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer" asChild>
+                <DropdownMenuItem className="cursor-pointer hover:font-medium" asChild>
                   <Link href="" onClick={(e) => {e.preventDefault(); signOut();}}>Logout</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>

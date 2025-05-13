@@ -31,11 +31,11 @@ const ContactInfo = ({userInfo}) => {
 
   return (
     <div>
-						<h5 className="text-lg font-semibold mb-4">Contact Info :</h5>
+						<h5 className="text-lg font-semibold mb-4 text-primary">Contact Info :</h5>
 						<form onSubmit={handleUpdate}>
 							<div className="grid grid-cols-1 gap-5">
 								<div>
-									<Label className="mb-2 block">Phone No. :</Label>
+									<Label className="mb-2 block text-tertiary">Phone No. :</Label>
 									<Input
 										name="phone"
 										id="phone"

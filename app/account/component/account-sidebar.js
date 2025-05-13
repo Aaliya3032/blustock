@@ -43,10 +43,10 @@ const AccountSidebar = async() => {
 											/>
 										</div>
 										<div className="mt-4">
-											<h5 className="text-lg font-semibold">
+											<h5 className="text-lg font-semibold text-primary">
 												{`${loggedInUser?.firstName} ${loggedInUser?.lastName}`}
 											</h5>
-											<p className="text-slate-400">
+											<p className="text-gray-600 text-sm">
 												{loggedInUser?.email}
 											</p>
 											<p className="text-slate-700 text-sm font-bold">

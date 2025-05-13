@@ -32,13 +32,13 @@ const ChangePassword = ({email}) => {
     }
   return (
     <div>
-						<h5 className="text-lg font-semibold mb-4">
+						<h5 className="text-lg font-semibold mb-4 text-primary">
 							Change password :
 						</h5>
 						<form onSubmit={doPasswordChange}>
 							<div className="grid grid-cols-1 gap-5">
 								<div>
-									<Label className="mb-2 block">Old password :</Label>
+									<Label className="mb-2 block text-tertiary">Old password :</Label>
 									<Input
 										type="password"
 										id='oldPassword'
@@ -49,7 +49,7 @@ const ChangePassword = ({email}) => {
 									/>
 								</div>
 								<div>
-									<Label className="mb-2 block">New password :</Label>
+									<Label className="mb-2 block text-tertiary">New password :</Label>
 									<Input
 										type="password"
 										id='newPassword'
@@ -60,7 +60,7 @@ const ChangePassword = ({email}) => {
 									/>
 								</div>
 								<div>
-									<Label className="mb-2 block">
+									<Label className="mb-2 block text-tertiary">
 										Re-type New password :
 									</Label>
 									<Input
