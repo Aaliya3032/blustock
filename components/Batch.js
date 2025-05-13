@@ -1,11 +1,34 @@
-"use client";
-import React, { useState } from "react";
+'use client'
+import React from "react";
+import { useEffect, useState } from 'react';
 import bg from '../assets/trading_bg1.webp'
-import Offline from "./Offline";
-import Online from "./Online";
+import ClientTabs from "./clientTabs";
+import { fetchCategories } from "@/services/UserService";
 
 const Batch = () => {
-    const [activeTab, setActiveTab] = useState("offline");
+   const [categories, setCategories] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+      const funcCategories = async () => {
+        try {
+          const data = await fetchCategories();   
+          setCategories(data);
+        } catch (err) {
+          setError(err.message);
+        } finally {
+          setLoading(false);
+        }
+      };
+ 
+      funcCategories();
+    }, []);
+ 
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error}</p>;
+  
+
   return (
     <div
       className="w-full relative"
@@ -23,36 +46,8 @@ const Batch = () => {
         >
           Choose Your Batch
         </div>
-        <ul className="flex flex-row flex-wrap gap-4 mb-4 justify-center">
-          <li
-            className={`cursor-pointer py-2 border-b-2 px-2 text-white ${
-              activeTab === "offline"
-                ? "border-white text-white font-bold bg-transparent"
-                : "border-transparent"
-            }`}
-            onClick={() => setActiveTab("offline")}
-          >
-            OFFLINE
-          </li>
-          <li
-            className={`cursor-pointer py-2 border-b-2 px-2 text-white ${
-              activeTab === "online"
-                ? "border-white text-white font-bold bg-transparent"
-                : "border-transparent"
-            }`}
-            onClick={() => setActiveTab("online")}
-          >
-            ONLINE
-          </li>
-        </ul>
-
-        <div className="font-medium text-xl text-white py-4" data-aos="fade-right">Live Trading Session On Monday & Wednesday</div>
-
-        {/* Conditionally Render Components Based on Active Tab */}
-        <div>
-          {activeTab === "offline" && <Offline/>}
-          {activeTab === "online" && <Online/>}
-        </div>
+       {/* Add Tabs */}
+       <ClientTabs categories={categories}/>
       </div>
     </div>
   );
