@@ -18,7 +18,7 @@ const Services = () => {
     <div className="w-full bg-[#f0f0f0]">
       <div className="w-[85%] mx-auto py-8">
       <div
-              className="md:text-4xl text-2xl font-bold md:mb-4 mb-8 flex justify-center"
+              className="md:text-4xl text-2xl font-bold md:mb-4 mb-8 flex justify-center text-primary"
             >
               Learn with Our Expert Training 
             </div>

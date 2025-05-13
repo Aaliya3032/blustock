@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 import { GoPlus } from "react-icons/go";
 import FAQs from '../assets/FAQs.png'
@@ -15,7 +14,7 @@ const FAQ = () => {
         </div>
           <div className="flex flex-col items-start justify-start max-w-full w-full">
             <div className="max-w-screen-xl px-5 2xl:px-10 py-4">
-              <div className="grid divide-neutral-200">
+              <div className="grid divide-neutral-200 text-primary">
                 <div className="py-3">
                   <details className="group">
                     <summary className="flex justify-start items-center font-medium text-lg sm:text-xl cursor-pointer list-none">
