@@ -121,7 +121,7 @@ const Footer = () => {
               <Link href="https://www.instagram.com/blustockconsultants/" target="_blank">
                 <FaInstagram className="text-xl flex-none cursor-pointer hover:scale-105 ease-in-out duration-300" />
               </Link>
-              <Link href="/contact" target="_blank">
+              <Link href="https://x.com/BluStockCo" target="_blank">
                 <FaXTwitter className="text-xl flex-none cursor-pointer hover:scale-105 ease-in-out duration-300" />
               </Link>
               <Link href="https://www.linkedin.com/company/bluestock-consultants/posts/?feedView=all" target="_blank">
@@ -137,7 +137,7 @@ const Footer = () => {
                   </span>
                 </div>
               </Link>
-              <Link href="tel:+918955934636" target="_blank">
+              <Link href="tel:+916376520654" target="_blank">
                 <div className="flex items-center pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
                   <FaPhoneAlt className="text-lg flex-none" />
                   <span className="ml-2 font-normal text-sm">

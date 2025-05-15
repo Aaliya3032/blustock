@@ -100,12 +100,28 @@ const Header = ({loggedInUser}) => {
             <Link href="/" className={`${pathname === "/" ? "font-bold" : ""}`}>
               Home
             </Link>
-            <Link
-              href="/about"
-              className={`${pathname === "/about" ? "font-bold" : ""}`}
-            >
-              About us
-            </Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                 <div 
+                  className={`${
+                    pathname === "/about/overview" || pathname === "/about/testimonials" || pathname === "/about/faq"
+                      ? "font-bold"
+                      : ""
+                  }`}
+                 >About us</div>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-56 mt-4 bg-white text-primary">
+                <DropdownMenuItem className="cursor-pointer">
+                  <Link href="/about/overview">Overview</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer">
+                  <Link href="/about/testimonials">Testimonials</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer">
+                  <Link href="/about/faq">FAQ</Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <Link
               href="/courses"
               className={`${pathname === "/courses" ? "font-bold" : ""}`}

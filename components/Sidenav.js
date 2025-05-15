@@ -5,7 +5,7 @@ const Sidenav = () => {
     <ul className="text-white sm:space-y-6 space-y-4 sm:w-12 w-10 ml-auto bg-white p-2">
     <li>
       <a
-        href="tel:+918955934636"
+        href="tel:+916376520654"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -29,7 +29,7 @@ const Sidenav = () => {
     </li>
     <li>
       <a
-        href="http://wa.me/918955934636?text=Hi, I am coming from your website , i want to know more about your services."
+        href="http://wa.me/916376520654?text=Hi, I am coming from your website , i want to know more about your services."
         target="_blank"
         rel="noopener noreferrer"
       >

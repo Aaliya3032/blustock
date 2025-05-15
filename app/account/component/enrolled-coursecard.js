@@ -11,7 +11,7 @@ const EnrolledCourseCard = async({enrollment}) => {
 	const courseCategory = await getCategoryDetails(enrollment?.course?.category?._id);
   return (
     <div
-					className="group hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full"
+					className="group hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full bg-white"
 				>
 					<div className="relative w-full aspect-video rounded-md overflow-hidden">
 						<Image
