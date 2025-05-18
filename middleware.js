@@ -11,6 +11,12 @@ export default auth((req) => {
 
     const isPublicRoute = PUBLIC_ROUTES.some((route) => nextUrl.pathname.startsWith(route)) || nextUrl.pathname === ROOT;
 
+    // ✅ Block logged-in users from visiting login/register pages
+  if (isAuthenticated && ["/login", "/register/student", "/register/instructor"].includes(nextUrl.pathname)) {
+    return NextResponse.redirect(new URL("/account", nextUrl));
+  }
+
+
     if (!isAuthenticated && !isPublicRoute) {
         return NextResponse.redirect(new URL(LOGIN,nextUrl));
     }

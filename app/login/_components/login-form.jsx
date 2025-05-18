@@ -11,7 +11,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { credentialLogin } from "@/app/actions";
 import { toast } from "sonner";
 
@@ -19,6 +19,7 @@ export function LoginForm() {
 
   const [error, setError] = useState('');
   const router = useRouter();
+
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -32,7 +33,8 @@ export function LoginForm() {
           setError(response.error);
       } else {
         toast.success("Login Successful")
-        router.push("/account")
+        window.location.href = "/account"
+        // router.push("/account")
       }      
     } catch (e) {
       setError(e.message);

@@ -28,10 +28,10 @@ const AccountSidebar = async() => {
 										 
 									/>
 									<div>
-										<div className="relative size-28 mx-auto">
+										<div className="relative w-28 h-28 mx-auto rounded-full overflow-hidden">
 											<Image
 												src={loggedInUser?.profilePicture}
-												className="rounded-full shadow dark:shadow-gray-800 ring-4 ring-slate-50 dark:ring-slate-800"
+												className="w-full h-full object-cover rounded-full shadow dark:shadow-gray-800 ring-4 ring-slate-50 dark:ring-slate-800"
 												id="profile-banner"
 												alt={`${loggedInUser?.firstName}`}
 												width={112}

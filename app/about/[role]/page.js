@@ -24,14 +24,13 @@ const AboutPage = async({params}) => {
       }));
     
     return (
-        <div className='w-full'
-        >
-            <div className='container'>
+        <>
+            <div>
             {role === 'overview' && <Overview/>}         
             {role === 'testimonials' && <Testimonials testimonials={testimonials}/>}         
             {role === 'faq' && <FAQ/>}         
             </div>
-        </div>
+        </>
     );
 };
 
