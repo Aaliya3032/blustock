@@ -12,7 +12,7 @@ import StarRating from '@/components/star-rating';
 
 
 const Testimonials = ({testimonials}) => {
-  console.log("kawhefsgv==",testimonials);
+  // console.log("kawhefsgv==",testimonials);
   
   
   return (

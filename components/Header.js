@@ -104,11 +104,11 @@ const Header = ({loggedInUser}) => {
               <DropdownMenuTrigger asChild>
                  <div 
                   className={`${
-                    pathname === "/about/overview" || pathname === "/about/testimonials" || pathname === "/about/faq"
+                    pathname === "/about/overview" || pathname === "/about/testimonials" || pathname === "/about/faq" || pathname === "/about/gallery"
                       ? "font-bold"
                       : ""
                   }`}
-                 >About us</div>
+                 >Know us</div>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-56 mt-4 bg-white text-primary">
                 <DropdownMenuItem className="cursor-pointer">
@@ -118,7 +118,10 @@ const Header = ({loggedInUser}) => {
                   <Link href="/about/testimonials">Testimonials</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="cursor-pointer">
-                  <Link href="/about/faq">FAQ</Link>
+                  <Link href="/about/gallery">Our Space</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer">
+                  <Link href="/about/faq">Inquiries</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -132,7 +135,7 @@ const Header = ({loggedInUser}) => {
               href="/contact"
               className={`${pathname === "/contact" ? "font-bold" : ""}`}
             >
-              Contact us
+              Let's Talk
             </Link>
             {!loginSession && (
               <>

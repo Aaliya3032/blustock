@@ -3,7 +3,7 @@ import { useState } from "react";
 import Offline from "./Offline";
 import Online from "./Online";
 
-const ClientTabs = ({ categories}) => {
+const ClientTabs = ({categories,courses}) => {
   const [activeTab, setActiveTab] = useState("offline");
 
   return (
@@ -29,7 +29,7 @@ const ClientTabs = ({ categories}) => {
       </div>
 
       <div>
-        {activeTab === "offline" && <Offline/>}
+        {activeTab === "offline" && <Offline courses={courses}/>}
         {activeTab === "online" && <Online />}
       </div>
     </>

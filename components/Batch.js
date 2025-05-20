@@ -1,34 +1,9 @@
-'use client'
 import React from "react";
-import { useEffect, useState } from 'react';
-import bg from '../assets/trading_bg1.webp'
+import bg from '../assets/trading_bg1.webp';
 import ClientTabs from "./clientTabs";
-import { fetchCategories } from "@/services/UserService";
 
-const Batch = () => {
-   const [categories, setCategories] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
-      const funcCategories = async () => {
-        try {
-          const data = await fetchCategories();   
-          setCategories(data);
-        } catch (err) {
-          setError(err.message);
-        } finally {
-          setLoading(false);
-        }
-      };
- 
-      funcCategories();
-    }, []);
- 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error: {error}</p>;
+const Batch = ({cat,courses}) => {
   
-
   return (
     <div
       className="w-full relative"
@@ -47,7 +22,7 @@ const Batch = () => {
           Choose Your Batch
         </div>
        {/* Add Tabs */}
-       <ClientTabs categories={categories}/>
+       <ClientTabs categories={cat} courses={courses}/>
       </div>
     </div>
   );

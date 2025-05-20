@@ -4,6 +4,7 @@ import FAQ from '@/components/FAQ';
 import Overview from '@/components/Overview';
 import Testimonials from '@/components/Testimonials';
 import { getAllTestimonials } from '@/queries/testimonials';
+import Gallery from '@/components/Gallery';
 
 
 const AboutPage = async({params}) => {
@@ -28,6 +29,7 @@ const AboutPage = async({params}) => {
             <div>
             {role === 'overview' && <Overview/>}         
             {role === 'testimonials' && <Testimonials testimonials={testimonials}/>}         
+            {role === 'gallery' && <Gallery/>}         
             {role === 'faq' && <FAQ/>}         
             </div>
         </>
