@@ -104,7 +104,7 @@ const Header = ({loggedInUser}) => {
               <DropdownMenuTrigger asChild>
                  <div 
                   className={`${
-                    pathname === "/about/overview" || pathname === "/about/testimonials" || pathname === "/about/faq" || pathname === "/about/gallery"
+                    pathname === "/about/overview" || pathname === "/about/testimonials" || pathname === "/about/faq" || pathname === "/about/gallery" || pathname === "/about/charts"
                       ? "font-bold"
                       : ""
                   }`}
@@ -116,6 +116,9 @@ const Header = ({loggedInUser}) => {
                 </DropdownMenuItem>
                 <DropdownMenuItem className="cursor-pointer">
                   <Link href="/about/testimonials">Testimonials</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer">
+                  <Link href="/about/charts">Charts Don’t Lie</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="cursor-pointer">
                   <Link href="/about/gallery">Our Space</Link>

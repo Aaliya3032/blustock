@@ -9,25 +9,30 @@ export const galleryImages = [
       id: 1,
       src: img1,
       alt: "Institute Building",
+      text: "Empower Yourself"
     },
     {
       id: 2,
       src: img2,
       alt: "Campus View",
+      text: "Together We Grow"
     },
     {
       id: 3,
       src: img3,
       alt: "Students in Class",
+      text: "Learn & Earn"
     },
     {
       id: 4,
       src: img4,
       alt: "Students in Class",
+      text: "Student Zone"
     },
     {
       id: 5,
       src: img5,
       alt: "Students in Class",
+      text: "Success Starts Here"
     },
   ];
