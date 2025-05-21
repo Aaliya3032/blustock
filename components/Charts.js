@@ -1,4 +1,8 @@
+import Image from 'next/image'
 import React from 'react'
+import img1 from '../assets/Hero2.jpg'
+import img2 from '../assets/Hero3.jpg'
+import { ArrowRightCircle } from 'lucide-react'
 
 const Charts = () => {
   return (
@@ -15,8 +19,24 @@ const Charts = () => {
             (Our Latest Market Hits)
           </span>
         </div>
-        <div>
-          Hello
+        <div className='mb-8 mt-12'>
+          <div className='flex flex-row justify-between'>
+            <div>
+              <Image
+              src={img1}
+              alt='img1'
+              />
+            </div>
+            <div>
+            <ArrowRightCircle className='translate-y-24 text-tertiary'/>
+            </div>
+            <div>
+            <Image
+              src={img2}
+              alt='img2'
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
