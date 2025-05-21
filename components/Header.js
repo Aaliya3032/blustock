@@ -38,8 +38,8 @@ const Header = ({loggedInUser}) => {
     },
 
     {
-      title: "About us",
-      href: "/about",
+      title: "Overview",
+      href: "/about/overview",
     },
 
     {
@@ -48,7 +48,23 @@ const Header = ({loggedInUser}) => {
     },
 
     {
-      title: "Contact us",
+      title: "Testimonials",
+      href: "/about/testimonials",
+    },
+    {
+      title: "Charts Don't Lie",
+      href: "/about/charts",
+    },
+    {
+      title: "Our Space",
+      href: "/about/gallery",
+    },
+    {
+      title: "Inquiries",
+      href: "/about/faq",
+    },
+    {
+      title: "Let's Talk",
       href: "/contact",
     },
   ];

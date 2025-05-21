@@ -20,13 +20,13 @@ const MobileNav = ({ navLinks , closeMenu , loginSession}) => {
         "fixed inset-0 top-16 z-30 grid h-[calc(100vh-4rem)]grid-flow-row auto-rows-max overflow-auto p-6 pb-32 shadow-md animate-in slide-in-from-bottom-80 lg:hidden text-primary"
       )}
     >
-      <div className="relative z-20 grid gap-6 rounded-md bg-popover bg-white p-4 text-popover-foreground shadow-md border">
+      <div className="relative z-20 grid gap-4 rounded-md bg-popover bg-white p-4 text-popover-foreground shadow-md border">
         <nav className="grid grid-flow-row auto-rows-auto text-sm">
           {navLinks.map((item, index) => (
             <Link
               key={index}
               href={item.disable ? "#" : item.href}
-              className={cn("flex w-full items-center rounded-md p-2 text-sm font-medium hover:underline",
+              className={cn("flex w-full items-center rounded-md p-1 text-sm font-medium hover:underline",
                 item.disable && "cursor-not-allowed opacity-60"
               )}
               onClick={closeMenu}
