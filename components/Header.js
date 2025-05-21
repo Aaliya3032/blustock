@@ -202,7 +202,7 @@ const Header = ({loggedInUser}) => {
                       src={loggedInUser?.profilePicture}
                       alt="blustock"
                     />
-                    <AvatarFallback>CN</AvatarFallback>
+                    <AvatarFallback>User</AvatarFallback>
                   </Avatar>
                 </div>
               </DropdownMenuTrigger>
@@ -211,7 +211,7 @@ const Header = ({loggedInUser}) => {
                   <Link href="/account">Profile</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="cursor-pointer hover:font-medium" asChild>
-                  <Link href="account/enrolled-courses">My Courses</Link>
+                  <Link href="/account/enrolled-courses">My Courses</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="cursor-pointer hover:font-medium" asChild>
                   <Link href="">Testimonials & Certificates</Link>
