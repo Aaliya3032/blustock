@@ -90,7 +90,7 @@ const Sidenav = () => {
     </li>
     <li>
       <a
-        href="https://facebook.com/u/Aaliya3032/"
+        href="https://www.facebook.com/share/16A6BCEboT/"
         target="_blank"
         rel="noopener noreferrer"
       >

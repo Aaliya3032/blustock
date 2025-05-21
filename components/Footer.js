@@ -32,52 +32,52 @@ const Footer = () => {
           <div className="flex flex-col md:w-1/4 w-3/4 items-start">
             <div className="text-xl font-bold pb-6">Company</div>
             <ul className="flex flex-col items-start">
-              <Link href="/testimonials">
+              <Link href="/">
+                <div className="flex items-center pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
+                  <IoMdArrowDropright className="text-lg flex-none" />
+                  <span className="ml-1 font-normal text-sm">Home</span>
+                </div>
+              </Link>
+              <Link href="/about/overview">
+                <div className="flex items-center pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
+                  <IoMdArrowDropright className="text-lg flex-none" />
+                  <span className="ml-1 font-normal text-sm">Overview</span>
+                </div>
+              </Link>
+              <Link href="/about/testimonials">
                 <div className="flex items-center pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
                   <IoMdArrowDropright className="text-lg flex-none" />
                   <span className="ml-1 font-normal text-sm">Testimonials</span>
                 </div>
               </Link>
-              <Link href="/faq">
+              <Link href="/about/charts">
+                <div className="flex items-center pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
+                  <IoMdArrowDropright className="text-lg flex-none" />
+                  <span className="ml-1 font-normal text-sm">Market Hits</span>
+                </div>
+              </Link>
+              <Link href="/about/gallery">
+                <div className="flex items-center pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
+                  <IoMdArrowDropright className="text-lg flex-none" />
+                  <span className="ml-1 font-normal text-sm">Gallery</span>
+                </div>
+              </Link>
+              <Link href="/about/faq">
                 <div className="flex items-center pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
                   <IoMdArrowDropright className="text-lg flex-none" />
                   <span className="ml-1 font-normal text-sm">FAQs</span>
                 </div>
               </Link>
-              <Link href="/about">
-                <div className="flex items-center pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
-                  <IoMdArrowDropright className="text-lg flex-none" />
-                  <span className="ml-1 font-normal text-sm">About Us</span>
-                </div>
-              </Link>
               <Link href="/contact">
                 <div className="flex items-center pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
                   <IoMdArrowDropright className="text-lg flex-none" />
-                  <span className="ml-1 font-normal text-sm">Contact</span>
+                  <span className="ml-1 font-normal text-sm">Contact Us</span>
                 </div>
               </Link>
-              <Link href="/testimonials">
+              <Link href="/courses">
                 <div className="flex items-center pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
                   <IoMdArrowDropright className="text-lg flex-none" />
-                  <span className="ml-1 font-normal text-sm">Testimonials</span>
-                </div>
-              </Link>
-              <Link href="/faq">
-                <div className="flex items-center pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
-                  <IoMdArrowDropright className="text-lg flex-none" />
-                  <span className="ml-1 font-normal text-sm">FAQs</span>
-                </div>
-              </Link>
-              <Link href="/about">
-                <div className="flex items-center pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
-                  <IoMdArrowDropright className="text-lg flex-none" />
-                  <span className="ml-1 font-normal text-sm">About Us</span>
-                </div>
-              </Link>
-              <Link href="/contact">
-                <div className="flex items-center pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
-                  <IoMdArrowDropright className="text-lg flex-none" />
-                  <span className="ml-1 font-normal text-sm">Contact</span>
+                  <span className="ml-1 font-normal text-sm">Courses</span>
                 </div>
               </Link>
             </ul>
@@ -85,7 +85,7 @@ const Footer = () => {
           <div className="flex flex-col md:w-1/4 w-3/4 items-start">
             <div className="text-xl font-bold pb-6">Courses</div>
             <ul className="flex flex-col items-start">
-              <Link href="/courses">
+              <Link href="/courses/6648184a6fe803e9128d7fba">
                 <div className="flex items-center pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
                   <IoMdArrowDropright className="text-lg flex-none" />
                   <span className="ml-1 font-normal text-sm">
@@ -93,7 +93,7 @@ const Footer = () => {
                   </span>
                 </div>
               </Link>
-              <Link href="/courses">
+              <Link href="/courses/664aca881387e2ad2e8be484">
                 <div className="flex items-start pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
                   <IoMdArrowDropright className="text-lg flex-none mt-1" />
                   <span className="ml-1 font-normal text-sm">
@@ -101,7 +101,7 @@ const Footer = () => {
                   </span>
                 </div>
               </Link>
-              <Link href="/courses">
+              <Link href="/courses/680b423dbfd01c84fd056fbe">
                 <div className="flex items-start pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
                   <IoMdArrowDropright className="text-lg flex-none mt-1" />
                   <span className="ml-1 font-normal text-sm">
