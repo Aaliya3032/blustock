@@ -61,7 +61,7 @@ export function SignupForm({role}) {
           </span>
             </p></CardTitle>
         <CardDescription className="text-gray-500 sm:text-md text-sm">
-          Enter your information to create an account
+          Enter your information to create an accountt
         </CardDescription>
       </CardHeader>
       <CardContent>
