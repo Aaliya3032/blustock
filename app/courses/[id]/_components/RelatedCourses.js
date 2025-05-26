@@ -10,7 +10,6 @@ import {
   } from "@/components/ui/carousel";
 import Link from 'next/link';
 import Image from 'next/image';
-import img from '../../../../assets/longterm3.png'
 import { SectionTitle } from '@/components/section-title';
 import { Button } from '@/components/ui/button';
 
@@ -58,8 +57,8 @@ import { Button } from '@/components/ui/button';
 //     },
 //   ];
 
-const RelatedCourses = ({courses}) => {
-  // console.log("kljhdbf",courses);
+const RelatedCourses = ({id,courses}) => {
+  const filteredCourses = courses.filter(course => course.id !== id);
   
   return (
     <section className="">
@@ -74,7 +73,7 @@ const RelatedCourses = ({courses}) => {
             <CarouselPrevious />
             <CarouselNext />
             <CarouselContent>
-              {courses.map((course) => (
+              {filteredCourses.map((course) => (
                 <CarouselItem
                   key={course.id}
                   className="md:basis-1/2 lg:basis-1/3"

@@ -20,7 +20,7 @@ const SingleCoursePage = async({params : {id}}) => {
     <Testimonials testimonials={replaceMongoIdInArray(course?.testimonials)}/>
     }
 
-      <RelatedCourses courses={courses}/>
+      <RelatedCourses courses={courses} id={id}/>
       
       </div>
   );
