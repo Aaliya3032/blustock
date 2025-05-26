@@ -19,7 +19,8 @@ const CourseDetailsIntro = ({course}) => {
             </p>
 
             <div className="mt-6 flex items-center justify-center flex-wrap gap-3">
-              <Link href="" className={cn(buttonVariants({ size: "lg" }))}>
+              <Link
+             href="/contact" className={cn(buttonVariants({ size: "lg" }))}>
                 Enroll Now
               </Link>
               <Link

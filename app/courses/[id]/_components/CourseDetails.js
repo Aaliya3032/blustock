@@ -45,9 +45,9 @@ const CourseDetails = ({course}) => {
           <div className="my-6">
             <Tabs defaultValue="overview" className="w-full">
               <TabsList className="grid w-full grid-cols-3 my-6 max-w-[768px] text-primary">
-                <TabsTrigger value="overview"><Kanban className='w-5 mr-2'/>Overview</TabsTrigger>
-                <TabsTrigger value="curriculum"><NotebookTabs className='w-5 mr-2'/>Curriculum</TabsTrigger>
-                <TabsTrigger value="instructor"><ContactRound className='w-5 mr-2'/>Instructor</TabsTrigger>
+                <TabsTrigger value="overview"><Kanban className='sm:w-5 w-3 mr-2 flex-none'/>Overview</TabsTrigger>
+                <TabsTrigger value="curriculum"><NotebookTabs className='sm:w-5 w-3 mr-2 flex-none'/>Curriculum</TabsTrigger>
+                <TabsTrigger value="instructor"><ContactRound className='sm:w-5 w-3 mr-2 flex-none'/>Instructor</TabsTrigger>
                 {/* <TabsTrigger value="reviews">Reviews</TabsTrigger> */}
               </TabsList>
               <TabsContent value="overview">

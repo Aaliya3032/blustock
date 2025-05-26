@@ -51,7 +51,7 @@ export function SignupForm({role}) {
     } 
   }
   return (
-    <Card className="mx-auto max-w-sm text-tertiary bg-white">
+    <Card className="mx-auto max-w-sm sm:w-full w-[80%] text-tertiary bg-white">
       <CardHeader>
         <CardTitle className="text-xl">
         <p className="mt-5 text-3xl font-bold leading-tight text-gray-900 sm:leading-tight sm:text-5xl lg:text-3xl lg:leading-tight font-pj">
@@ -60,7 +60,7 @@ export function SignupForm({role}) {
                 <span className="relative">Sign Up</span>
           </span>
             </p></CardTitle>
-        <CardDescription className="text-gray-500">
+        <CardDescription className="text-gray-500 sm:text-md text-sm">
           Enter your information to create an account
         </CardDescription>
       </CardHeader>

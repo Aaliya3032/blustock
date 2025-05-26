@@ -15,7 +15,7 @@ const RegisterPage = async({params}) => {
                       }}
         >
             <div className="absolute inset-0 bg-tertiary opacity-40"></div>
-            <div className='container relative z-10'>
+            <div className='container relative z-10 w-[85%]'>
                 <SignupForm role={role} />                
             </div>
         </div>
