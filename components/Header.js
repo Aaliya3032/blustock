@@ -217,7 +217,7 @@ const Header = ({loggedInUser}) => {
                   <Link href="">Testimonials & Certificates</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="cursor-pointer hover:font-medium" asChild>
-                  <Link href="" onClick={(e) => {e.preventDefault(); signOut();}}>Logout</Link>
+                  <Link href="" onClick={(e) => {e.preventDefault(); signOut({ callbackUrl: "https://blustock.vercel.app/account" });}}>Logout</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
