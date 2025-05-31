@@ -1,8 +1,12 @@
-import img1 from "./gallery/ofc1.jpeg"
-import img2 from "./gallery/ofc2.jpeg"
-import img3 from "./gallery/ofc3.jpeg"
-import img4 from "./gallery/ofc4.jpeg"
-import img5 from "./gallery/ofc5.jpeg"
+import img1 from "./gallery/ofc1.jpg"
+import img2 from "./gallery/ofc2.jpg"
+import img3 from "./gallery/ofc3.jpg"
+import img4 from "./gallery/ofc4.jpg"
+import img5 from "./gallery/ofc5.jpg"
+import img6 from "./gallery/ofc6.jpg"
+import img7 from "./gallery/ofc7.jpg"
+import img8 from "./gallery/ofc8.jpg"
+import img9 from "./gallery/ofc9.jpg"
 
 export const galleryImages = [
     {
@@ -34,5 +38,29 @@ export const galleryImages = [
       src: img5,
       alt: "Students in Class",
       text: "Success Starts Here"
+    },
+    {
+      id: 6,
+      src: img6,
+      alt: "Students in Class",
+      text: "Unlock Your Potential"
+    },
+    {
+      id: 7,
+      src: img7,
+      alt: "Students in Class",
+      text: "Fueling Bright Futures"
+    },
+    {
+      id: 8,
+      src: img8,
+      alt: "Students in Class",
+      text: "Dream. Learn. Achieve."
+    },
+    {
+      id: 9,
+      src: img9,
+      alt: "Students in Class",
+      text: "Build Skills. Shape Tomorrow."
     },
   ];
