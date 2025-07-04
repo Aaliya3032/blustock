@@ -64,7 +64,7 @@ export const LessonDescriptionForm = ({ initialData, courseId, lessonId }) => {
           )}
         </Button>
       </div>
-      {!isEditing && (
+      {/* {!isEditing && (
         <div
           className={cn(
             "text-sm mt-2",
@@ -76,14 +76,14 @@ export const LessonDescriptionForm = ({ initialData, courseId, lessonId }) => {
             <Preview value={initialData.description} />
           )}
         </div>
-      )}
+      )} */}
       {isEditing && (
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             className="space-y-4 mt-4"
           >
-            <FormField
+            {/* <FormField
               control={form.control}
               name="description"
               render={({ field }) => (
@@ -94,7 +94,7 @@ export const LessonDescriptionForm = ({ initialData, courseId, lessonId }) => {
                   <FormMessage />
                 </FormItem>
               )}
-            />
+            /> */}
             <div className="flex items-center gap-x-2">
               <Button disabled={!isValid || isSubmitting} type="submit">
                 Save
