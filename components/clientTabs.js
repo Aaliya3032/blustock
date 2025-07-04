@@ -6,6 +6,14 @@ import Online from "./Online";
 const ClientTabs = ({categories,courses}) => {
   const [activeTab, setActiveTab] = useState("offline");
 
+  const offlineCourses = courses.filter(
+    (course) => course.category.title.toLowerCase() === "offline"
+  );
+  const onlineCourses = courses.filter(
+    (course) => course.category.title.toLowerCase() === "online"
+  );
+
+
   return (
     <>
       <ul className="flex flex-row flex-wrap gap-4 mb-4 justify-center">
@@ -29,8 +37,8 @@ const ClientTabs = ({categories,courses}) => {
       </div>
 
       <div>
-        {activeTab === "offline" && <Offline courses={courses}/>}
-        {activeTab === "online" && <Online />}
+        {activeTab === "offline" && <Offline courses={offlineCourses}/>}
+        {activeTab === "online" && <Online courses={onlineCourses}/>}
       </div>
     </>
   );
