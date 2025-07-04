@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useState, useEffect } from "react";
-import { useSession , signOut } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import logo from "../assets/logo2.png";
@@ -18,9 +18,8 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import MobileNav from "./Mobile_Nav";
 
-const Header = ({loggedInUser}) => {
-  // console.log("lhkfbs",loggedInUser);
-  
+const Header = ({ loggedInUser }) => {
+  // console.log("kjshdfgwieushff",loggedInUser.role);
   const { data: session } = useSession();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const pathname = usePathname();
@@ -118,15 +117,24 @@ const Header = ({loggedInUser}) => {
             </Link>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                 <div 
+                <div
                   className={`${
-                    pathname === "/about/overview" || pathname === "/about/testimonials" || pathname === "/about/faq" || pathname === "/about/gallery" || pathname === "/about/charts"
+                    pathname === "/about/overview" ||
+                    pathname === "/about/testimonials" ||
+                    pathname === "/about/faq" ||
+                    pathname === "/about/gallery" ||
+                    pathname === "/about/charts"
                       ? "font-bold"
                       : ""
                   }`}
-                 >Know us</div>
+                >
+                  Know us
+                </div>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56 mt-4 bg-white text-primary">
+              <DropdownMenuContent
+                align="end"
+                className="w-56 mt-4 bg-white text-primary"
+              >
                 <DropdownMenuItem className="cursor-pointer">
                   <Link href="/about/overview">Overview</Link>
                 </DropdownMenuItem>
@@ -167,16 +175,20 @@ const Header = ({loggedInUser}) => {
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <div
-                     className={`${
-                      pathname === "/register/instructor" || pathname === "/register/student"
-                        ? "font-bold"
-                        : ""
-                    }`}
+                      className={`${
+                        pathname === "/register/instructor" ||
+                        pathname === "/register/student"
+                          ? "font-bold"
+                          : ""
+                      }`}
                     >
                       Register
                     </div>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className="w-56 mt-4 bg-white text-primary">
+                  <DropdownMenuContent
+                    align="end"
+                    className="w-56 mt-4 bg-white text-primary"
+                  >
                     <DropdownMenuItem className="cursor-pointer">
                       <Link href="/register/student">Student</Link>
                     </DropdownMenuItem>
@@ -189,9 +201,12 @@ const Header = ({loggedInUser}) => {
             )}
           </div>
 
-
           {showMobileMenu && navLinks && (
-            <MobileNav navLinks={navLinks} closeMenu={() => setShowMobileMenu(false)} loginSession={loginSession}></MobileNav>
+            <MobileNav
+              navLinks={navLinks}
+              closeMenu={() => setShowMobileMenu(false)}
+              loginSession={loginSession}
+            ></MobileNav>
           )}
           {loginSession && (
             <DropdownMenu>
@@ -206,18 +221,49 @@ const Header = ({loggedInUser}) => {
                   </Avatar>
                 </div>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56 mt-4  bg-white text-primary">
-                <DropdownMenuItem className="cursor-pointer hover:font-medium" asChild>
+              <DropdownMenuContent
+                align="end"
+                className="w-56 mt-4  bg-white text-primary"
+              >
+                <DropdownMenuItem
+                  className="cursor-pointer hover:font-medium"
+                  asChild
+                >
                   <Link href="/account">Profile</Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer hover:font-medium" asChild>
+                {loggedInUser?.role === "instructor" && (
+                  <DropdownMenuItem
+                    className="cursor-pointer hover:font-medium"
+                    asChild
+                  >
+                    <Link href="/dashboard"><strong>Instructor Dashboard</strong></Link>
+                  </DropdownMenuItem>
+                )}
+                <DropdownMenuItem
+                  className="cursor-pointer hover:font-medium"
+                  asChild
+                >
                   <Link href="/account/enrolled-courses">My Courses</Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer hover:font-medium" asChild>
+                <DropdownMenuItem
+                  className="cursor-pointer hover:font-medium"
+                  asChild
+                >
                   <Link href="">Testimonials & Certificates</Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer hover:font-medium" asChild>
-                  <Link href="" onClick={(e) => {e.preventDefault(); signOut({ callbackUrl: "https://blustock.vercel.app/account" });}}>Logout</Link>
+                <DropdownMenuItem
+                  className="cursor-pointer hover:font-medium"
+                  asChild
+                >
+                  <Link
+                    href=""
+                    onClick={(e) => {
+                      e.preventDefault();
+                      signOut();
+                    }}
+                  >
+                    Logout
+                  </Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
