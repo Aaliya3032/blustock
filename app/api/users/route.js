@@ -28,7 +28,7 @@ export async function POST(request) {
           status: 201,
       });
   } catch (error) {
-      console.log(error);
+      console.log("error in create user",error);
       return new NextResponse(error.message, {
           status: 201,
       });

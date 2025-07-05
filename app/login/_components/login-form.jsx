@@ -29,7 +29,7 @@ export function LoginForm() {
       const response = await credentialLogin(formData);
 
       if (!!response.error) {
-          console.log(response.error)
+          console.log("Login Error",response.error)
           setError(response.error);
       } else {
         toast.success("Login Successful")
@@ -37,6 +37,7 @@ export function LoginForm() {
         // router.push("/account")
       }      
     } catch (e) {
+      console.log("Login Error",e.message)
       setError(e.message);
     }
   }
