@@ -3,6 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { User } from "./models/user";
 import { authConfig } from "./auth.config";
+import { connectDb } from "./helper/db";
 
 export const {
   handlers: { GET, POST },
@@ -16,6 +17,10 @@ export const {
     CredentialsProvider({
       async authorize(credentials) {
         if (credentials == null) return null;
+
+         console.log("🔗 Connecting DB inside authorize...");
+        await connectDb(); // ✅ ALWAYS connect here!
+        console.log("✅ DB connected");
 
         try {
           const user = await User.findOne({ email: credentials?.email });
