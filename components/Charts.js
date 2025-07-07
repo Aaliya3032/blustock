@@ -11,6 +11,9 @@ import {
 import img1 from "../assets/charts/Week1.png";
 import img2 from "../assets/charts/Week2.png";
 import img3 from "../assets/charts/Week3.png";
+import img4 from "../assets/charts/Week4.png";
+import img5 from "../assets/charts/Week5.png";
+import img6 from "../assets/charts/Week6.png";
 
 const Charts = () => {
   const [emblaApi, setEmblaApi] = useState(null);
@@ -32,6 +35,21 @@ const Charts = () => {
       id: 3,
       src: img3,
       alt: "chart3",
+    },
+    {
+      id: 4,
+      src: img4,
+      alt: "chart4",
+    },
+    {
+      id: 5,
+      src: img5,
+      alt: "chart5",
+    },
+    {
+      id: 6,
+      src: img6,
+      alt: "chart6",
     },
   ];
 
