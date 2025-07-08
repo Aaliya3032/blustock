@@ -48,7 +48,7 @@ export const Navbar = () => {
               <Link href="/account">Profile</Link>
             </DropdownMenuItem>
             <DropdownMenuItem className="cursor-pointer">
-              <Link href="#" onClick={() => {signOut()}} >Logout</Link>
+              <Link href="#" onClick={() => {signOut({ callbackUrl: '/' })}} >Logout</Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

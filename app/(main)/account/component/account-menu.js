@@ -28,7 +28,7 @@ function Menu() {
 			<li className="navbar-item account-menu">
 				<Link
 					href=""
-					onClick={(e) => {e.preventDefault(); signOut();}}
+					onClick={(e) => {e.preventDefault(); signOut({ callbackUrl: '/' });}}
 					className="navbar-link text-slate-400 flex items-center py-2 rounded">
 					<h6 className="mb-0 font-semibold">Sign Out</h6>
 				</Link>

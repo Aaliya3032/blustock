@@ -259,7 +259,7 @@ const Header = ({ loggedInUser }) => {
                     href=""
                     onClick={(e) => {
                       e.preventDefault();
-                      signOut();
+                      signOut({ callbackUrl: '/' });
                     }}
                   >
                     Logout
