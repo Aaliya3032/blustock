@@ -3,6 +3,14 @@ import { Toaster } from "sonner";
 import "./globals.css";
 import { connectDb } from "@/helper/db";
 
+export const metadata = {
+  title: "Blustock Consultants",
+  description: "A stock market academy",
+   icons: {
+    icon: "/favicon.ico",
+  },
+};
+
 export default async function RootLayout({ children }) {
     const conn = await connectDb();
     console.log("database connected",conn)

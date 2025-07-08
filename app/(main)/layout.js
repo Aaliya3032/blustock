@@ -6,10 +6,6 @@ import Providers from "@/components/Providers";
 import { getUserByEmail } from "@/queries/users";
 import { auth } from "@/auth";
 
-export const metadata = {
-  title: "Blustock Consultants",
-  description: "A stock market academy",
-};
 
 export default async function MainLayout({ children }) {
   const session = await auth();
