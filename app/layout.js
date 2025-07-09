@@ -4,7 +4,7 @@ import "./globals.css";
 import { connectDb } from "@/helper/db";
 
 export const metadata = {
-  title: "Blustock Consultants",
+  title: "Blustock Consultants - Best Stock Market Academy in Jaipur",
   description: "A stock market academy",
    icons: {
     icon: "/favicon.ico",
