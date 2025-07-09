@@ -1,14 +1,18 @@
 "use client";
-import { useState } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function ResetPasswordPage() {
   const [newPassword, setNewPassword] = useState("");
   const [msg, setMsg] = useState("");
-  const params = useSearchParams();
   const router = useRouter();
-  const token = params.get("token");
+  const [token,setToken] = useState(null)
 
+  useEffect(() => {
+    const qp = new URLSearchParams(window.location.search)
+    setToken(qp.get("token"))
+  },[])
+  
   async function handleSubmit(e) {
     e.preventDefault();
     const res = await fetch("/api/auth/reset-password", {
