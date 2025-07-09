@@ -66,14 +66,15 @@ const InstructorProfile = async ({ params: { id } }) => {
               </div>
             </div>
             <p className="text-gray-600 text-xs leading-[1.8] text-justify">
-              Hi! I'm Kazi Ariyan. I'm a web developer with a serious love for
-              teaching I am a founder of easy Learning and a passionate Web
-              Developer, Programmer & Instructor.
-              <br />I am working online for the last 9 years and have created
-              several successful websites running on the internet. I try to
-              create a project-based course that helps you to learn
-              professionally and make you fell as a complete developer. easy
-              learning exists to help you succeed in life.
+              Hi there! I’m your Trading Instructor—founder of BluStock
+              Consultants and a dedicated market educator. With over 13 years of
+              hands‑on experience navigating the stock market, I’ve guided
+              100+ students to profitable, confident trading. My approach
+              is project‑based and results‑driven: you’ll learn practical
+              strategies, risk management, and trading psychology through
+              real‑time market examples. At BluStock, our mission is to empower
+              you with the skills and mindset needed for long‑term financial
+              success. Let’s embark on this journey together!
             </p>
           </div>
         </div>
