@@ -11,7 +11,10 @@ export async function GET() {
     '/login',
     '/register',
     '/account',
-    '/dashboard'
+    '/dashboard',
+    '/forgot-password',
+    '/reset-password',
+    '/inst-profile',
   ];
 
   const body = `<?xml version="1.0" encoding="UTF-8"?>
