@@ -9,6 +9,9 @@ export const metadata = {
    icons: {
     icon: "/favicon.ico",
   },
+   alternates: {
+    canonical: "https://www.blustockconsultants.com/",
+  },
 };
 
 export default async function RootLayout({ children }) {
