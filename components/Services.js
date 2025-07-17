@@ -24,7 +24,7 @@ const Services = () => {
             </div>
         <div className="flex md:flex-row flex-col">
           <div className="md:w-[60%] w-full flex flex-col justify-center">
-            <div className="text-md font-medium flex text-[#406191]">
+            <div className="text-md font-medium flex text-[#406191] text-justify">
               BluStock Consultants, with over 12 years of experience in the
               Indian markets, is your go-to for financial education and
               mentorship. We help you gain the knowledge and skills needed for
