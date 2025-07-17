@@ -6,7 +6,7 @@ const Candidate = () => {
       <div className="font-bold text-xl"  data-aos="fade-right">
         Who should attend this Stock Trading Course?
       </div>
-      <p className="font-medium" data-aos="fade-down">
+      <p className="font-medium text-justify" data-aos="fade-down">
         The Stock Trading Course is tailored to benefit a broad range of
         individuals who are interested in the stock market, from novices to
         experienced traders. This course can be beneficial for a wide range of

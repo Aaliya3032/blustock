@@ -65,7 +65,7 @@ const Services = () => {
                     Long Term Investment Guidance
                   </h2>
                 </div>
-                <p className="mt-3 text-md text-start">
+                <p className="mt-3 text-md text-justify">
                   We help you build a strong and diverse investment portfolio
                   for long-term growth. Our advice ensures your investments
                   match your financial goals.
@@ -95,7 +95,7 @@ const Services = () => {
                   <FaPenFancy className="text-xl mt-1 flex-none" />
                   <h2 className="text-xl font-bold ">Portfolio Corrections</h2>
                 </div>
-                <p className="mt-3 text-md text-start">
+                <p className="mt-3 text-md text-justify">
                   We optimize your current investments by analyzing your
                   portfolio and suggesting changes to better align with your
                   financial goals, ensuring top performance.
@@ -129,7 +129,7 @@ const Services = () => {
                     Trading - Intraday & Swing
                   </h2>
                 </div>
-                <p className="mt-3 text-md text-start">
+                <p className="mt-3 text-md text-justify">
                   For active traders, we offer expert strategies for intraday
                   and swing trading. Whether you are trading within a day or
                   over a few days, we provide the knowledge and tools to
@@ -163,7 +163,7 @@ const Services = () => {
                     Mastering Financial Psychology
                   </h2>
                 </div>
-                <p className="mt-3 text-md text-start">
+                <p className="mt-3 text-md text-justify">
                   We teach you how to manage your emotions for successful
                   investing. Our guidance helps you develop the mental strength
                   needed to confidently handle market ups and downs.

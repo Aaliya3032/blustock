@@ -85,7 +85,7 @@ const Testimonials = ({testimonials}) => {
                           </div>
                         </div>
                       </div>
-                      <p className="mt-4 text-tertiary font-serif text-md">
+                      <p className="mt-4 text-tertiary font-serif text-md text-justify">
                        {testimonial?.content}
                       </p>
                     </blockquote>

@@ -124,8 +124,8 @@ const Header = ({ loggedInUser }) => {
                     pathname === "/about/faq" ||
                     pathname === "/about/gallery" ||
                     pathname === "/about/charts"
-                      ? "font-bold"
-                      : ""
+                      ? "font-bold cursor-pointer"
+                      : "cursor-pointer"
                   }`}
                 >
                   Know us
@@ -178,8 +178,8 @@ const Header = ({ loggedInUser }) => {
                       className={`${
                         pathname === "/register/instructor" ||
                         pathname === "/register/student"
-                          ? "font-bold"
-                          : ""
+                          ? "font-bold cursor-pointer"
+                          : "cursor-pointer"
                       }`}
                     >
                       Register

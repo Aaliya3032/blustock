@@ -52,7 +52,7 @@ const Testimonials = ({testimonials}) => {
                           </div>
                         </div>
                       </div>
-                      <p className="mt-4 text-gray-700">
+                      <p className="mt-4 text-gray-700 text-justify">
                        {testimonial?.content}
                       </p>
                     </blockquote>

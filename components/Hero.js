@@ -28,7 +28,7 @@ const Hero = () => {
           <h3 data-aos="zoom-in" className="sm:text-3xl text-2xl font-bold text-white">
             MASTER TRADING AND INVESTMENT IN STOCK MARKET
           </h3>
-          <span data-aos="fade-up" className="my-8 text-white sm:text-sm text-xs">
+          <span data-aos="fade-up" className="my-8 text-white sm:text-sm text-xs text-justify">
             At BluStock Consultants, we are dedicated to providing top-tier
             education in Stock Market Trading and Investment. Our expert
             programs are designed to equip our clients with the essentials

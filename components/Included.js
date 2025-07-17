@@ -6,7 +6,7 @@ const Included = () => {
       <div className="font-bold text-xl"  data-aos="fade-right"> 
         Unlock More Benefits & Maximize Your Trading Potential
       </div>
-      <p className="font-medium text-[#406191]"  data-aos="fade-down">
+      <p className="font-medium text-[#406191] text-justify"  data-aos="fade-down">
         BluStock Consultants Community is a place for traders and investors to
         connect, share insights, and discuss market trends. Members get access
         to expert trading plans, market analysis, and diverse strategies from

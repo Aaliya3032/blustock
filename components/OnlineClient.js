@@ -50,7 +50,7 @@ const OnlineClient = ({ courses }) => {
                    {formatPrice(course.price)}
                  </div>
                </div>
-               <Link href={`/courses/${course.id}`} className="z-20 relative inline-flex items-center justify-start lg:px-5 md:px-2 sm:px-5 px-2 lg:py-3 md:py-2 sm:py-3 py-2 overflow-hidden font-bold rounded-full group cursor-pointer">
+               <Link href={`/courses/${course.id}`} className="z-20 relative inline-flex items-center justify-center text-justify lg:px-5 md:px-2 sm:px-5 px-2 lg:py-3 md:py-2 sm:py-3 py-2 overflow-hidden font-bold rounded-full group cursor-pointer">
                  <span className="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
                  <span className="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-8"></span>
                  <span  className="relative w-full text-left text-white lg:text-lg md:text-xs sm:text-lg text-xs transition-colors duration-200 ease-in-out group-hover:text-primary">

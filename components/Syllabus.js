@@ -27,13 +27,13 @@ const Syllabus = () => {
           </ul>
         </div>
         <div className="w-[50%] md:block hidden"  data-aos="zoom-in">
-          <Image src={Hero2} alt="md1" className="lg:w-[70%] w-[90%] ml-auto" />
+          <Image src={Hero2} alt="md1" className="lg:w-[70%] w-[90%] ml-auto border-1 border-primary" />
         </div>
       </div>
 
       <div className="flex flex-row md:items-center sm:items-end items-start md:justify-center sm:justify-end justify-start">
         <div className="w-[50%] md:block hidden" data-aos="zoom-in">
-          <Image src={Hero1} alt="md1" className="lg:w-[70%] w-[90%] mr-auto" />
+          <Image src={Hero1} alt="md1" className="lg:w-[70%] w-[90%] mr-auto border-1 border-primary" />
         </div>
         <div className="flex flex-col gap-4 md:w-[50%] sm:w-[75%] w-[95%] pr-2 pt-2 shadow-[8px_8px_16px_-6px_rgba(0,0,0,0.4)]">
           <div className="sm:text-lg text-md font-medium">
@@ -69,13 +69,13 @@ const Syllabus = () => {
           </ul>
         </div>
         <div className="w-[50%] md:block hidden" data-aos="zoom-in">
-          <Image src={Hero4} alt="md1" className="lg:w-[70%] w-[90%] ml-auto" />
+          <Image src={Hero4} alt="md1" className="lg:w-[70%] w-[90%] ml-auto border-1 border-primary" />
         </div>
       </div>
 
       <div className="flex flex-row md:items-center sm:items-end items-start md:justify-center sm:justify-end justify-start">
         <div className="w-[50%] md:block hidden" data-aos="zoom-in">
-          <Image src={longterm2} alt="md1" className="lg:w-[70%] w-[90%] mr-auto" />
+          <Image src={longterm2} alt="md1" className="lg:w-[70%] w-[90%] mr-auto border-1 border-primary" />
         </div>
         <div className="flex flex-col gap-4 md:w-[50%] sm:w-[75%] w-[95%] pr-2 pt-2 shadow-[8px_8px_16px_-6px_rgba(0,0,0,0.4)]">
           <div className="sm:text-lg text-md font-medium">
