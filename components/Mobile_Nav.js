@@ -39,7 +39,7 @@ const MobileNav = ({ navLinks , closeMenu , loginSession}) => {
           <div className="items-center gap-3 flex lg:hidden">
         <Link
                   href="/login"
-                  className={`${pathname === "/login" ? "font-bold" : ""}`}
+                  className={`${pathname === "/login" ? "font-bold" : "border-2 border-primary bg-primary text-white rounded-full p-1.5 text-xs flex items-center"}`}
                   onClick={closeMenu}
                 >
                   Login
@@ -47,7 +47,7 @@ const MobileNav = ({ navLinks , closeMenu , loginSession}) => {
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                   <div
-                  className={`${pathname === "/signup" ? "font-bold" : ""}`}
+                  className={`${pathname === "/signup" ? "font-bold" : "border-2 border-primary bg-primary text-white rounded-full p-1.5 text-xs flex items-center"}`}
                 >
                   Register
                 </div>

@@ -91,13 +91,13 @@ const Header = ({ loggedInUser }) => {
     <div className="sticky z-30 bg-white shadow-sm w-full top-0 left-0 right-0">
       <div className="w-[85%] mx-auto flex items-center py-1">
         {/* Logo */}
-        <div className="flex-shrink-0">
+        <Link href="/" className="flex-shrink-0">
           <Image
             src={logo}
             alt="logo"
             className="sm:h-28 h-24 sm:w-28 w-24 py-2"
           />
-        </div>
+        </Link>
 
         {/* Tag name */}
         <div className="flex flex-col text-primary ml-4">
@@ -168,7 +168,7 @@ const Header = ({ loggedInUser }) => {
               <>
                 <Link
                   href="/login"
-                  className={`${pathname === "/login" ? "font-bold" : ""}`}
+                  className={`${pathname === "/login" ? "font-bold" : "border-2 border-primary bg-primary text-white rounded-full p-1.5 text-xs flex items-center"}`}
                 >
                   Login
                 </Link>
@@ -179,7 +179,7 @@ const Header = ({ loggedInUser }) => {
                         pathname === "/register/instructor" ||
                         pathname === "/register/student"
                           ? "font-bold cursor-pointer"
-                          : "cursor-pointer"
+                          : "cursor-pointer border-2 border-primary bg-primary text-white rounded-full p-1.5 text-xs flex items-center"
                       }`}
                     >
                       Register

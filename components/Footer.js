@@ -27,7 +27,7 @@ const Footer = () => {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-primary opacity-60"></div>
+        <div className="absolute inset-0 bg-black opacity-60"></div>
         <div className="w-[85%] mx-auto py-12 relative z-10 flex md:flex-row flex-col gap-8 justify-between">
           <div className="flex flex-col md:w-1/4 w-3/4 items-start">
             <div className="text-xl font-bold pb-6">Company</div>
