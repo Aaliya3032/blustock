@@ -24,10 +24,10 @@ const CourseModuleList = ({module}) => {
           <Video className="w-4 h-4" />
           {(totalDuration/3660).toPrecision(2)} Hours
         </span>
-        <span className="flex items-center gap-1.5">
+        {/* <span className="flex items-center gap-1.5">
           <NotepadText className="w-4 h-4" />
           10 Notes
-        </span>
+        </span> */}
         {/* <span className="flex items-center gap-1.5">
           <FileQuestion className="w-4 h-4" />
           10 Quiz
