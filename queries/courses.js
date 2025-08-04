@@ -7,6 +7,7 @@ import { Course } from "@/models/course";
 import { connectDb } from "@/helper/db";
 import { getEnrollmentsForCourse } from "./enrollments";
 import { getTestimonialsForCourse } from "./testimonials";
+import { Lesson } from "@/models/lesson";
 
 // export async function getCourseList() {
 //     await connectDb()
@@ -91,7 +92,11 @@ export async function getCourseDetails(id) {
         }
     }).populate({
         path: "modules",
-        model: Module
+        model: Module,
+        populate:{
+          path: 'lessonIds',
+          model: Lesson
+        }
     }).lean();
     return replaceMongoIdInObject(course);
 }
