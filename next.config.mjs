@@ -18,7 +18,6 @@ const nextConfig = {
   }  ,
    async redirects() {
     return [
-        // 1. HTTP → HTTPS
       {
         source: "/:path*",
         has: [{ type: "host", value: "blustockconsultants.com" }],

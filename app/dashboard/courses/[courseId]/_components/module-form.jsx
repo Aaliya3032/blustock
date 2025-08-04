@@ -49,7 +49,7 @@ export const ModulesForm = ({ initialData, courseId }) => {
       const formData = new FormData()
       formData.append("title",values?.title)
       formData.append("slug",getSlug(values?.title))
-      formData.append("courseID",courseId)
+      formData.append("courseId",courseId)
       formData.append("order",modules.length)
 
       const module = await createModule(formData)
@@ -72,7 +72,7 @@ export const ModulesForm = ({ initialData, courseId }) => {
   const onReorder = async (updateData) => {
     console.log({ updateData });
     try {
-      reOrderModules(updateData)
+      await reOrderModules(updateData)
       setIsUpdating(true);
 
       toast.success("Chapters reordered");
@@ -85,7 +85,7 @@ export const ModulesForm = ({ initialData, courseId }) => {
   };
 
   const onEdit = (id) => {
-    router.push(`/dashboard/courses/1/modules/${1}`);
+    router.push(`/dashboard/courses/${courseId}/modules/${id}`);
   };
 
   return (

@@ -4,16 +4,14 @@ import { Trash } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
- 
 import { toast } from "sonner";
- 
+import { changeModulePublishState, deleteModule } from "@/app/actions/module";
 import { useRouter } from "next/navigation";
-import { changeCoursePublishState, deleteCourse } from "@/app/actions/course";
 
-export const CourseActions = ({ courseId,isActive }) => {
+export const ModuleActions = ({ module,courseId }) => {
 
     const [action, setAction] = useState(null);
-    const [published, setPublished] = useState(isActive);
+    const [published, setPublished] = useState(module?.active);
     const router = useRouter();
 
     async function handleSubmit(event) {
@@ -22,25 +20,24 @@ export const CourseActions = ({ courseId,isActive }) => {
     try {
         switch (action) {
             case "change-active": {
-          const activeState = await changeCoursePublishState(courseId);
+          const activeState = await changeModulePublishState(module.id);
                 setPublished(!activeState);
-                toast.success("The Course has been updated");
+                toast.success("The Module has been updated");
                 router.refresh();
                 break;
             }
 
             case "delete": {
                 if (published) {
-                    toast.error("A published Course can not be deleted. First unpublish it, then delete");
+                    toast.error("A published module can not be deleted. First unpublish it, then delete");
                 } else {
-                    await deleteCourse(courseId);
-                    toast.success("The Course has been deleted successfully");
-                    router.push(`/dashboard/courses`)
+                    await deleteModule(module.id,courseId);
+                    router.push(`/dashboard/courses/${courseId}`)
                 }
                 break;
             } 
             default:
-                throw new Error("Invalid Lesson Action");
+                throw new Error("Invalid Module Action");
         }
     } catch (e) {
         toast.error(e.message);

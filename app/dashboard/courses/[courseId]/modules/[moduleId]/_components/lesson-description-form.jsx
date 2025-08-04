@@ -3,9 +3,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-
-import { Editor } from "@/components/editor";
-import { Preview } from "@/components/preview";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -19,6 +16,8 @@ import { Pencil } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
+import { Textarea } from "@/components/ui/textarea";
+import { updateLesson } from "@/app/actions/lesson";
 
 const formSchema = z.object({
   description: z.string().min(1),
@@ -27,6 +26,7 @@ const formSchema = z.object({
 export const LessonDescriptionForm = ({ initialData, courseId, lessonId }) => {
   const router = useRouter();
   const [isEditing, setIsEditing] = useState(false);
+  const [description,setDescription] = useState(initialData?.description)
 
   const toggleEdit = () => setIsEditing((current) => !current);
 
@@ -41,6 +41,8 @@ export const LessonDescriptionForm = ({ initialData, courseId, lessonId }) => {
 
   const onSubmit = async (values) => {
     try {
+      await updateLesson(lessonId,values)
+      setDescription(values.description)
       toast.success("Lesson updated");
       toggleEdit();
       router.refresh();
@@ -64,44 +66,38 @@ export const LessonDescriptionForm = ({ initialData, courseId, lessonId }) => {
           )}
         </Button>
       </div>
-      {/* {!isEditing && (
-        <div
-          className={cn(
-            "text-sm mt-2",
-            !initialData.description && "text-slate-500 italic"
-          )}
-        >
-          {!initialData.description && "No description"}
-          {initialData.description && (
-            <Preview value={initialData.description} />
-          )}
-        </div>
-      )} */}
+       {!isEditing && (
+        <p className="text-sm mt-2">{description}</p>
+      )}
       {isEditing && (
-        <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="space-y-4 mt-4"
-          >
-            {/* <FormField
-              control={form.control}
-              name="description"
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <Editor {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            /> */}
-            <div className="flex items-center gap-x-2">
-              <Button disabled={!isValid || isSubmitting} type="submit">
-                Save
-              </Button>
-            </div>
-          </form>
-        </Form>
+       <Form {...form}>
+                 <form
+                   onSubmit={form.handleSubmit(onSubmit)}
+                   className="space-y-4 mt-4"
+                 >
+                   <FormField
+                     control={form.control}
+                     name="description"
+                     render={({ field }) => (
+                       <FormItem>
+                         <FormControl>
+                           <Textarea
+                             disabled={isSubmitting}
+                             placeholder="e.g. 'Introduction to the course'"
+                             {...field}
+                           />
+                         </FormControl>
+                         <FormMessage />
+                       </FormItem>
+                     )}
+                   />
+                   <div className="flex items-center gap-x-2">
+                     <Button disabled={!isValid || isSubmitting} type="submit">
+                       Save
+                     </Button>
+                   </div>
+                 </form>
+               </Form>
       )}
     </div>
   );

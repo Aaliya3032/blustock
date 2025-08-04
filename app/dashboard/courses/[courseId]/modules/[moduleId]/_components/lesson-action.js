@@ -4,39 +4,33 @@ import { Trash } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
- 
 import { toast } from "sonner";
+import { changeLessonPublishState, deleteLesson } from "@/app/actions/lesson";
+
+export const LessonActions = ({ lesson ,  moduleId , onDelete}) => {
  
-import { useRouter } from "next/navigation";
-import { changeCoursePublishState, deleteCourse } from "@/app/actions/course";
+   const [action,setAction] = useState(null)
+   const [published,setPublished] = useState(lesson?.active)  
 
-export const CourseActions = ({ courseId,isActive }) => {
-
-    const [action, setAction] = useState(null);
-    const [published, setPublished] = useState(isActive);
-    const router = useRouter();
-
-    async function handleSubmit(event) {
+   async function handleSubmit(event) {
         event.preventDefault();
         //console.log(action);
     try {
         switch (action) {
             case "change-active": {
-          const activeState = await changeCoursePublishState(courseId);
+                const activeState = await changeLessonPublishState(lesson.id);
                 setPublished(!activeState);
-                toast.success("The Course has been updated");
-                router.refresh();
+                toast.success("The lesson has been updated");
                 break;
             }
 
             case "delete": {
                 if (published) {
-                    toast.error("A published Course can not be deleted. First unpublish it, then delete");
+                    toast.error("A published lesson can not be deleted. First unpublish it, then delete");
                 } else {
-                    await deleteCourse(courseId);
-                    toast.success("The Course has been deleted successfully");
-                    router.push(`/dashboard/courses`)
-                }
+                    await deleteLesson(lesson.id,moduleId);
+                    onDelete();
+                } 
                 break;
             } 
             default:
@@ -47,7 +41,6 @@ export const CourseActions = ({ courseId,isActive }) => {
     } 
     }
 
-
   return (
     <form onSubmit={handleSubmit}>
     <div className="flex items-center gap-x-2">
@@ -55,10 +48,10 @@ export const CourseActions = ({ courseId,isActive }) => {
         {published ? "Unpublish" : "Publish"}
       </Button>
 
-      <Button size="sm" onClick={() => setAction("delete")}>
+      <Button size="sm" onClick={() => setAction("delete")}> 
         <Trash className="h-4 w-4" />
       </Button>
-    </div>   
-    </form>
+    </div>
+     </form>
   );
 };
