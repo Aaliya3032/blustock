@@ -25,10 +25,10 @@ const CourseModuleList = ({module}) => {
           <NotepadText className="w-4 h-4" />
           10 Notes
         </span>
-        <span className="flex items-center gap-1.5">
+        {/* <span className="flex items-center gap-1.5">
           <FileQuestion className="w-4 h-4" />
           10 Quiz
-        </span>
+        </span> */}
         <span className="flex items-center gap-1.5">
           <Radio className="w-4 h-4" />1 Live Class
         </span>

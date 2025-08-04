@@ -28,11 +28,11 @@ const routes = [
     label: "Lives",
     href: "/dashboard/lives",
   },
-  {
-    icon: BookA,
-    label: "Quizes",
-    href: "/dashboard/quiz-sets",
-  },
+  // {
+  //   icon: BookA,
+  //   label: "Quizes",
+  //   href: "/dashboard/quiz-sets",
+  // },
 ];
 
 export const SidebarRoutes = () => {

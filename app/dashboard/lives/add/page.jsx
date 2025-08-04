@@ -53,9 +53,9 @@ const formSchema = z.object({
   url: z.string().min(1, {
     message: "Thumbnail is required!",
   }),
-  quizSet: z.string().min(1, {
-    message: "Quiz Set is required!",
-  }),
+  // quizSet: z.string().min(1, {
+  //   message: "Quiz Set is required!",
+  // }),
 });
 
 const AddLive = () => {
@@ -206,7 +206,7 @@ const AddLive = () => {
                   </FormItem>
                 )}
               />
-              <FormField
+              {/* <FormField
                 control={form.control}
                 name="quizSet"
                 render={({ field }) => (
@@ -230,7 +230,7 @@ const AddLive = () => {
                     <FormMessage />
                   </FormItem>
                 )}
-              />
+              /> */}
               {/* description */}
               <FormField
                 control={form.control}

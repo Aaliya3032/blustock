@@ -13,7 +13,7 @@ import { PriceForm } from "./_components/price-form";
 import { TitleForm } from "./_components/title-form";
 import { CourseActions } from "./_components/course-action";
 import AlertBanner from "@/components/alert-banner";
-import { QuizSetForm } from "./_components/quiz-set-form";
+// import { QuizSetForm } from "./_components/quiz-set-form";
 import { getCourseDetails } from "@/queries/courses";
 import { SubTitleForm } from "./_components/subtitle-form";
 import { getCategories } from "@/queries/categories";
@@ -85,7 +85,7 @@ const EditCourse = async({params: {courseId}}) => {
             <ImageForm initialData={{imageUrl: `/assets/images/courses/${course?.thumbnail}`}} courseId={courseId} />
             <CategoryForm initialData={{value: course?.category?.title}} courseId={courseId} options={mappedCategories}/>
 
-            <QuizSetForm initialData={{}} courseId={1} />
+            {/* <QuizSetForm initialData={{}} courseId={1} /> */}
           </div>
           <div className="space-y-6">
             <div>
