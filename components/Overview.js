@@ -17,7 +17,7 @@ const Overview = () => {
             className={`cursor-pointer py-2 border-b-2 px-2 ${
               activeTab === "syllabus"
                 ? "border-secondary text-secondary font-bold bg-transparent"
-                : "border-transparent bg-gray-300"
+                : "border-transparent font-medium"
             }`}
             onClick={() => setActiveTab("syllabus")}
           >
@@ -27,7 +27,7 @@ const Overview = () => {
             className={`cursor-pointer py-2 border-b-2 px-2 ${
               activeTab === "who"
                 ? "border-secondary text-secondary font-bold bg-transparent"
-                : "border-transparent bg-gray-300 "
+                : "border-transparent font-medium"
             }`}
             onClick={() => setActiveTab("who")}
           >
@@ -38,7 +38,7 @@ const Overview = () => {
             className={`cursor-pointer py-2 border-b-2 px-2  ${
               activeTab === "included"
                 ? "border-secondary text-secondary font-bold bg-transparent"
-                : "border-transparent bg-gray-300"
+                : "border-transparent font-medium"
             }`}
             onClick={() => setActiveTab("included")}
           >

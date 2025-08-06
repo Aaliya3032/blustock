@@ -157,7 +157,7 @@ const Header = ({ loggedInUser }) => {
               href="/contact"
               className={`${pathname === "/contact" ? "font-bold" : ""}`}
             >
-              Let's Talk
+              Let&apos;s Talk
             </Link>
             {!loginSession && (
               <>
