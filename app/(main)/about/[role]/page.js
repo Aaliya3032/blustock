@@ -29,7 +29,7 @@ const AboutPage = async({params}) => {
         <>
             <div>
             {role === 'overview' && <Overview/>}         
-            {role === 'testimonials' && <Testimonials testimonials={testimonials}/>}         
+            {/* {role === 'testimonials' && <Testimonials testimonials={testimonials}/>}          */}
             {role === 'charts' && <Charts/>}         
             {role === 'gallery' && <Gallery/>}         
             {role === 'faq' && <FAQ/>}         

@@ -1,5 +1,7 @@
+import { CourseProgress } from '@/components/course-progress'
 import { Badge } from '@/components/ui/badge'
 import { getCategoryDetails } from '@/queries/categories'
+import { getCourseDetails } from '@/queries/courses'
 import { getReport } from '@/queries/reports'
 import { BookOpen } from 'lucide-react'
 import Image from 'next/image'
@@ -14,10 +16,17 @@ const EnrolledCourseCard = async({enrollment}) => {
 	const filter = {course: enrollment?.course?._id, student:enrollment?.student?._id }
 
 	const report =  await getReport(filter) 
-	console.log("kdbfsd",report);
+	// console.log("kdbfsd",report);
+
+    //Get total Module number
+	const courseDetails = await getCourseDetails(enrollment?.course?._id)
+	const totalModuleCount = courseDetails?.modules?.length	
 	
 	/// Total Completed Modules 
-    const totalCompletedModules = report?.totalCompletedModeules?.length;
+    const totalCompletedModules = report?.totalCompletedModeules? report?.totalCompletedModeules?.length : 0
+
+	///Total Progress
+	const totalProgress = totalModuleCount ? (totalCompletedModules/totalModuleCount) * 100 : 0 
 
   return (
     <div
@@ -51,6 +60,8 @@ const EnrolledCourseCard = async({enrollment}) => {
 									Completed Modules <Badge variant="success">{totalCompletedModules}</Badge>
 								</div>
 							</div>
+							</div>
+							<CourseProgress size="sm" value={totalProgress} variant={110 === 100 ? "success" : ""}/>
 							{/* <div className="flex items-center justify-between mt-2">
 								<span className="text-md md:text-sm font-medium text-slate-700">
 									Total Quizzes: 10
@@ -75,7 +86,6 @@ const EnrolledCourseCard = async({enrollment}) => {
 									50
 								</span>
 							</div> */}
-						</div>
 						{/* <div className="flex items-center justify-between mb-4">
 							<span className="text-md md:text-sm font-medium text-slate-700">
 								Total Marks

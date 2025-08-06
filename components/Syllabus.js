@@ -11,7 +11,7 @@ const Syllabus = () => {
       <div className="font-bold text-xl"  data-aos="fade-right">Stock Trading Course Outline</div>
 
       <div className="flex flex-row md:items-center items-start md:justify-center justify-start">
-        <div className="flex flex-col gap-4 md:w-[50%] sm:w-[75%] w-[95%] pr-2 pt-2 shadow-[8px_8px_16px_-6px_rgba(0,0,0,0.4)]">
+        <div className="flex flex-col gap-4 md:w-[50%] sm:w-[75%] w-[95%] pr-2 pt-2 rounded-xl shadow-[8px_8px_16px_-6px_rgba(0,0,0,0.4)]">
           <div className="sm:text-lg text-md font-medium">
             Module 1: Introduction To Financial Markets
           </div>
@@ -35,7 +35,7 @@ const Syllabus = () => {
         <div className="w-[50%] md:block hidden" data-aos="zoom-in">
           <Image src={Hero1} alt="md1" className="lg:w-[70%] w-[90%] mr-auto border-1 border-primary" />
         </div>
-        <div className="flex flex-col gap-4 md:w-[50%] sm:w-[75%] w-[95%] pr-2 pt-2 shadow-[8px_8px_16px_-6px_rgba(0,0,0,0.4)]">
+        <div className="flex flex-col gap-4 md:w-[50%] sm:w-[75%] w-[95%] pr-2 pt-2 rounded-xl shadow-[8px_8px_16px_-6px_rgba(0,0,0,0.4)]">
           <div className="sm:text-lg text-md font-medium">
             Module 2: Understanding Price Action & Chart Analysis
           </div>
@@ -54,7 +54,7 @@ const Syllabus = () => {
       </div>
 
       <div className="flex flex-row md:items-center items-start md:justify-center justify-start">
-        <div className="flex flex-col gap-4 md:w-[50%] sm:w-[75%] w-[95%] pr-2 pt-2 shadow-[8px_8px_16px_-6px_rgba(0,0,0,0.4)]">
+        <div className="flex flex-col gap-4 md:w-[50%] sm:w-[75%] w-[95%] pr-2 pt-2 rounded-xl shadow-[8px_8px_16px_-6px_rgba(0,0,0,0.4)]">
           <div className="sm:text-lg text-md font-medium">
             Module 3: Trading Setups Equity Markets
           </div>
@@ -77,7 +77,7 @@ const Syllabus = () => {
         <div className="w-[50%] md:block hidden" data-aos="zoom-in">
           <Image src={longterm2} alt="md1" className="lg:w-[70%] w-[90%] mr-auto border-1 border-primary" />
         </div>
-        <div className="flex flex-col gap-4 md:w-[50%] sm:w-[75%] w-[95%] pr-2 pt-2 shadow-[8px_8px_16px_-6px_rgba(0,0,0,0.4)]">
+        <div className="flex flex-col gap-4 md:w-[50%] sm:w-[75%] w-[95%] pr-2 pt-2 rounded-xl shadow-[8px_8px_16px_-6px_rgba(0,0,0,0.4)]">
           <div className="sm:text-lg text-md font-medium">
             Module 4: Fundamental Analysis & Long-Term Investing
           </div>
