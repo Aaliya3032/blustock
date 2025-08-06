@@ -39,7 +39,6 @@ const userSchema = new Schema({
     profilePicture:{
         required: false,
         type: String,
-        default: "https://i.pravatar.cc"
     },
     designation:{
         required: false,
