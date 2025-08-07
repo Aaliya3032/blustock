@@ -6,10 +6,8 @@ import { getCourseDetails, getCourseList } from "@/queries/courses";
 import { replaceMongoIdInArray, replaceMongoIdInObject } from "@/lib/convertData";
 
 
-export default async function SingleCoursePage({ params }) {
-  console.log("cwdudILSF",params);
-  
-  const id = params.id;
+export default async function SingleCoursePage({params}) {
+  const {id} = await params
   const course = await getCourseDetails(id)
   const courses = await getCourseList();
   

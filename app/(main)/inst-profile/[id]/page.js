@@ -14,7 +14,8 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
-const InstructorProfile = async ({ params: { id } }) => {
+const InstructorProfile = async ({ params }) => {
+  const {id} = await params
   const courseDetailsByInstructor = await getCourseDetailsByInstructor(
     id.toString()
   );
@@ -29,9 +30,11 @@ const InstructorProfile = async ({ params: { id } }) => {
           <div className="bg-white rounded-2xl p-6 shadow">
             <div className="mb-6">
               <div className="w-36 h-36 rounded-full  mb-5 mx-auto overflow-hidden">
-                <img
+                <Image
                   src={courseDetailsByInstructor?.insImage}
                   alt={courseDetailsByInstructor?.fullInsName}
+                  width={300}
+                  height={300}
                   className="w-full h-full object-cover rounded"
                 />
               </div>
