@@ -209,7 +209,7 @@ const Header = ({ loggedInUser }) => {
                 <div className="cursor-pointer">
                   <Avatar>
                     <AvatarImage
-                      src={loggedInUser?.profilePicture}
+                      src={loggedInUser?.profilePicture ?? "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"}
                       alt="blustock"
                     />
                     <AvatarFallback>User</AvatarFallback>
