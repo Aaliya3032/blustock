@@ -5,8 +5,11 @@ import RelatedCourses from "./_components/RelatedCourses";
 import { getCourseDetails, getCourseList } from "@/queries/courses";
 import { replaceMongoIdInArray, replaceMongoIdInObject } from "@/lib/convertData";
 
-const SingleCoursePage = async({params : {id}}) => {
 
+export default async function SingleCoursePage({ params }) {
+  console.log("cwdudILSF",params);
+  
+  const id = params.id;
   const course = await getCourseDetails(id)
   const courses = await getCourseList();
   
@@ -24,5 +27,4 @@ const SingleCoursePage = async({params : {id}}) => {
       
       </div>
   );
-};
-export default SingleCoursePage;
+}

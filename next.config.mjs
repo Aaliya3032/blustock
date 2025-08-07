@@ -7,6 +7,10 @@ const nextConfig = {
           hostname: "i.pravatar.cc"
       },
       {
+         protocol: "https",
+         hostname: "upload.wikimedia.org"
+      },
+      {
           protocol: "https",
           hostname: "res.cloudinary.com"
       },

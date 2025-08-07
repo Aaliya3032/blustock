@@ -39,6 +39,7 @@ const userSchema = new Schema({
     profilePicture:{
         required: false,
         type: String,
+        default: "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png",
     },
     designation:{
         required: false,

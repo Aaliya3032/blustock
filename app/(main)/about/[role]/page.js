@@ -9,7 +9,7 @@ import Charts from '@/components/Charts';
 
 
 const AboutPage = async({params}) => {
-    const  role  = params?.role;
+    const  { role }  = await params;
     const rawTestimonials = await getAllTestimonials();
 
     const testimonials = rawTestimonials.map(t => ({
