@@ -33,7 +33,7 @@ const ClientTabs = ({categories,courses}) => {
       </ul>
 
       <div className="font-medium text-xl text-white py-4" data-aos="fade-right">
-        Live Trading Session On Monday & Wednesday
+        Live trading session on 3 days a week
       </div>
 
       <div>

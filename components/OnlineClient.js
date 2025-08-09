@@ -39,9 +39,9 @@ const OnlineClient = ({ courses }) => {
                    <div>Sat & Sun</div>
                  </li>
                </ul>
-               <div className="font-semibold lg:text-md md:text-sm sm:text-md text-sm text-primary mt-auto">
-                 Live Trading Session On Mon & Wed
-               </div>
+               {course.duration !== '2 months' && <div className="font-semibold lg:text-md md:text-sm sm:text-md text-sm text-primary mt-auto">
+                 Live trading session on 3 days a week
+               </div> }
              </div>
              <div className="flex flex-row gap-2 items-center justify-between rounded-b-lg px-4 py-6 bg-secondary text-white">
                <div className="flex flex-col">

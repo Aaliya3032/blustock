@@ -19,9 +19,8 @@ const Gallery = () => {
               <Image
                 src={image.src}
                 alt={image.alt}
-                className="w-full h-full object-cover hover:opacity-40 hover:scale-105 duration-300 ease-in-out"
+                className="w-full h-full object-cover hover:scale-105 duration-300 ease-in-out"
               />
-              <span className='text-lg font-semibold absolute text-black top-1/2 left-1/4 opacity-0 group-hover:opacity-100'>{image.text}</span>
             </div>
           ))}
         </div>
