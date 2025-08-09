@@ -6,11 +6,11 @@ import { IoMdArrowDropright } from "react-icons/io";
 
 const OnlineClient = ({ courses }) => {
   return (
-    <div className="flex md:flex-row flex-col gap-4 w-full py-8">
+    <div className="flex flex-wrap md:flex-row flex-col gap-4 w-full py-8">
       {courses.map((course, index) => (
            <div
              key={course.id}
-             className="bg-white rounded-xl md:w-1/3 w-3/4 mx-auto flex flex-col justify-between"
+             className="bg-white rounded-xl md:w-[40%] sm:w-[70%] w-[95%] mx-auto flex flex-col justify-between"
              data-aos={index % 2 === 0 ? "fade-up" : "fade-down"}
            >
              <div className="flex flex-col h-full relative p-4">

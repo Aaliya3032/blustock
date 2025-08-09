@@ -23,58 +23,57 @@ const Network = () => {
         >
           Why Us?
         </div>
-        <div className="w-full flex sm:flex-row justify-between flex-col sm:gap-0 gap-4 sm:pb-16 pb-0">
-            <div className="flex flex-col items-center sm:gap-6 gap-2">
+        <div className="w-full flex flex-wrap justify-between sm:pb-16 pb-0">
+            <div className="w-1/2 lg:w-1/4 flex flex-col items-center text-center gap-2 p-4">
               <div
-                className="lg:text-5xl sm:text-3xl text-xl font-bold"
+                className="md:text-5xl sm:text-3xl text-xl font-bold"
                 data-aos="flip-right"
               >
                 13+
               </div>
-              <div className="font-medium lg:text-xl sm:text-md text-xs">
+              <div className="font-medium md:text-xl text-md">
                 Years of Experience
               </div>
-              <FaShieldAlt className="lg:text-5xl sm:text-3xl text-xl" />
+              <FaShieldAlt className="md:text-5xl text-3xl"/>
             </div>
 
-            <div className="flex flex-col items-center sm:gap-6 gap-2">
+            <div className="w-1/2 lg:w-1/4 flex flex-col items-center text-center gap-2 p-4">
               <div
-                className="lg:text-5xl sm:text-3xl text-xl font-bold"
+                className="md:text-5xl sm:text-3xl text-xl font-bold"
                 data-aos="flip-right"
               >
                 100+
               </div>
-              <div className="font-medium lg:text-xl sm:text-md text-xs">
+              <div className="font-medium md:text-xl text-md">
                 Learners
               </div>
-              <IoPeople className="lg:text-5xl sm:text-3xl text-xl" />
+              <IoPeople className="md:text-5xl text-3xl" />
             </div>
       
-
-            <div className="flex flex-col items-center sm:gap-6 gap-2">
+            <div className="w-1/2 lg:w-1/4 flex flex-col items-center text-center gap-2 p-4">
               <div
-                className="lg:text-5xl sm:text-3xl text-xl font-bold"
+                className="md:text-5xl sm:text-3xl text-xl font-bold"
                 data-aos="flip-right"
               >
                 5 STAR
               </div>
-              <div className="font-medium lg:text-xl sm:text-md text-xs">
+              <div className="font-medium md:text-xl text-md">
                 Google Ratings
               </div>
-              <FaStar className="lg:text-5xl sm:text-3xl text-xl" />
+              <FaStar className="md:text-5xl text-3xl" />
             </div>
 
-            <div className="flex flex-col items-center sm:gap-6 gap-2">
+            <div className="w-1/2 lg:w-1/4 flex flex-col items-center text-center gap-2 p-4">
               <div
-                className="lg:text-5xl sm:text-3xl text-xl font-bold"
+                className="md:text-5xl sm:text-3xl text-xl font-bold"
                 data-aos="flip-right"
               >
                 Professional
               </div>
-              <div className="font-medium lg:text-xl sm:text-md text-xs">
+              <div className="font-medium md:text-xl text-md">
                 Trainer
               </div>
-              <MdOutlineCandlestickChart className="lg:text-5xl sm:text-3xl text-xl" />
+              <MdOutlineCandlestickChart className="md:text-5xl text-3xl" />
            
           </div>
         </div>
