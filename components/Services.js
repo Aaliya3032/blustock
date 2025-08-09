@@ -42,23 +42,8 @@ const Services = () => {
         <div className="flex flex-col py-8 w-full gap-4">
           <div className="flex sm:flex-row flex-col justify-between w-full gap-4">
             {/* LONG TERM */}
-            <div className="relative sm:w-1/2 w-full flex items-center justify-center py-8 px-4 rounded-xl hover:text-white text-primary overflow-hidden transition-all duration-500 group">
-              {/* Background Image - Initially Hidden, Appears on Hover */}
-              <div className="absolute inset-0 transition-all duration-500 opacity-0 group-hover:opacity-100">
-                <Image
-                  src={longterm}
-                  alt="longterm"
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-xl"
-                />
-              </div>
-
-              {/* Dark Overlay - Always Present, Becomes Lighter on Hover */}
-              <div className="absolute inset-0 bg-primary opacity-10 group-hover:opacity-60 transition-opacity duration-500"></div>
-
-              {/* Content */}
-              <div className="relative z-10 text-center">
+            <div className="sm:w-1/2 w-full flex items-center justify-center py-8 px-4 rounded-xl text-primary bg-primary bg-opacity-10">
+              <div className="text-center">
                 <div className="flex flex-row gap-2 justify-center">
                   <MdMoreTime className="text-xl mt-1 flex-none" />
                   <h2 className="text-xl font-bold">
@@ -74,23 +59,8 @@ const Services = () => {
             </div>
 
             {/* PORTFOLIO */}
-            <div className="relative sm:w-1/2 w-full flex items-center justify-center py-8 px-4 rounded-xl hover:text-white text-primary overflow-hidden transition-all duration-500 group">
-              {/* Background Image - Initially Hidden, Appears on Hover */}
-              <div className="absolute inset-0 transition-all duration-500 opacity-0 group-hover:opacity-100">
-                <Image
-                  src={portfolio}
-                  alt="Portfolio"
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-xl"
-                />
-              </div>
-
-              {/* Dark Overlay - Always Present, Becomes Lighter on Hover */}
-              <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
-
-              {/* Content */}
-              <div className="relative z-10 text-center">
+            <div className="sm:w-1/2 w-full flex items-center justify-center py-8 px-4 rounded-xl text-primary">
+              <div className="text-center">
                 <div className="flex flex-row gap-2 justify-center">
                   <FaPenFancy className="text-xl mt-1 flex-none" />
                   <h2 className="text-xl font-bold ">Portfolio Corrections</h2>
@@ -106,23 +76,8 @@ const Services = () => {
 
           <div className="flex sm:flex-row flex-col justify-between w-full gap-4">
             {/* INTRADAY */}
-            <div className="relative sm:w-1/2 w-full flex items-center justify-center py-8 px-4 rounded-xl hover:text-white text-primary overflow-hidden transition-all duration-500 group">
-              {/* Background Image - Initially Hidden, Appears on Hover */}
-              <div className="absolute inset-0 transition-all duration-500 opacity-0 group-hover:opacity-100">
-                <Image
-                  src={swingIntra}
-                  alt="swing"
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-xl"
-                />
-              </div>
-
-              {/* Dark Overlay - Always Present, Becomes Lighter on Hover */}
-              <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
-
-              {/* Content */}
-              <div className="relative z-10 text-center">
+            <div className="sm:w-1/2 w-full flex items-center justify-center py-8 px-4 rounded-xl text-primary">
+              <div className="text-center">
                 <div className="flex flex-row gap-2 justify-center">
                   <GiDuration className="text-xl mt-1 flex-none" />
                   <h2 className="text-xl font-bold ">
@@ -139,22 +94,7 @@ const Services = () => {
             </div>
 
             {/* PSYCHOLOGY */}
-            <div className="relative sm:w-1/2 w-full flex items-center justify-center py-8 px-4 rounded-xl hover:text-white text-primary overflow-hidden transition-all duration-500 group">
-              {/* Background Image - Initially Hidden, Appears on Hover */}
-              <div className="absolute inset-0 transition-all duration-500 opacity-0 group-hover:opacity-100">
-                <Image
-                  src={psycology}
-                  alt="Psychology"
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-xl"
-                />
-              </div>
-
-              {/* Dark Overlay - Always Present, Becomes Lighter on Hover */}
-              <div className="absolute inset-0 bg-primary opacity-10 group-hover:opacity-60 transition-opacity duration-500"></div>
-
-              {/* Content */}
+            <div className="sm:w-1/2 w-full flex items-center justify-center py-8 px-4 rounded-xl text-primary bg-primary bg-opacity-10">
               <div className="relative z-10 text-center">
                 <div className="flex flex-row gap-2 justify-center">
                   <MdOutlinePsychology className="text-xl mt-1 flex-none" />
