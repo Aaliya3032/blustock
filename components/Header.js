@@ -99,15 +99,15 @@ const Header = ({ loggedInUser }) => {
           <h1 className="sm:text-3xl text-xl font-bold ">
             BluStock Consultants
           </h1>
-          <p className="sm:flex hidden sm:text-sm text-xs justify-end font-medium">
+          <p className="sm:flex hidden sm:text-sm text-xs justify-end">
             A Stock Market Academy
           </p>
         </div>
 
         {/* Navbar */}
         <div className="ml-auto flex items-center gap-4">
-          <div className="hidden lg:flex flex-row gap-4 text-lg font-medium text-primary">
-            <Link href="/" className={`${pathname === "/" ? "font-bold" : ""}`}>
+          <div className="hidden lg:flex flex-row gap-4 text-lg text-primary">
+            <Link href="/" className={`${pathname === "/" ? "font-medium border-b-2 border-primary" : ""}`}>
               Home
             </Link>
             <DropdownMenu>
@@ -119,7 +119,7 @@ const Header = ({ loggedInUser }) => {
                     pathname === "/about/faq" ||
                     pathname === "/about/gallery" ||
                     pathname === "/about/charts"
-                      ? "font-bold cursor-pointer"
+                      ? "font-medium border-b-2 border-primary cursor-pointer"
                       : "cursor-pointer"
                   }`}
                 >
@@ -149,13 +149,13 @@ const Header = ({ loggedInUser }) => {
             </DropdownMenu>
             <Link
               href="/courses"
-              className={`${pathname === "/courses" ? "font-bold" : ""}`}
+              className={`${pathname === "/courses" ? "font-medium border-b-2 border-primary" : ""}`}
             >
               Courses
             </Link>
             <Link
               href="/contact"
-              className={`${pathname === "/contact" ? "font-bold" : ""}`}
+              className={`${pathname === "/contact" ? "font-medium border-b-2 border-primary" : ""}`}
             >
               Let&apos;s Talk
             </Link>
@@ -163,7 +163,7 @@ const Header = ({ loggedInUser }) => {
               <>
                 <Link
                   href="/login"
-                  className={`${pathname === "/login" ? "font-bold" : "border-2 border-primary bg-primary text-white rounded-full p-1.5 text-xs flex items-center"}`}
+                  className={`${pathname === "/login" ? "font-medium" : "border-2 border-primary bg-primary text-white rounded-full p-1.5 text-xs flex items-center"}`}
                 >
                   Login
                 </Link>
@@ -173,7 +173,7 @@ const Header = ({ loggedInUser }) => {
                       className={`${
                         pathname === "/register/instructor" ||
                         pathname === "/register/student"
-                          ? "font-bold cursor-pointer"
+                          ? "font-medium cursor-pointer"
                           : "cursor-pointer border-2 border-primary bg-primary text-white rounded-full p-1.5 text-xs flex items-center"
                       }`}
                     >

@@ -26,7 +26,7 @@ const MobileNav = ({ navLinks , closeMenu , loginSession}) => {
             <Link
               key={index}
               href={item.disable ? "#" : item.href}
-              className={cn("flex w-full items-center rounded-md p-1 text-sm font-medium hover:underline",
+              className={cn("flex w-full items-center rounded-md p-1 text-sm hover:underline",
                 item.disable && "cursor-not-allowed opacity-60"
               )}
               onClick={closeMenu}

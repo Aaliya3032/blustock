@@ -10,7 +10,7 @@ const OnlineClient = ({ courses }) => {
       {courses.map((course, index) => (
            <div
              key={course.id}
-             className="bg-white rounded-lg md:w-1/3 w-3/4 mx-auto flex flex-col justify-between"
+             className="bg-white rounded-xl md:w-1/3 w-3/4 mx-auto flex flex-col justify-between"
              data-aos={index % 2 === 0 ? "fade-up" : "fade-down"}
            >
              <div className="flex flex-col h-full relative p-4">
@@ -45,7 +45,7 @@ const OnlineClient = ({ courses }) => {
              </div>
              <div className="flex flex-row gap-2 items-center justify-between rounded-b-lg px-4 py-6 bg-secondary text-white">
                <div className="flex flex-col">
-                 <div className="text-sm text-gray-300 font-medium">price</div>
+                 <div className="text-sm text-gray-300 font-medium">Price</div>
                  <div className="lg:text-2xl md:text-xl sm:text-2xl text-xl font-bold">
                    {formatPrice(course.price)}
                  </div>

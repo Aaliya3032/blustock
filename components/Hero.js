@@ -30,10 +30,10 @@ const Hero = () => {
           </h3>
           <span data-aos="fade-up" className="my-8 text-white sm:text-sm text-xs text-justify">
             At BluStock Consultants, we are dedicated to providing top-tier
-            education in Stock Market Trading and Investment. Our expert
+            education in stock market trading and investment. Our expert
             programs are designed to equip our clients with the essentials
             skills and knowledge needed to navigate and excel in the financial
-            markets. Join us to Master the Art of Trading and Investment with
+            markets. Join us to master the art of trading and investment with
             confidence.
           </span>
           <a
@@ -64,3 +64,7 @@ const Hero = () => {
 };
 
 export default Hero;
+
+// shadow-[<x-offset>_<y-offset>_<blur-radius>_<spread-radius>_rgba(r,g,b,opacity)]
+
+// https://www.spinxdigital.com/blog/best-website-design/

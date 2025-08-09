@@ -117,16 +117,31 @@ const FAQ = () => {
                         <GoPlus />
                       </span>
                       <span>
-                        How is the class material structured? Will there be
-                        additional resources provided?
+                        How is the class material structured?
                       </span>
                     </summary>
                     <p className="text-tertiary pl-10 md:pl-12 sm:text-lg text-base mt-2 group-open:animate-fadeIn">
                       The class material is structured in a step-by-step format,
                       starting with foundational concepts and progressing to
-                      advanced strategies. Additionally, you will have access to
+                      advanced strategies.
+                    </p>
+                  </details>
+                </div>
+                <div className="py-3">
+                  <details className="group">
+                    <summary className="flex justify-start items-center font-medium text-lg sm:text-xl cursor-pointer list-none">
+                      <span className="transition pr-4 group-open:rotate-45">
+                        <GoPlus />
+                      </span>
+                      <span>
+                        Will there be
+                        additional resources provided?
+                      </span>
+                    </summary>
+                    <p className="text-tertiary pl-10 md:pl-12 sm:text-lg text-base mt-2 group-open:animate-fadeIn">
+                      You will have access to
                       PDFs that provide comprehensive information and support
-                      your learning throughout the course
+                      your learning throughout the course.
                     </p>
                   </details>
                 </div>

@@ -27,66 +27,66 @@ const Footer = () => {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-black opacity-60"></div>
-        <div className="w-[85%] mx-auto py-12 relative z-10 flex md:flex-row flex-col gap-8 justify-between">
-          <div className="flex flex-col md:w-1/4 w-3/4 items-start">
-            <div className="text-xl font-bold pb-6">Company</div>
+        <div className="absolute inset-0 bg-black opacity-0"></div>
+        <div className="w-[85%] mx-auto py-12 relative z-10 flex lg:flex-row flex-col gap-8 justify-between">
+          <div className="flex flex-col lg:w-1/4 w-3/4 items-start px-4 py-4 bg-primary bg-opacity-80 rounded-xl">
+            <div className="text-xl font-bold pb-4">Company</div>
             <ul className="flex flex-col items-start">
               <Link href="/">
-                <div className="flex items-center pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
+                <div className="flex items-center pb-1 cursor-pointer hover:scale-105 ease-in-out duration-300">
                   <IoMdArrowDropright className="text-lg flex-none" />
                   <span className="ml-1 font-normal text-sm">Home</span>
                 </div>
               </Link>
               <Link href="/about/overview">
-                <div className="flex items-center pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
+                <div className="flex items-center pb-1 cursor-pointer hover:scale-105 ease-in-out duration-300">
                   <IoMdArrowDropright className="text-lg flex-none" />
                   <span className="ml-1 font-normal text-sm">Overview</span>
                 </div>
               </Link>
               <Link href="/about/testimonials">
-                <div className="flex items-center pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
+                <div className="flex items-center pb-1 cursor-pointer hover:scale-105 ease-in-out duration-300">
                   <IoMdArrowDropright className="text-lg flex-none" />
                   <span className="ml-1 font-normal text-sm">Testimonials</span>
                 </div>
               </Link>
               <Link href="/about/charts">
-                <div className="flex items-center pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
+                <div className="flex items-center pb-1 cursor-pointer hover:scale-105 ease-in-out duration-300">
                   <IoMdArrowDropright className="text-lg flex-none" />
                   <span className="ml-1 font-normal text-sm">Market Hits</span>
                 </div>
               </Link>
               <Link href="/about/gallery">
-                <div className="flex items-center pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
+                <div className="flex items-center pb-1 cursor-pointer hover:scale-105 ease-in-out duration-300">
                   <IoMdArrowDropright className="text-lg flex-none" />
                   <span className="ml-1 font-normal text-sm">Gallery</span>
                 </div>
               </Link>
               <Link href="/about/faq">
-                <div className="flex items-center pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
+                <div className="flex items-center pb-1 cursor-pointer hover:scale-105 ease-in-out duration-300">
                   <IoMdArrowDropright className="text-lg flex-none" />
                   <span className="ml-1 font-normal text-sm">FAQs</span>
                 </div>
               </Link>
               <Link href="/contact">
-                <div className="flex items-center pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
+                <div className="flex items-center pb-1 cursor-pointer hover:scale-105 ease-in-out duration-300">
                   <IoMdArrowDropright className="text-lg flex-none" />
                   <span className="ml-1 font-normal text-sm">Contact Us</span>
                 </div>
               </Link>
               <Link href="/courses">
-                <div className="flex items-center pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
+                <div className="flex items-center pb-1 cursor-pointer hover:scale-105 ease-in-out duration-300">
                   <IoMdArrowDropright className="text-lg flex-none" />
                   <span className="ml-1 font-normal text-sm">Courses</span>
                 </div>
               </Link>
             </ul>
           </div>
-          <div className="flex flex-col md:w-1/4 w-3/4 items-start">
-            <div className="text-xl font-bold pb-6">Courses</div>
+          <div className="flex flex-col lg:w-1/4 w-3/4 items-start px-4 py-4 bg-secondary bg-opacity-80 rounded-xl">
+            <div className="text-xl font-bold pb-4">Courses</div>
             <ul className="flex flex-col items-start">
               <Link href="/courses/6648184a6fe803e9128d7fba">
-                <div className="flex items-center pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
+                <div className="flex items-center pb-1 cursor-pointer hover:scale-105 ease-in-out duration-300">
                   <IoMdArrowDropright className="text-lg flex-none" />
                   <span className="ml-1 font-normal text-sm">
                     Basic to advance
@@ -94,7 +94,7 @@ const Footer = () => {
                 </div>
               </Link>
               <Link href="/courses/664aca881387e2ad2e8be484">
-                <div className="flex items-start pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
+                <div className="flex items-start pb-1 cursor-pointer hover:scale-105 ease-in-out duration-300">
                   <IoMdArrowDropright className="text-lg flex-none mt-1" />
                   <span className="ml-1 font-normal text-sm">
                     Mentorship classes + Stock Advisory Services
@@ -102,7 +102,7 @@ const Footer = () => {
                 </div>
               </Link>
               <Link href="/courses/680b423dbfd01c84fd056fbe">
-                <div className="flex items-start pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
+                <div className="flex items-start pb-1 cursor-pointer hover:scale-105 ease-in-out duration-300">
                   <IoMdArrowDropright className="text-lg flex-none mt-1" />
                   <span className="ml-1 font-normal text-sm">
                     Mentorship classes + Stock Advisory + Options Advisory
@@ -112,8 +112,8 @@ const Footer = () => {
               </Link>
             </ul>
           </div>
-          <div className="flex flex-col md:w-1/4 w-3/4 items-start">
-            <div className="text-xl font-bold pb-6">Follow Us</div>
+          <div className="flex flex-col lg:w-1/4 w-3/4 items-start px-4 py-4 bg-primary bg-opacity-80 rounded-xl">
+            <div className="text-xl font-bold pb-4">Follow Us</div>
             <ul className="flex flex-row items-start gap-2 pb-4">
               <Link href="https://www.facebook.com/share/16A6BCEboT/" target="_blank">
                 <FaFacebook className="text-xl flex-none cursor-pointer hover:scale-105 ease-in-out duration-300" />
@@ -148,15 +148,15 @@ const Footer = () => {
               <Link href="mailto:blustockconsultants@gmail.com" target="_blank" rel="noopener noreferrer">
                 <div className="flex items-center pb-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
                   <MdOutlineMailOutline className="text-xl flex-none" />
-                  <span className="ml-2 font-normal text-sm">
+                  <span className="ml-2 font-normal text-sm break-all">
                     blustockconsultants@gmail.com
                   </span>
                 </div>
               </Link>
             </ul>
           </div>
-          <div className="flex flex-col md:w-1/4 w-3/4 items-start">
-            <div className="text-xl font-bold pb-6">BluStock consultants</div>
+          <div className="flex flex-col lg:w-1/4 w-3/4 items-start">
+            <div className="text-2xl font-bold pb-6">BluStock Consultants</div>
             <div className="pb-4 w-[90%] mx-auto md:h-56 h-72 lg:h-72 ">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3556.6284072398744!2d75.73350617405826!3d26.946992358619006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db33f7fcf2685%3A0x2c7b1c7adb6e1448!2sBluStock%20Consultants!5e0!3m2!1sen!2sin!4v1742630713978!5m2!1sen!2sin"

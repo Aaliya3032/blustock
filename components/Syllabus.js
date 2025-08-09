@@ -11,9 +11,9 @@ const Syllabus = () => {
       <div className="font-bold text-xl"  data-aos="fade-right">Stock Trading Course Outline</div>
 
       <div className="flex flex-row md:items-center items-start md:justify-center justify-start">
-        <div className="flex flex-col gap-4 md:w-[50%] sm:w-[75%] w-[95%] pr-2 pt-2 rounded-xl shadow-[8px_8px_16px_-6px_rgba(0,0,0,0.4)]">
-          <div className="sm:text-lg text-md font-medium">
-            Module 1: Introduction To Financial Markets
+        <div className="flex flex-col gap-4 md:w-[50%] sm:w-[75%] w-[95%] pr-2 pt-2 bg-secondary bg-opacity-10 rounded-xl shadow-[8px_8px_8px_-3px_rgba(0,0,0,0.1)]">
+          <div className="sm:text-lg text-md font-medium ml-2">
+            Module 1 : Introduction To Financial Markets
           </div>
           <ul className="text-[#406191] list-disc ml-8 mb-4">
             <li>Introduction to Capital Market</li>
@@ -35,9 +35,9 @@ const Syllabus = () => {
         <div className="w-[50%] md:block hidden" data-aos="zoom-in">
           <Image src={Hero1} alt="md1" className="lg:w-[70%] w-[90%] mr-auto border-1 border-primary" />
         </div>
-        <div className="flex flex-col gap-4 md:w-[50%] sm:w-[75%] w-[95%] pr-2 pt-2 rounded-xl shadow-[8px_8px_16px_-6px_rgba(0,0,0,0.4)]">
-          <div className="sm:text-lg text-md font-medium">
-            Module 2: Understanding Price Action & Chart Analysis
+        <div className="flex flex-col gap-4 md:w-[50%] sm:w-[75%] w-[95%] bg-secondary bg-opacity-30 pr-2 pt-2 rounded-xl shadow-[8px_8px_8px_-3px_rgba(0,0,0,0.1)]">
+          <div className="sm:text-lg text-md font-medium ml-2">
+            Module 2 : Understanding Price Action & Chart Analysis
           </div>
           <ul className="text-[#406191] list-disc ml-8 mb-4">
             <li>Types of Market Structure</li>
@@ -54,9 +54,9 @@ const Syllabus = () => {
       </div>
 
       <div className="flex flex-row md:items-center items-start md:justify-center justify-start">
-        <div className="flex flex-col gap-4 md:w-[50%] sm:w-[75%] w-[95%] pr-2 pt-2 rounded-xl shadow-[8px_8px_16px_-6px_rgba(0,0,0,0.4)]">
-          <div className="sm:text-lg text-md font-medium">
-            Module 3: Trading Setups Equity Markets
+        <div className="flex flex-col gap-4 md:w-[50%] sm:w-[75%] w-[95%] bg-secondary bg-opacity-10 pr-2 pt-2 rounded-xl shadow-[8px_8px_8px_-3px_rgba(0,0,0,0.1)]">
+          <div className="sm:text-lg text-md font-medium ml-2">
+            Module 3 : Trading Setups Equity Markets
           </div>
           <ul className="text-[#406191] list-disc ml-8 mb-4">
             <li>Trading Breakouts</li>
@@ -77,12 +77,12 @@ const Syllabus = () => {
         <div className="w-[50%] md:block hidden" data-aos="zoom-in">
           <Image src={longterm2} alt="md1" className="lg:w-[70%] w-[90%] mr-auto border-1 border-primary" />
         </div>
-        <div className="flex flex-col gap-4 md:w-[50%] sm:w-[75%] w-[95%] pr-2 pt-2 rounded-xl shadow-[8px_8px_16px_-6px_rgba(0,0,0,0.4)]">
-          <div className="sm:text-lg text-md font-medium">
-            Module 4: Fundamental Analysis & Long-Term Investing
+        <div className="flex flex-col gap-4 md:w-[50%] sm:w-[75%] w-[95%] bg-secondary bg-opacity-30 pr-2 pt-2 rounded-xl shadow-[8px_8px_8px_-3px_rgba(0,0,0,0.1)]">
+          <div className="sm:text-lg text-md font-medium ml-2">
+            Module 4 : Fundamental Analysis & Long-Term Investing
           </div>
           <ul className="text-[#406191] list-disc ml-8 mb-4">
-            <li>Fundamental Analysi</li>
+            <li>Fundamental Analysis</li>
             <li>Power of SIPs</li>
             <li>Index Funds & Mutual Funds</li>
             <li>IPOs & FPOs</li>
