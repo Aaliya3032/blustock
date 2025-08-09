@@ -1,6 +1,6 @@
 'use client';
 import React from "react";
-import bg from "../assets/footer_bg.jpg";
+import bg from "../assets/Hero_bg.jpg";
 import Link from "next/link";
 import { IoMdArrowDropright } from "react-icons/io";
 import { FaPhoneAlt } from "react-icons/fa";
