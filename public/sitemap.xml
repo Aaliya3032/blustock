@@ -3,7 +3,7 @@ export async function GET() {
   const baseUrl = 'https://www.blustockconsultants.com'; 
 
   const routes = [
-    '',            
+    '/',            
     '/about',       
     '/contact',   
     '/courses',   
