@@ -7,13 +7,12 @@ export async function GET() {
     '/about',       
     '/contact',   
     '/courses',   
-    '/contact',  
     '/login',
     '/register',
     '/account',
     '/dashboard',
     '/forgot-password',
-    '/reset-password',
+    '/reset-password',  
     '/inst-profile',
   ];
 
