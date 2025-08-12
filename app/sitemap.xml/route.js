@@ -29,9 +29,9 @@ export async function GET() {
       .join('')}
   </urlset>`;
 
-  return new Response(body, {
+  return new Response(body.trim(), {
     headers: {
-      'Content-Type': 'application/xml',
+      'Content-Type': 'application/xml; charset=utf-8',
     },
   });
 }
