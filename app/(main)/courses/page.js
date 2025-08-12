@@ -8,6 +8,11 @@ import CourseCard from "./_components/CourseCard";
 import { getCourseList } from "@/queries/courses";
 import { getCategories } from "@/queries/categories";
 
+export const metadata = {
+  title: 'Our Courses - Blustock Consultants',
+  description: 'Explore our professional training courses designed to help you excel in your career and business.',
+};
+
 const CoursesPage = async () => {
   const courses = await getCourseList();
   const categories = await getCategories()

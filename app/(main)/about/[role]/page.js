@@ -7,6 +7,11 @@ import { getAllTestimonials } from '@/queries/testimonials';
 import Gallery from '@/components/Gallery';
 import Charts from '@/components/Charts';
 
+export const metadata = {
+  title: 'About Us - Blustock Consultants',
+  description: 'Learn more about Blustock Consultants, our mission, and our team.',
+};
+
 
 const AboutPage = async({params}) => {
     const  { role }  = await params;

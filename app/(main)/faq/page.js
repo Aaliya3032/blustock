@@ -1,6 +1,11 @@
 import React from 'react'
 import { GoPlus } from "react-icons/go";
 
+export const metadata = {
+  title: 'Frequently Asked Questions - Blustock Consultants',
+  description: 'Find answers to common questions about our services, courses, and company policies.',
+};
+
 const FAQ = () => {
   return (
     <div className="w-full bg-gradient-to-br from-[#f5f7fa] to-[#c3cfe2]">

@@ -5,6 +5,11 @@ import call from "../../../assets/Call.png";
 import mail from "../../../assets/mail.png";
 import Link from "next/link";
 
+export const metadata = {
+  title: 'Contact Us - Blustock Consultants',
+  description: 'Get in touch with Blustock Consultants via phone, email, or contact form.',
+};
+
 const Contact = () => {
   return (
     <div

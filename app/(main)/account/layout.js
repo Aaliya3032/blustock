@@ -2,6 +2,11 @@ import React from "react";
 import AccountSidebar from "./component/account-sidebar";
 import bg from '../../../assets/profile_bg.jpg'
 
+export const metadata = {
+  title: 'Your Account - Blustock Consultants',
+  description: 'Manage your profile, settings, and more in your account dashboard.',
+};
+
 function Layout({ tabs }) {
 	return (
 		<div className="w-full relative "
