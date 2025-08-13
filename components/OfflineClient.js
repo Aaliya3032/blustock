@@ -14,7 +14,7 @@ const OfflineClient = ({ courses }) => {
              data-aos={index % 2 === 0 ? "fade-up" : "fade-down"}
            >
              <div className="flex flex-col h-full relative p-4">
-               <div className="flex flex-col mb-10 mt-2">
+               <div className="flex flex-col mb-4 mt-2">
                  <div className="lg:text-3xl md:text-2xl text-3xl font-bold text-primary">
                    {course.title}
                  </div>
@@ -39,7 +39,7 @@ const OfflineClient = ({ courses }) => {
                    <div>Sat & Sun</div>
                  </li>
                </ul>
-               {course.duration !== '2 months' && <div className="font-semibold lg:text-md md:text-sm sm:text-md text-sm text-primary mt-auto">
+               {course.duration !== '2 months' && <div className="font-semibold flex justify-end items-end mt-4 lg:text-md md:text-sm sm:text-md text-sm text-primary">
                  Live trading session on 3 days a week
                </div> }
              </div>
