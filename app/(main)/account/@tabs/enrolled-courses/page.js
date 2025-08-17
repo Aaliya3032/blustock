@@ -3,6 +3,7 @@ import EnrolledCourseCard from "../../component/enrolled-coursecard";
 import { redirect } from "next/navigation";
 import { getUserByEmail } from "@/queries/users";
 import { getEnrollmentsForUser } from "@/queries/enrollments";
+import Link from "next/link";
 
 
 async function EnrolledCourses() {
@@ -23,7 +24,12 @@ console.log("gfhfm",enrollments)
 			enrollments && enrollments.length > 0 ? (
 				<>
 				{ enrollments.map((enrollment) => (
+					<Link
+					key={enrollment?.id}
+					href={`/courses/${enrollment.course._id.toString()}/lesson`}
+					>
 					<EnrolledCourseCard key={enrollment?.id} enrollment={enrollment}  />
+					</Link>
 				))}
 				</>
 

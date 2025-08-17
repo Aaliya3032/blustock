@@ -1,27 +1,42 @@
+'use client'
 import {
   Accordion,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { SidebarLessons } from "./sidebar-lessons";
+import { replaceMongoIdInArray } from "@/lib/convertData";
+import { useSearchParams } from "next/navigation";
 
+export const SidebarModules = ({ courseId, modules }) => {
 
-export const SidebarModules = () => {
-      
-    return (
-       <Accordion
-          defaultValue="item-1"
-          type="single"
-          collapsible
-          className="w-full px-6"
-        >
-          {/* item */}
-          <AccordionItem className="border-0" value="item-1">
-            <AccordionTrigger>Introduction </AccordionTrigger>
-            <SidebarLessons/>
-          </AccordionItem>
-          {/* item ends */}
+  const searchParams = useSearchParams()
+  const allModules = replaceMongoIdInArray(modules).toSorted(
+    (a, b) => a.order - b.order
+  );
 
-        </Accordion>
-    )
-}
+  const query = searchParams.get('name');
+  const expandModule = allModules.find((module) => {
+    return module.lessonIds.find((lesson) => {
+      return lesson.slug === query;
+    })
+  })
+
+  const expandModuleId = expandModule?.id ?? allModules[0].id
+
+  return (
+    <Accordion
+      defaultValue={expandModuleId}
+      type="single"
+      collapsible 
+      className="w-full px-6"
+    >
+      {allModules.map((module) => (
+        <AccordionItem className="border-0" value={module.id} key={module.id}>
+          <AccordionTrigger>{module.title}</AccordionTrigger>
+          <SidebarLessons courseId={courseId} lessons={module.lessonIds} module={module.slug}/>
+        </AccordionItem>
+      ))}
+    </Accordion>
+  );
+};
