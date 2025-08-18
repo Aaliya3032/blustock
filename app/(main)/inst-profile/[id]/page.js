@@ -15,7 +15,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const InstructorProfile = async ({ params }) => {
-  const {id} = await params
+  const { id } = await params;
   const courseDetailsByInstructor = await getCourseDetailsByInstructor(
     id.toString()
   );
@@ -31,7 +31,11 @@ const InstructorProfile = async ({ params }) => {
             <div className="mb-6">
               <div className="w-36 h-36 rounded-full  mb-5 mx-auto overflow-hidden">
                 <Image
-                  src={courseDetailsByInstructor?.insImage}
+                  src={
+                    courseDetailsByInstructor?.insImage
+                      ? `/${courseDetailsByInstructor.insImage}`
+                      : "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+                  }
                   alt={courseDetailsByInstructor?.fullInsName}
                   width={300}
                   height={300}
@@ -71,9 +75,9 @@ const InstructorProfile = async ({ params }) => {
             <p className="text-gray-600 text-xs leading-[1.8] text-justify">
               Hi there! I’m your Trading Instructor—founder of BluStock
               Consultants and a dedicated market educator. With over 13 years of
-              hands‑on experience navigating the stock market, I’ve guided
-              100+ students to profitable, confident trading. My approach
-              is project‑based and results‑driven: you’ll learn practical
+              hands‑on experience navigating the stock market, I’ve guided 100+
+              students to profitable, confident trading. My approach is
+              project‑based and results‑driven: you’ll learn practical
               strategies, risk management, and trading psychology through
               real‑time market examples. At BluStock, our mission is to empower
               you with the skills and mindset needed for long‑term financial

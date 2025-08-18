@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { MobileSidebar } from "./mobile-sidebar";
 import {
   DropdownMenu,
@@ -9,24 +9,24 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
-import { signOut } from 'next-auth/react';
+import { signOut } from "next-auth/react";
 
 export const Navbar = () => {
   const [loggedInUser, setLoggedInUser] = useState(null);
 
-  useEffect(() => { 
-        async function fetchMe() {
-            try {
-                const response = await fetch("/api/me");
-                const data = await response.json();
-               // console.log(data);
-                setLoggedInUser(data);
-            } catch (error) {
-                console.log(error)
-            }
-        }
-        fetchMe();
-    },[]);
+  useEffect(() => {
+    async function fetchMe() {
+      try {
+        const response = await fetch("/api/me");
+        const data = await response.json();
+        // console.log(data);
+        setLoggedInUser(data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchMe();
+  }, []);
   return (
     <div className="p-4 border-b h-full flex items-center bg-white shadow-sm">
       <MobileSidebar />
@@ -36,7 +36,11 @@ export const Navbar = () => {
             <div className="cursor-pointer">
               <Avatar>
                 <AvatarImage
-                  src={loggedInUser?.profilePicture}
+                  src={
+                    loggedInUser?.profilePicture
+                      ? `/${loggedInUser.profilePicture}`
+                      : "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+                  }
                   alt="@shadcn"
                 />
                 <AvatarFallback>CN</AvatarFallback>
@@ -48,7 +52,14 @@ export const Navbar = () => {
               <Link href="/account">Profile</Link>
             </DropdownMenuItem>
             <DropdownMenuItem className="cursor-pointer">
-              <Link href="#" onClick={() => {signOut({ callbackUrl: '/' })}} >Logout</Link>
+              <Link
+                href="#"
+                onClick={() => {
+                  signOut({ callbackUrl: "/" });
+                }}
+              >
+                Logout
+              </Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

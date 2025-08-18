@@ -107,7 +107,12 @@ const Header = ({ loggedInUser }) => {
         {/* Navbar */}
         <div className="ml-auto flex items-center gap-4">
           <div className="hidden lg:flex flex-row gap-4 text-lg text-primary">
-            <Link href="/" className={`${pathname === "/" ? "font-medium border-b-2 border-primary" : ""}`}>
+            <Link
+              href="/"
+              className={`${
+                pathname === "/" ? "font-medium border-b-2 border-primary" : ""
+              }`}
+            >
               Home
             </Link>
             <DropdownMenu>
@@ -149,13 +154,21 @@ const Header = ({ loggedInUser }) => {
             </DropdownMenu>
             <Link
               href="/courses"
-              className={`${pathname === "/courses" ? "font-medium border-b-2 border-primary" : ""}`}
+              className={`${
+                pathname === "/courses"
+                  ? "font-medium border-b-2 border-primary"
+                  : ""
+              }`}
             >
               Courses
             </Link>
             <Link
               href="/contact"
-              className={`${pathname === "/contact" ? "font-medium border-b-2 border-primary" : ""}`}
+              className={`${
+                pathname === "/contact"
+                  ? "font-medium border-b-2 border-primary"
+                  : ""
+              }`}
             >
               Let&apos;s Talk
             </Link>
@@ -163,7 +176,11 @@ const Header = ({ loggedInUser }) => {
               <>
                 <Link
                   href="/login"
-                  className={`${pathname === "/login" ? "font-medium" : "border-2 border-primary bg-primary text-white rounded-full p-1.5 text-xs flex items-center"}`}
+                  className={`${
+                    pathname === "/login"
+                      ? "font-medium"
+                      : "border-2 border-primary bg-primary text-white rounded-full p-1.5 text-xs flex items-center"
+                  }`}
                 >
                   Login
                 </Link>
@@ -209,7 +226,11 @@ const Header = ({ loggedInUser }) => {
                 <div className="cursor-pointer">
                   <Avatar>
                     <AvatarImage
-                      src={loggedInUser?.profilePicture ?? "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"}
+                      src={
+                        loggedInUser?.profilePicture
+                          ? `/${loggedInUser.profilePicture}`
+                          : "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+                      }
                       alt="blustock"
                     />
                     <AvatarFallback>User</AvatarFallback>
@@ -231,7 +252,9 @@ const Header = ({ loggedInUser }) => {
                     className="cursor-pointer hover:font-medium"
                     asChild
                   >
-                    <Link href="/dashboard"><strong>Instructor Dashboard</strong></Link>
+                    <Link href="/dashboard">
+                      <strong>Instructor Dashboard</strong>
+                    </Link>
                   </DropdownMenuItem>
                 )}
                 <DropdownMenuItem
@@ -254,7 +277,7 @@ const Header = ({ loggedInUser }) => {
                     href=""
                     onClick={(e) => {
                       e.preventDefault();
-                      signOut({ callbackUrl: '/' });
+                      signOut({ callbackUrl: "/" });
                     }}
                   >
                     Logout
