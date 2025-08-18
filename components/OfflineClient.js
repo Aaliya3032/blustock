@@ -1,7 +1,9 @@
 "use client"
 import { formatPrice } from "@/lib/formatPrice";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import bg from "../assets/newbie.png"
 import { IoMdArrowDropright } from "react-icons/io";
 
 const OfflineClient = ({ courses }) => {
@@ -39,8 +41,15 @@ const OfflineClient = ({ courses }) => {
                    <div>Sat & Sun</div>
                  </li>
                </ul>
-               {course.duration !== '2 months' && <div className="font-semibold flex justify-end items-end mt-4 lg:text-md md:text-sm sm:text-md text-sm text-primary">
+               {course.duration === '2 months' && <div className="flex flex-row mt-4 ml-1 gap-1">
+                 <Image src={bg} alt="beginner" height={24} width={24}/>
+                 <span className="font-semibold text-secondary">Beginner</span>
+               </div>
+               }
+               {course.duration !== '2 months' ? <div className="font-semibold flex justify-end items-end mt-4 lg:text-md md:text-sm sm:text-md text-sm text-primary">
                  Live trading session on 3 days a week
+               </div> : <div className="font-semibold flex justify-end items-end mt-4 lg:text-md md:text-sm sm:text-md text-sm text-primary">
+                 Learn Profitable Stock Market Strategies
                </div> }
              </div>
              <div className="flex flex-row gap-2 items-center justify-between rounded-b-lg px-4 py-6 bg-secondary text-white">
