@@ -1,24 +1,36 @@
+import { getAllInstructors } from "@/queries/users";
+
 // app/sitemap.xml/route.js
 export async function GET() {
   const baseUrl = 'https://www.blustockconsultants.com'; 
 
-  const routes = [
+  const staticRoutes = [
     '/',            
-    '/about',       
+    '/about/overview',       
+    '/about/charts',       
+    '/about/gallery',       
+    '/about/faq',       
     '/contact',   
     '/courses',   
     '/login',
-    '/register',
+    '/register/student',
+    '/register/instructor',
     '/account',
     '/dashboard',
     '/forgot-password',
     '/reset-password',  
-    '/inst-profile',
   ];
+
+  const instructors = await getAllInstructors();
+  const instructorRoutes = instructors.map(
+    (inst) => `/inst-profile/${inst.id}`
+  );
+
+   const allRoutes = [...staticRoutes, ...instructorRoutes];
 
   const body = `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    ${routes
+    ${allRoutes
       .map(
         (route) => `
       <url>

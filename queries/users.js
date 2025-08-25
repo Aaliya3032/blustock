@@ -19,3 +19,8 @@ export async function validatePassword(email, password){
     );
     return isMatch
 }
+
+export async function getAllInstructors(){
+    const instructors = await User.find({role: "instructor"}).lean()
+    return replaceMongoIdInArray(instructors)
+}

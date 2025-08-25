@@ -1,3 +1,4 @@
+"use client";
 import React from 'react'
 import { Button, buttonVariants } from './ui/button'
 import { ArrowRight } from 'lucide-react'
@@ -18,6 +19,12 @@ const EnrollCourse = ({asLink}) => {
           </Button>
         ) : (
             <Button
+            onClick={() =>
+              window.open(
+                "https://docs.google.com/forms/d/e/1FAIpQLSeDyzfidlAE2inprG_UQbEByRXniIfIPpGnexereTkCTEik0Q/viewform",
+                "_blank"
+              )
+            }
              type="submit" className={cn(buttonVariants({ size: "lg" }))}>
                 Enroll Now
               </Button>
