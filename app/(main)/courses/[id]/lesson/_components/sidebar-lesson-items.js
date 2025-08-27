@@ -4,6 +4,7 @@ import { CheckCircle, Lock, PlayCircle } from "lucide-react";
 import Link from "next/link";
 
 export const SidebarLessonItem = ({courseId,lesson,module}) => {
+  
     const isPrivate = (lesson) => {
       return lesson?.access === "private"
     }

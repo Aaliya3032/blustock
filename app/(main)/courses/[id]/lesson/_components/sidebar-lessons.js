@@ -12,7 +12,7 @@ export const SidebarLessons = ({courseId,lessons,module}) => {
               <div className="flex flex-col w-full gap-3">
                 {
                   allLessons.map((lesson)=> (
-                    <SidebarLessonItem key={lesson.id} courseId={courseId} lesson={lesson} module={module.slug}/>
+                    <SidebarLessonItem key={lesson.id} courseId={courseId} lesson={lesson} module={module}/>
                   ))
                 }
               </div>
