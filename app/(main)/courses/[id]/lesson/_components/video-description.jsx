@@ -34,18 +34,18 @@ function VideoDescription({description}) {
 					<TabsTrigger className="capitalize" value="details">
 						Description
 					</TabsTrigger>
-					<TabsTrigger className="capitalize" value="quiz">
+					{/* <TabsTrigger className="capitalize" value="quiz">
 						Quiz
-					</TabsTrigger>
+					</TabsTrigger> */}
 				</TabsList>
 				<div className="pt-3">
 					<TabsContent value="details">
 						<div>{description}</div>
 					</TabsContent>
-					<TabsContent value="quiz">
+					{/* <TabsContent value="quiz">
 						<p className="mb-4">Quiz notes</p>
 						<QuizModal quizes={quizes} />
-					</TabsContent>
+					</TabsContent> */}
 				</div>
 			</Tabs>
 		</div>
