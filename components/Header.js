@@ -263,12 +263,12 @@ const Header = ({ loggedInUser }) => {
                 >
                   <Link href="/account/enrolled-courses">My Courses</Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem
+                {/* <DropdownMenuItem
                   className="cursor-pointer hover:font-medium"
                   asChild
                 >
                   <Link href="">Testimonials & Certificates</Link>
-                </DropdownMenuItem>
+                </DropdownMenuItem> */}
                 <DropdownMenuItem
                   className="cursor-pointer hover:font-medium"
                   asChild
