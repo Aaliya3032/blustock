@@ -8,7 +8,18 @@ import { revalidatePath } from 'next/cache';
 export async function updateUserInfo(email,updatedData){
     try {
         const filter = {email: email};
-        await User.findOneAndUpdate(filter,updatedData);
+         const cleanedData = {};
+    for (const [key, value] of Object.entries(updatedData)) {
+      if (
+        value !== undefined &&
+        value !== null &&
+        value !== "" &&
+        value !== "$undefined"
+      ) {
+        cleanedData[key] = value;
+      }
+    }
+        await User.findOneAndUpdate(filter,cleanedData,{new: true});
         revalidatePath('/account');
     } catch (error) {
         throw new Error(error);
