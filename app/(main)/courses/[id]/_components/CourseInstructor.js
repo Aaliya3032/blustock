@@ -22,7 +22,7 @@ const CourseInstructor = async ({ course }) => {
           <Image
             src={
               instructor?.profilePicture
-                ? `/${instructor.profilePicture}`
+                ? instructor.profilePicture
                 : "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
             }
             alt={fullName}

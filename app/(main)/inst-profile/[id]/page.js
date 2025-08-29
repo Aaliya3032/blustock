@@ -33,7 +33,7 @@ const InstructorProfile = async ({ params }) => {
                 <Image
                   src={
                     courseDetailsByInstructor?.insImage
-                      ? `/${courseDetailsByInstructor.insImage}`
+                      ? courseDetailsByInstructor.insImage
                       : "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
                   }
                   alt={courseDetailsByInstructor?.fullInsName}

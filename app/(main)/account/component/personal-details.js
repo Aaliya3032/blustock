@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
+import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import { toast } from 'sonner'
 
@@ -15,7 +16,9 @@ const PersonalDetails = ({userInfo}) => {
         "email" : userInfo.email,
         "designation" : userInfo.designation,
         "bio" : userInfo.bio, 
+        "profilePicture": userInfo.profilePicture,
     });
+    const router = useRouter();
 
     const handleChange = (event) => {
         const field = event.target.name;
@@ -24,13 +27,48 @@ const PersonalDetails = ({userInfo}) => {
             ...infoState, [field]: value
         });
     }
-    // console.log(infoState);
+   
+   const handleFileChange = async (event) => {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  // local preview before upload
+  const localPreview = URL.createObjectURL(file);
+  setInfoState((prev) => ({
+    ...prev,
+    profilePicture: localPreview, // temp preview
+  }));
+
+  const formData = new FormData();
+  formData.append("file", file);
+   formData.append("email", userInfo.email);
+
+  const res = await fetch("/api/upload", {
+    method: "POST",
+    body: formData,
+  });
+
+  const data = await res.json();
+
+  if (res.ok && data.fileName) {
+    setInfoState((prev) => ({
+      ...prev,
+      profilePicture: data.fileName, // just store path, not base64
+    }));
+     // refresh server components (sidebar) so it reads updated DB profilePicture
+      router.refresh();
+      toast.success("Image uploaded");
+  }else {
+      toast.error("Upload failed");
+    }
+};
 
     const handleUpdate = async (event) => {
         event.preventDefault();
         try {
             await updateUserInfo(userInfo?.email,infoState);
             toast.success("User details updated successfully");
+            router.refresh();
         } catch (error) {
             toast.error(`Error: ${error.message}`);
         }
@@ -92,6 +130,17 @@ const PersonalDetails = ({userInfo}) => {
                                     onChange={handleChange}
                                 />
                             </div>
+                        </div>
+                        <div className="mt-5">
+                           <Label className="mb-2 block text-tertiary">Profile Picture :</Label>
+                           <Input type="file" accept="image/*" onChange={handleFileChange} />
+                           {infoState.profilePicture && (
+                           <img
+                            src={infoState.profilePicture}
+                            alt="preview"
+                            className="mt-3 w-24 h-24 rounded-full object-cover"
+                           />
+                                                       )}
                         </div>
                         {/*end grid*/}
                         <div className="grid grid-cols-1">

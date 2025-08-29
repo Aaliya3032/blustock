@@ -27,7 +27,7 @@ const CourseDetails = ({ course }) => {
               className="w-[40px] h-[40px] rounded-full"
               src={
                 course?.instructor?.profilePicture
-                  ? `/${course.instructor.profilePicture}`
+                  ? course.instructor.profilePicture
                   : "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
               }
               width={20}

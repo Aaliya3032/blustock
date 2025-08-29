@@ -74,7 +74,7 @@ const Testimonials = ({ testimonials }) => {
                         alt={`Profile ${testimonial?.user?.firstName}`}
                         src={
                           testimonial?.user?.profilePicture
-                            ? `/${testimonial.user.profilePicture}`
+                            ? testimonial.user.profilePicture
                             : "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
                         }
                         width="56"
