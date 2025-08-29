@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { toast } from "sonner";
 
@@ -18,7 +17,6 @@ const PersonalDetails = ({ userInfo }) => {
     profilePicture: userInfo.profilePicture,
   });
   const [preview, setPreview] = useState(null);
-  const router = useRouter();
 
   const handleChange = (event) => {
     const field = event.target.name;
@@ -33,40 +31,34 @@ const PersonalDetails = ({ userInfo }) => {
   const file = e.target.files[0];
   if (!file) return;
 
-  try {
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("upload_preset", "your_upload_preset"); // apna preset name daalna
-    formData.append("folder", "user_profiles"); // folder optional hai
+  setPreview(URL.createObjectURL(file));
 
-    // Cloudinary upload
-    const response = await fetch(
-      `https://api.cloudinary.com/v1_1/your_cloud_name/image/upload`,
-      {
+  try {
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("email", userInfo.email);
+
+      const res = await fetch("/api/upload", {
         method: "POST",
         body: formData,
-      }
-    );
-
-    const data = await response.json();
-
-    if (data.secure_url) {
-      // Yehi URL mongoDB me save karna hai
-      console.log("Uploaded Image URL:", data.secure_url);
-
-      // ab apna API call jo mongoDB me save karega
-      await fetch("/api/update-profile-picture", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ imageUrl: data.secure_url }),
       });
 
-    } else {
-      console.error("Cloudinary upload failed:", data);
+      if (!res.ok) {
+        throw new Error("Upload failed");
+      }
+
+      const data = await res.json();
+
+      setInfoState((prev) => ({
+        ...prev,
+        profilePicture: data.fileName,
+      }));
+
+      toast.success("Profile picture updated!");
+    } catch (error) {
+      console.error("Image upload error:", error);
+      toast.error("Image upload failed");
     }
-  } catch (error) {
-    console.error("Image upload error:", error);
-  }
 };
 
   const handleUpdate = async (event) => {

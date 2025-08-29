@@ -44,6 +44,10 @@ export async function POST(request) {
       const file = formData.get("file");
       const email = String(formData.get("email"));
 
+       if (!file || !email) {
+      return new NextResponse("File or email missing", { status: 400 });
+    }
+
       const user = await getUserByEmail(email);
       if (!user) {
         return new NextResponse("User not found", { status: 404 });
