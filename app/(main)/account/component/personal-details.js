@@ -28,7 +28,7 @@ const PersonalDetails = ({userInfo}) => {
         });
     }
    
-   const handleFileChange = async (event) => {
+  const handleFileChange = async (event) => {
   const file = event.target.files[0];
   if (!file) return;
 
@@ -41,7 +41,7 @@ const PersonalDetails = ({userInfo}) => {
 
   const formData = new FormData();
   formData.append("file", file);
-   formData.append("email", userInfo.email);
+  formData.append("email", userInfo.email);
 
   const res = await fetch("/api/upload", {
     method: "POST",
@@ -53,16 +53,14 @@ const PersonalDetails = ({userInfo}) => {
   if (res.ok && data.fileName) {
     setInfoState((prev) => ({
       ...prev,
-      profilePicture: data.fileName, // just store path, not base64
+      profilePicture: data.fileName, // now Cloudinary URL
     }));
-     // refresh server components (sidebar) so it reads updated DB profilePicture
-      router.refresh();
-      toast.success("Image uploaded");
-  }else {
-      toast.error("Upload failed");
-    }
+    router.refresh();
+    toast.success("Image uploaded");
+  } else {
+    toast.error("Upload failed");
+  }
 };
-
     const handleUpdate = async (event) => {
         event.preventDefault();
         try {

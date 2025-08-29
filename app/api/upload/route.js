@@ -1,14 +1,19 @@
 import { NextResponse } from "next/server";
 import fs from "fs";
-import fsPromises from "fs/promises";
 import { pipeline } from "stream";
 import { promisify } from "util";
-import path from "path";
 import { updateCourse } from "@/app/actions/course";
 import { getUserByEmail } from "@/queries/users";
 import { User } from "@/models/user"; // make sure you have this model
+import { v2 as cloudinary } from "cloudinary";
 
 const pump = promisify(pipeline);
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 export async function POST(request) {
   try {
@@ -35,7 +40,7 @@ export async function POST(request) {
     }
 
     // ---------- case 2: profile picture upload ----------
-    if (formData.has("file") && formData.has("email")) {
+   if (formData.has("file") && formData.has("email")) {
       const file = formData.get("file");
       const email = String(formData.get("email"));
 
@@ -44,39 +49,33 @@ export async function POST(request) {
         return new NextResponse("User not found", { status: 404 });
       }
 
-      // ensure uploads dir exists
-      const uploadsDir = path.join(process.cwd(), "public", "uploads");
-      await fsPromises.mkdir(uploadsDir, { recursive: true });
+      // Convert file to buffer
+      const bytes = await file.arrayBuffer();
+      const buffer = Buffer.from(bytes);
 
-      // delete old profile file if exists inside /uploads/
-      if (user.profilePicture && typeof user.profilePicture === "string") {
-        const oldPath = user.profilePicture.startsWith("/")
-          ? user.profilePicture.slice(1)
-          : user.profilePicture;
-
-        if (oldPath.startsWith("uploads/")) {
-          const absoluteOld = path.join(process.cwd(), oldPath);
-          try {
-            await fsPromises.unlink(absoluteOld);
-          } catch {
-            // ignore missing file
+      // Upload to Cloudinary
+      const uploadRes = await new Promise((resolve, reject) => {
+        const stream = cloudinary.uploader.upload_stream(
+          {
+            folder: "user_profiles",
+            public_id: `profile_${user._id}`, // stable per user
+            overwrite: true,
+          },
+          (error, result) => {
+            if (error) reject(error);
+            else resolve(result);
           }
-        }
-      }
+        );
+        stream.end(buffer);
+      });
 
-      // use user id as filename (stable, avoids junk files)
-      const ext = path.extname(file.name) || ".png";
-      const idForName = user.id ?? user._id ?? Date.now().toString();
-      const newFileName = `${idForName}${ext}`;
-      const newFilePath = path.join(uploadsDir, newFileName);
+      // Update DB with Cloudinary URL
+      await User.findOneAndUpdate(
+        { email },
+        { profilePicture: uploadRes.secure_url }
+      );
 
-      const buffer = Buffer.from(await file.arrayBuffer());
-      await fsPromises.writeFile(newFilePath, buffer);
-
-      const publicPath = `/uploads/${newFileName}`;
-      await User.findOneAndUpdate({ email }, { profilePicture: publicPath });
-
-      return NextResponse.json({ fileName: publicPath });
+      return NextResponse.json({ fileName: uploadRes.secure_url });
     }
 
     // fallback
