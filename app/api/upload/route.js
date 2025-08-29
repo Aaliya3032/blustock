@@ -49,6 +49,8 @@ export async function POST(request) {
     }
 
       const user = await getUserByEmail(email);
+      console.log(user,"jhsvdjmafbjh");
+      
       if (!user) {
         return new NextResponse("User not found", { status: 404 });
       }
@@ -62,7 +64,7 @@ export async function POST(request) {
         const stream = cloudinary.uploader.upload_stream(
           {
             folder: "user_profiles",
-            public_id: `profile_${user.id}`, // stable per user
+            public_id: `profile_${user._id}`, // stable per user
             overwrite: true,
           },
           (error, result) => {
