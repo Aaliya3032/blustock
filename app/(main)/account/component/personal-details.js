@@ -36,6 +36,7 @@ const PersonalDetails = ({ userInfo }) => {
   try {
       const formData = new FormData();
       formData.append("file", file);
+      formData.append("upload_preset", "User_Profile_Picture");
       formData.append("email", userInfo.email);
 
       const res = await fetch("/api/upload", {
