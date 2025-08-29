@@ -62,7 +62,7 @@ export async function POST(request) {
         const stream = cloudinary.uploader.upload_stream(
           {
             folder: "user_profiles",
-            public_id: `profile_${user._id}`, // stable per user
+            public_id: `profile_${user.id}`, // stable per user
             overwrite: true,
           },
           (error, result) => {
