@@ -18,6 +18,7 @@ const PersonalDetails = ({userInfo}) => {
         "bio" : userInfo.bio, 
         "profilePicture": userInfo.profilePicture,
     });
+    const [preview, setPreview] = useState(null);
     const router = useRouter();
 
     const handleChange = (event) => {
@@ -32,12 +33,8 @@ const PersonalDetails = ({userInfo}) => {
   const file = event.target.files[0];
   if (!file) return;
 
-  // local preview before upload
-  const localPreview = URL.createObjectURL(file);
-  setInfoState((prev) => ({
-    ...prev,
-    profilePicture: localPreview, // temp preview
-  }));
+  // local preview only
+  setPreview(URL.createObjectURL(file));
 
   const formData = new FormData();
   formData.append("file", file);
@@ -132,13 +129,20 @@ const PersonalDetails = ({userInfo}) => {
                         <div className="mt-5">
                            <Label className="mb-2 block text-tertiary">Profile Picture :</Label>
                            <Input type="file" accept="image/*" onChange={handleFileChange} />
-                           {infoState.profilePicture && (
-                           <img
-                            src={infoState.profilePicture}
-                            alt="preview"
-                            className="mt-3 w-24 h-24 rounded-full object-cover"
-                           />
-                                                       )}
+                            {/* Show preview while uploading */}
+  {preview ? (
+    <img
+      src={preview}
+      alt="preview"
+      className="mt-3 w-24 h-24 rounded-full object-cover"
+    />
+  ) : infoState.profilePicture ? (
+    <img
+      src={infoState.profilePicture}
+      alt="profile"
+      className="mt-3 w-24 h-24 rounded-full object-cover"
+    />
+  ) : null}
                         </div>
                         {/*end grid*/}
                         <div className="grid grid-cols-1">
