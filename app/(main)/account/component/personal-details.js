@@ -47,10 +47,10 @@ const PersonalDetails = ({ userInfo }) => {
       }
 
       const data = await res.json();
-
+      
       setInfoState((prev) => ({
         ...prev,
-        profilePicture: data.fileName,
+        profilePicture: data.name,
       }));
 
       toast.success("Profile picture updated!");
