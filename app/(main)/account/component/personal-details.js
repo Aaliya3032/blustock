@@ -37,7 +37,7 @@ const PersonalDetails = ({ userInfo }) => {
       formData.append("file", file);
       formData.append("email", userInfo.email);
 
-      const res = await fetch("/api/test-upload", {
+      const res = await fetch("/api/upload", {
         method: "POST",
         body: formData,
       });
@@ -51,7 +51,7 @@ const PersonalDetails = ({ userInfo }) => {
       
       setInfoState((prev) => ({
         ...prev,
-        profilePicture: data.url,
+        profilePicture: data.fileName,
       }));
 
       toast.success("Profile picture updated!");

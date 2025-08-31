@@ -70,19 +70,22 @@ export async function POST(request) {
         overwrite: true,
       }
     );
+    console.log("Upload success:", uploadRes.secure_url);
 
-      // Update DB with Cloudinary URL
-      await User.findOneAndUpdate(
-        { email },
-        { profilePicture: uploadRes.secure_url }
-      );
+      try {
+  const updated = await User.findOneAndUpdate(
+    { email },
+    { profilePicture: uploadRes.secure_url },
+    { new: true }   // <-- return updated doc
+  );
+  console.log("DB updated user:", updated);
+} catch (dbErr) {
+  console.error("DB update error:", dbErr);
+  return NextResponse.json({ error: dbErr.message }, { status: 500 });
+}
 
-      return NextResponse.json({ fileName: uploadRes.secure_url });
-    }
-
-    // fallback
-    return new NextResponse("Invalid upload request", { status: 400 });
-  } catch (err) {
+return NextResponse.json({ fileName: uploadRes.secure_url });
+  }} catch (err) {
     console.error("Upload error:", err);
     return new NextResponse(err.message, { status: 500 });
   }
