@@ -1,5 +1,4 @@
-export const runtime = "nodejs"; 
-import { NextResponse } from "next/server";
+ import { NextResponse } from "next/server";
 import fs from "fs";
 import { pipeline } from "stream";
 import { promisify } from "util";
@@ -9,6 +8,8 @@ import { User } from "@/models/user";
 import { v2 as cloudinary } from "cloudinary";
 
 const pump = promisify(pipeline);
+
+export const runtime = "nodejs";
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
