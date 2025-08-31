@@ -37,7 +37,7 @@ const PersonalDetails = ({ userInfo }) => {
       formData.append("file", file);
       formData.append("email", userInfo.email);
 
-      const res = await fetch("/api/upload", {
+      const res = await fetch("/api/test-upload", {
         method: "POST",
         body: formData,
       });
