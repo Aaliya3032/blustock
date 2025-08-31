@@ -1,10 +1,11 @@
+export const runtime = "nodejs"; 
 import { NextResponse } from "next/server";
 import fs from "fs";
 import { pipeline } from "stream";
 import { promisify } from "util";
 import { updateCourse } from "@/app/actions/course";
 import { getUserByEmail } from "@/queries/users";
-import { User } from "@/models/user"; // make sure you have this model
+import { User } from "@/models/user";
 import { v2 as cloudinary } from "cloudinary";
 
 const pump = promisify(pipeline);
