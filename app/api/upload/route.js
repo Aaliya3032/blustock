@@ -3,7 +3,7 @@ import fs from "fs";
 import { pipeline } from "stream";
 import { promisify } from "util";
 import { updateCourse } from "@/app/actions/course";
-import { getUserByEmail } from "@/queries/users";
+import { getUserByEmail, updateUserProfilePicture } from "@/queries/users";
 import { User } from "@/models/user";
 import { v2 as cloudinary } from "cloudinary";
 
@@ -42,26 +42,23 @@ export async function POST(request) {
     }
 
     // ---------- case 2: profile picture upload ----------
-   if (formData.has("file") && formData.has("email")) {
-      const file = formData.get("file");
-      const email = String(formData.get("email"));
+    const file = formData.get("file");
+    const email = String(formData.get("email"));
 
-       if (!file || !email) {
+    if (!file || !email) {
       return new NextResponse("File or email missing", { status: 400 });
     }
 
-      const user = await getUserByEmail(email);
-      console.log(user,"jhsvdjmafbjh");
-      
-      if (!user) {
-        return new NextResponse("User not found", { status: 404 });
-      }
+    const user = await getUserByEmail(email);
+    if (!user) {
+      return new NextResponse("User not found", { status: 404 });
+    }
 
-      // Convert file to buffer
-      const bytes = await file.arrayBuffer();
-      const buffer = Buffer.from(bytes);
+    // Convert file to buffer
+    const bytes = await file.arrayBuffer();
+    const buffer = Buffer.from(bytes);
 
-       // ✅ Upload using base64
+    // Upload to Cloudinary
     const uploadRes = await cloudinary.uploader.upload(
       `data:${file.type};base64,${buffer.toString("base64")}`,
       {
@@ -72,20 +69,13 @@ export async function POST(request) {
     );
     console.log("Upload success:", uploadRes.secure_url);
 
-      try {
-  const updated = await User.findOneAndUpdate(
-    { email },
-    { profilePicture: uploadRes.secure_url },
-    { new: true }   // <-- return updated doc
-  );
-  console.log("DB updated user:", updated);
-} catch (dbErr) {
-  console.error("DB update error:", dbErr);
-  return NextResponse.json({ error: dbErr.message }, { status: 500 });
-}
+    // ✅ Use your queries layer to update user (not direct mongoose)
+    const updated = await updateUserProfilePicture(email, uploadRes.secure_url);
+    console.log("DB updated user:", updated);
 
-return NextResponse.json({ fileName: uploadRes.secure_url });
-  }} catch (err) {
+    return NextResponse.json({ fileName: uploadRes.secure_url });
+
+} catch (err) {
     console.error("Upload error:", err);
     return new NextResponse(err.message, { status: 500 });
   }
