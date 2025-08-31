@@ -61,21 +61,15 @@ export async function POST(request) {
       const bytes = await file.arrayBuffer();
       const buffer = Buffer.from(bytes);
 
-      // Upload to Cloudinary
-      const uploadRes = await new Promise((resolve, reject) => {
-        const stream = cloudinary.uploader.upload_stream(
-          {
-            folder: "user_profiles",
-            public_id: `profile_${user.id}`, // stable per user
-            overwrite: true,
-          },
-          (error, result) => {
-            if (error) reject(error);
-            else resolve(result);
-          }
-        );
-        stream.end(buffer);
-      });
+       // ✅ Upload using base64
+    const uploadRes = await cloudinary.uploader.upload(
+      `data:${file.type};base64,${buffer.toString("base64")}`,
+      {
+        folder: "user_profiles",
+        public_id: `profile_${user.id}`,
+        overwrite: true,
+      }
+    );
 
       // Update DB with Cloudinary URL
       await User.findOneAndUpdate(
