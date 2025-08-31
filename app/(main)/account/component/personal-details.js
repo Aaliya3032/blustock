@@ -55,6 +55,7 @@ const PersonalDetails = ({ userInfo }) => {
       }));
 
       toast.success("Profile picture updated!");
+       router.refresh();
     } catch (error) {
       console.error("Image upload error:", error);
       toast.error("Image upload failed");
