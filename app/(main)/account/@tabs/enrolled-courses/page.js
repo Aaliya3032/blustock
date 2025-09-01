@@ -1,44 +1,45 @@
-import { auth } from "@/auth";
-import EnrolledCourseCard from "../../component/enrolled-coursecard";
-import { redirect } from "next/navigation";
-import { getUserByEmail } from "@/queries/users";
-import { getEnrollmentsForUser } from "@/queries/enrollments";
+"use client";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import EnrolledCourseCard from "../../component/enrolled-coursecard";
 
+export default function EnrolledCourses() {
+  const [enrollments, setEnrollments] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-async function EnrolledCourses() {
+  useEffect(() => {
+    async function fetchEnrollments() {
+      try {
+        const res = await fetch("/api/enrollments");
+        const data = await res.json();
+        setEnrollments(data);
+      } catch (err) {
+        console.error("Error fetching enrollments:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchEnrollments();
+  }, []);
 
- const session = await auth()
- if (!session?.user) {
-	redirect("/login");
+  if (loading) {
+    return <p className="text-white font-bold">Loading your courses...</p>;
+  }
+
+  if (!enrollments || enrollments.length === 0) {
+    return <p className="font-bold text-red-700">No Enrollments found!</p>;
+  }
+
+  return (
+    <div className="grid sm:grid-cols-2 gap-6">
+      {enrollments.map((enrollment) => (
+        <Link
+          key={enrollment.id}
+          href={`/courses/${enrollment.course._id.toString()}/lesson`}
+        >
+          <EnrolledCourseCard enrollment={enrollment} />
+        </Link>
+      ))}
+    </div>
+  );
 }
-
-const loggedInUser = await getUserByEmail(session?.user?.email);
- 
-const enrollments = await getEnrollmentsForUser(loggedInUser?.id)
-console.log("gfhfm",enrollments)
-
-	return (
-		<div className="grid sm:grid-cols-2 gap-6">
-			{
-			enrollments && enrollments.length > 0 ? (
-				<>
-				{ enrollments.map((enrollment) => (
-					<Link
-					key={enrollment?.id}
-					href={`/courses/${enrollment.course._id.toString()}/lesson`}
-					>
-					<EnrolledCourseCard key={enrollment?.id} enrollment={enrollment}  />
-					</Link>
-				))}
-				</>
-
-			) : (
-				<p className="font-bold text-red-700">No Enrollments found!</p>
-			)
-		}
-		</div>
-	);
-}
-
-export default EnrolledCourses;
