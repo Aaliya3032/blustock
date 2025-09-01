@@ -28,6 +28,10 @@ const courseCard = () => {
   if (loading) {
     return <p className='text-primary font-semibold flex justify-center items-center mt-4 text-xl'>Loading courses...</p>;
   }
+
+  if (!courses || courses.length === 0) {
+    return <p className='text-primary font-semibold flex justify-center items-center mt-4 text-xl'>No courses found.</p>;
+  }
   
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
