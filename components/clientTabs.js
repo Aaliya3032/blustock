@@ -19,11 +19,11 @@ const ClientTabs = () => {
         ]);
 
         // Check response before parsing
-        const catData = catRes.ok ? await catRes.json().catch(() => []) : [];
-        const courseData = courseRes.ok ? await courseRes.json().catch(() => []) : [];
+        const catData = catRes.ok ? await catRes.json().catch(() => ({})) : {};
+        const courseData = courseRes.ok ? await courseRes.json().catch(() => ({})) : {};
 
-        setCategories(Array.isArray(catData) ? catData : []);
-        setCourses(Array.isArray(courseData) ? courseData : []);
+        setCategories(Array.isArray(catData.data) ? catData.data : []);
+        setCourses(Array.isArray(courseData.data) ? courseData.data : []);
       } catch (err) {
         console.error("Error fetching:", err);
         setError("Failed to load data");
