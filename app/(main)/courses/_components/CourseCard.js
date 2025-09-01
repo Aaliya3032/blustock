@@ -9,15 +9,18 @@ import EnrollCourse from '@/components/enroll-course';
 const courseCard = () => {
    const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchCourses() {
       try {
         const res = await fetch("/api/courses"); // API call
+        const [error, setError] = useState(null);
         const data = await res.json();
-        setCourses(data);
+        setCourses(data || []);
       } catch (err) {
         console.error("Error fetching courses:", err);
+        setError("Failed to load courses");
       } finally {
         setLoading(false);
       }
@@ -29,8 +32,20 @@ const courseCard = () => {
     return <p className='text-primary font-semibold flex justify-center items-center mt-4 text-xl'>Loading courses...</p>;
   }
 
+ if (error) {
+    return (
+      <p className="text-red-500 font-semibold flex justify-center items-center mt-4 text-xl">
+        {error}
+      </p>
+    );
+  }
+
   if (!courses || courses.length === 0) {
-    return <p className='text-primary font-semibold flex justify-center items-center mt-4 text-xl'>No courses found.</p>;
+    return (
+      <p className="text-primary font-semibold flex justify-center items-center mt-4 text-xl">
+        No courses found.
+      </p>
+    );
   }
   
   return (

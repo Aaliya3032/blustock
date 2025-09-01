@@ -8,6 +8,7 @@ const ClientTabs = () => {
   const [categories, setCategories] = useState([]);
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -20,6 +21,7 @@ const ClientTabs = () => {
         setCourses(courseRes || []);
       } catch (err) {
         console.error("Error fetching:", err);
+        setError("Failed to load data");
       } finally {
         setLoading(false);
       }
@@ -58,11 +60,15 @@ const ClientTabs = () => {
         Live trading session on 3 days a week
       </div>
 
-       {/* Loader ya Courses */}
+       {/* Loader / Error / Courses */}
       <div>
         {loading ? (
           <div className="flex justify-center py-10 text-white font-bold">
             Loading courses...
+          </div>
+        ) : error ? (
+          <div className="flex justify-center py-10 text-red-500 font-bold">
+            {error}
           </div>
         ) : courses.length === 0 ? (
           <div className="flex justify-center py-10 text-white font-bold">
