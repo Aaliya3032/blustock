@@ -35,7 +35,7 @@ const ClientTabs = () => {
     );
   }
 
-  if (categories.length === 0 || courses.length === 0) {
+  if (categories.length === 0 && courses.length === 0) {
     return (
       <div className="flex justify-center text-white font-bold">
         No batches available
