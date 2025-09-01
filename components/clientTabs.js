@@ -27,21 +27,6 @@ const ClientTabs = () => {
     fetchData();
   }, []);
 
-  if (loading) {
-    return (
-      <div className="flex justify-center text-white font-bold">
-        Loading courses...
-      </div>
-    );
-  }
-
-  if (categories.length === 0 && courses.length === 0) {
-    return (
-      <div className="flex justify-center text-white font-bold">
-        No batches available
-      </div>
-    );
-  }
 
   const offlineCourses = courses.filter(
     (c) => c?.category?.title?.toLowerCase() === "offline"
@@ -73,9 +58,21 @@ const ClientTabs = () => {
         Live trading session on 3 days a week
       </div>
 
+       {/* Loader ya Courses */}
       <div>
-        {activeTab === "offline" && <OfflineClient courses={offlineCourses}/>}
-        {activeTab === "online" && <OnlineClient courses={onlineCourses}/>}
+        {loading ? (
+          <div className="flex justify-center py-10 text-white font-bold">
+            Loading courses...
+          </div>
+        ) : courses.length === 0 ? (
+          <div className="flex justify-center py-10 text-white font-bold">
+            No batches available
+          </div>
+        ) : activeTab === "offline" ? (
+          <OfflineClient courses={offlineCourses} />
+        ) : (
+          <OnlineClient courses={onlineCourses} />
+        )}
       </div>
     </>
   );
