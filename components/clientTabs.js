@@ -14,11 +14,16 @@ const ClientTabs = () => {
     async function fetchData() {
       try {
         const [catRes, courseRes] = await Promise.all([
-          fetch("/api/categories").then((res) => res.json()),
-          fetch("/api/courses").then((res) => res.json()),
+          fetch("/api/categories"),
+          fetch("/api/courses"),
         ]);
-        setCategories(catRes || []);
-        setCourses(courseRes || []);
+
+        // Check response before parsing
+        const catData = catRes.ok ? await catRes.json().catch(() => []) : [];
+        const courseData = courseRes.ok ? await courseRes.json().catch(() => []) : [];
+
+        setCategories(Array.isArray(catData) ? catData : []);
+        setCourses(Array.isArray(courseData) ? courseData : []);
       } catch (err) {
         console.error("Error fetching:", err);
         setError("Failed to load data");

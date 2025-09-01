@@ -11,22 +11,27 @@ const courseCard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    async function fetchCourses() {
-      try {
-        const res = await fetch("/api/courses"); // API call
-        const [error, setError] = useState(null);
-        const data = await res.json();
-        setCourses(data || []);
-      } catch (err) {
-        console.error("Error fetching courses:", err);
-        setError("Failed to load courses");
-      } finally {
-        setLoading(false);
+    useEffect(() => {
+  async function fetchData() {
+    try {
+      const res = await fetch("/api/courses");
+      const data = await res.json();
+
+      if (data.success) {
+        setCourses(data.data);
+      } else {
+        setError(data.message || "Failed to load courses");
       }
+    } catch (err) {
+      console.error("Client error:", err);
+      setError("Something went wrong");
+    } finally {
+      setLoading(false);
     }
-    fetchCourses();
-  }, []);
+  }
+  fetchData();
+}, []);
+
 
   if (loading) {
     return <p className='text-primary font-semibold flex justify-center items-center mt-4 text-xl'>Loading courses...</p>;
