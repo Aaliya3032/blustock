@@ -1,16 +1,53 @@
 "use client";
-import { useState } from "react";
-import Offline from "./Offline";
-import Online from "./Online";
+import { useEffect, useState } from "react";
+import OfflineClient from "./OfflineClient";
+import OnlineClient from "./OnlineClient";
 
-const ClientTabs = ({categories,courses}) => {
-  const [activeTab, setActiveTab] = useState("offline");
+const ClientTabs = () => {
+   const [activeTab, setActiveTab] = useState("offline");
+  const [categories, setCategories] = useState([]);
+  const [courses, setCourses] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const [catRes, courseRes] = await Promise.all([
+          fetch("/api/categories").then((res) => res.json()),
+          fetch("/api/courses").then((res) => res.json()),
+        ]);
+        setCategories(catRes || []);
+        setCourses(courseRes || []);
+      } catch (err) {
+        console.error("Error fetching:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center text-white font-bold">
+        Loading courses...
+      </div>
+    );
+  }
+
+  if (categories.length === 0 || courses.length === 0) {
+    return (
+      <div className="flex justify-center text-white font-bold">
+        No batches available
+      </div>
+    );
+  }
 
   const offlineCourses = courses.filter(
-    (course) => course.category.title.toLowerCase() === "offline"
+    (c) => c?.category?.title?.toLowerCase() === "offline"
   );
   const onlineCourses = courses.filter(
-    (course) => course.category.title.toLowerCase() === "online"
+    (c) => c?.category?.title?.toLowerCase() === "online"
   );
 
 
@@ -37,8 +74,8 @@ const ClientTabs = ({categories,courses}) => {
       </div>
 
       <div>
-        {activeTab === "offline" && <Offline courses={offlineCourses}/>}
-        {activeTab === "online" && <Online courses={onlineCourses}/>}
+        {activeTab === "offline" && <OfflineClient courses={offlineCourses}/>}
+        {activeTab === "online" && <OnlineClient courses={onlineCourses}/>}
       </div>
     </>
   );
