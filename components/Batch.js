@@ -1,10 +1,33 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import bg from '../assets/Hero_bg.jpg';
 // import bg from '../assets/trading_bg1.webp';
 import ClientTabs from "./clientTabs";
 
-const Batch = ({cat,courses}) => {
+const Batch = () => {
   
+  const [categories, setCategories] = useState([]);
+  const [courses, setCourses] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+   useEffect(() => {
+    async function fetchData() {
+      try {
+        const [catRes, courseRes] = await Promise.all([
+          fetch("/api/categories").then((res) => res.json()),
+          fetch("/api/courses").then((res) => res.json()),
+        ]);
+        setCategories(catRes);
+        setCourses(courseRes);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, []); 
+
   return (
     <div
       className="w-full relative"
@@ -22,8 +45,13 @@ const Batch = ({cat,courses}) => {
         >
           Choose Your Batch
         </div>
-       {/* Add Tabs */}
-       <ClientTabs categories={cat} courses={courses}/>
+        {loading ? (
+          <div className="flex justify-center text-white font-bold">
+            Loading courses...
+          </div>
+        ) : (
+          <ClientTabs categories={categories} courses={courses} />
+        )}
       </div>
     </div>
   );
