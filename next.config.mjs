@@ -24,8 +24,8 @@ const nextConfig = {
     return [
       {
         source: "/:path*",
-        has: [{ type: "host", value: "blustockconsultants.com" }],
-        destination: "https://www.blustockconsultants.com/:path*",
+        has: [{ type: "host", value: "www.blustockconsultants.com" }],
+        destination: "https://blustockconsultants.com/:path*",
         permanent: true,
       },
     ]
