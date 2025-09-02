@@ -6,6 +6,8 @@ import Link from "next/link";
 import { formatPrice } from "@/lib/formatPrice";
 import EnrollCourse from '@/components/enroll-course';
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
 const courseCard = () => {
    const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -14,7 +16,7 @@ const courseCard = () => {
     useEffect(() => {
   async function fetchData() {
     try {
-      const res = await fetch("/api/courses");
+      const res = await fetch(`${baseUrl}/api/courses`);
       const data = await res.json();
 
       if (data.success) {

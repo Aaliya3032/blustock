@@ -26,7 +26,7 @@ export default auth((req) => {
 
 export const config = {
     matcher: [
-      "/((?!api/auth|_next|favicon.ico|.*\\..*).*)", // Exclude Next.js internal routes and API routes
+      "/((?!api|_next|favicon.ico|.*\\..*).*)", // Exclude Next.js internal routes and API routes
       "/", // Include the root route
     ],
   };

@@ -14,7 +14,7 @@ const ClientTabs = () => {
     async function fetchData() {
       try {
         const [catRes, courseRes] = await Promise.all([
-          fetch("/api/categories"),
+          fetch(`${baseUrl}/api/categories`),
           fetch("/api/courses"),
         ]);
 
