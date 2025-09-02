@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import OfflineClient from "./OfflineClient";
 import OnlineClient from "./OnlineClient";
 
+
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
 const ClientTabs = () => {
    const [activeTab, setActiveTab] = useState("offline");
   const [categories, setCategories] = useState([]);
