@@ -2,7 +2,7 @@ import { getAllInstructors } from "@/queries/users";
 
 // app/sitemap.xml/route.js
 export async function GET() {
-  const baseUrl = 'https://www.blustockconsultants.com'; 
+  const baseUrl = 'https://blustockconsultants.com'; 
 
   const staticRoutes = [
     '/',            
