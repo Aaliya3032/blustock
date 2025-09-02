@@ -22,7 +22,7 @@ const courseSchema = new Schema({
     price:{
         required: true,
         default: 0,
-        type: String
+        type: Number
     },
     modules:[{  type: Schema.ObjectId, ref: "Module" }],
     active:{
