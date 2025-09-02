@@ -10,7 +10,7 @@ export const DownloadCertificate = ({ courseId, totalProgress }) => {
   async function handleCertificateDownload() {
     try {
       setIsCertificateDownloading(true);
-      fetch(`/api/certificate?courseId=${courseId}`)
+      fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/certificate?courseId=${courseId}`)
       .then((response) => response.blob())
       .then((blob)=>{
         const url = URL.createObjectURL(blob)
