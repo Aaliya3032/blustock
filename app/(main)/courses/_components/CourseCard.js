@@ -81,7 +81,11 @@ const courseCard = () => {
               </div>
               <div className="flex items-center justify-between mt-4">
                 <p className="text-md md:text-sm font-medium text-slate-700">
-                  {formatPrice(course?.price)}
+                   {formatPrice(
+                    typeof course?.price === "number"
+                      ? course.price
+                      : Number(course?.price ?? 0)
+                  )}
                 </p>
                 <EnrollCourse asLink={true} />
               </div>

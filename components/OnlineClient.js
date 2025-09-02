@@ -47,7 +47,11 @@ const OnlineClient = ({ courses }) => {
                <div className="flex flex-col">
                  <div className="text-sm text-gray-300 font-medium">Price</div>
                  <div className="lg:text-2xl md:text-xl sm:text-2xl text-xl font-bold">
-                   {formatPrice(course.price)}
+                    {formatPrice(
+                    typeof course?.price === "number"
+                      ? course.price
+                      : Number(course?.price ?? 0)
+                  )}
                  </div>
                </div>
                <Link href={`/courses/${course.id}`} className="z-20 relative inline-flex items-center justify-center text-justify lg:px-5 md:px-2 sm:px-5 px-2 lg:py-3 md:py-2 sm:py-3 py-2 overflow-hidden font-bold rounded-full group cursor-pointer">
