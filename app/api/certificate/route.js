@@ -9,7 +9,7 @@ import { formatMyDate } from "@/lib/date";
  
 // Fetch custom fonts
 const kalamFontUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/fonts/kalam/Kalam-Regular.ttf`;
-const kalamFontBytes = await fetch(kalamFontUrl).then((res) =>
+const kalamFontBytes = await fetch("/fonts/kalam/Kalam-Regular.ttf").then((res) =>
   res.arrayBuffer()
 );
 console.log({
@@ -21,7 +21,7 @@ console.log({
 });
 
 const montserratItalicFontUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/fonts/montserrat/Montserrat-Italic.ttf`;
-const montserratItalicFontBytes = await fetch(montserratItalicFontUrl).then(
+const montserratItalicFontBytes = await fetch("/fonts/montserrat/Montserrat-Italic.ttf").then(
   (res) => res.arrayBuffer()
 );
 console.log({
@@ -29,7 +29,7 @@ console.log({
   montserratItalicFontBytes,
 });
 const montserratFontUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/fonts/montserrat/Montserrat-Medium.ttf`;
-const montserratFontBytes = await fetch(montserratFontUrl).then((res) =>
+const montserratFontBytes = await fetch("/fonts/montserrat/Montserrat-Medium.ttf").then((res) =>
   res.arrayBuffer()
 );
 console.log({
@@ -83,7 +83,7 @@ export async function GET(request) {
      *
      *-------------------*/
     const logoUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/logo.png`;
-    const logoBytes = await fetch(logoUrl).then((res) => res.arrayBuffer());
+    const logoBytes = await fetch("/logo.png").then((res) => res.arrayBuffer());
     const logo = await pdfDoc.embedPng(logoBytes);
     const logoDimns = logo.scale(0.5);
     page.drawImage(logo, {
@@ -213,7 +213,7 @@ export async function GET(request) {
 
     const signUrl = `${process.env.NEXT_PUBLIC_BASE_URL}${completionInfo.sign}`;
 
-    const signBytes = await fetch(signUrl).then((res) => res.arrayBuffer());
+    const signBytes = await fetch("/sign.png").then((res) => res.arrayBuffer());
     const sign = await pdfDoc.embedPng(signBytes);
 
     page.drawImage(sign, {
@@ -226,7 +226,7 @@ export async function GET(request) {
     // pattern
     const patternUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/pattern.jpg`;
 
-    const patternBytes = await fetch(patternUrl).then((res) =>
+    const patternBytes = await fetch("/pattern.jpg").then((res) =>
       res.arrayBuffer()
     );
     const pattern = await pdfDoc.embedJpg(patternBytes);
