@@ -1,58 +1,33 @@
+// app/api/certificate/route.js
 import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
 import fontkit from "@pdf-lib/fontkit";
- 
+
 import { getCourseDetails } from "@/queries/courses";
 import { getLoggedInUser } from "@/lib/loggedin-user";
 import { getReport } from "@/queries/reports";
-
 import { formatMyDate } from "@/lib/date";
- 
-// Fetch custom fonts
-const kalamFontUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/fonts/kalam/Kalam-Regular.ttf`;
-const kalamFontBytes = await fetch("/fonts/kalam/Kalam-Regular.ttf").then((res) =>
-  res.arrayBuffer()
-);
-console.log({
-  env: process.env.NEXT_PUBLIC_BASE_URL,
-});
-console.log({
-  kalamFontUrl,
-  kalamFontBytes,
-});
 
-const montserratItalicFontUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/fonts/montserrat/Montserrat-Italic.ttf`;
-const montserratItalicFontBytes = await fetch("/fonts/montserrat/Montserrat-Italic.ttf").then(
-  (res) => res.arrayBuffer()
-);
-console.log({
-  montserratItalicFontUrl,
-  montserratItalicFontBytes,
-});
-const montserratFontUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/fonts/montserrat/Montserrat-Medium.ttf`;
-const montserratFontBytes = await fetch("/fonts/montserrat/Montserrat-Medium.ttf").then((res) =>
-  res.arrayBuffer()
-);
-console.log({
-  montserratFontUrl,
-  montserratFontBytes,
-});
-
+// --------------------------------
+// API Route
+// --------------------------------
 export async function GET(request) {
   try {
-    /* -----------------
-     *
-     * Configuratios
-     * 
-     *-------------------*/
-    const searchParams = request.nextUrl.searchParams
-    const courseId = searchParams.get('courseId');
-    const course  = await getCourseDetails(courseId);
-    const loggedInUser = await getLoggedInUser();
+    // -----------------
+    // Query Params
+    // -----------------
+    const searchParams = request.nextUrl.searchParams;
+    const courseId = searchParams.get("courseId");
 
-    const report = await getReport({ course: courseId, student:loggedInUser.id });
-    console.log(report?.completion_date);
-    const completionDate = report?.completion_date ? formatMyDate(report?.completion_date) : formatMyDate(Date.now());
-    //console.log(completionDate);
+    // -----------------
+    // Fetch Data
+    // -----------------
+    const course = await getCourseDetails(courseId);
+    const loggedInUser = await getLoggedInUser();
+    const report = await getReport({ course: courseId, student: loggedInUser.id });
+
+    const completionDate = report?.completion_date
+      ? formatMyDate(report?.completion_date)
+      : formatMyDate(Date.now());
 
     const completionInfo = {
       name: `${loggedInUser?.firstName} ${loggedInUser?.lastName}`,
@@ -63,51 +38,58 @@ export async function GET(request) {
       sign: "/sign.png",
     };
 
-    //console.log(completionInfo);
-
+    // -----------------
+    // Create PDF
+    // -----------------
     const pdfDoc = await PDFDocument.create();
     pdfDoc.registerFontkit(fontkit);
 
+    // -----------------
+    // Fonts (Absolute URLs)
+    // -----------------
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+    const kalamFontBytes = await fetch(`${baseUrl}/fonts/kalam/Kalam-Regular.ttf`).then(res =>
+      res.arrayBuffer()
+    );
+    const montserratItalicFontBytes = await fetch(
+      `${baseUrl}/fonts/montserrat/Montserrat-Italic.ttf`
+    ).then(res => res.arrayBuffer());
+    const montserratFontBytes = await fetch(
+      `${baseUrl}/fonts/montserrat/Montserrat-Medium.ttf`
+    ).then(res => res.arrayBuffer());
+
     const kalamFont = await pdfDoc.embedFont(kalamFontBytes);
     const montserratItalic = await pdfDoc.embedFont(montserratItalicFontBytes);
-
     const montserrat = await pdfDoc.embedFont(montserratFontBytes);
-
-    const page = pdfDoc.addPage([841.89, 595.28]);
-    const { width, height } = page.getSize();
     const timesRomanFont = await pdfDoc.embedFont(StandardFonts.TimesRoman);
 
-    /* -----------------
-     *
-     * Logo
-     *
-     *-------------------*/
-    const logoUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/logo.png`;
-    const logoBytes = await fetch("/logo.png").then((res) => res.arrayBuffer());
+    // -----------------
+    // Page Setup
+    // -----------------
+    const page = pdfDoc.addPage([841.89, 595.28]);
+    const { width, height } = page.getSize();
+
+    // -----------------
+    // Logo
+    // -----------------
+    const logoBytes = await fetch(`${baseUrl}/logo.png`).then(res => res.arrayBuffer());
     const logo = await pdfDoc.embedPng(logoBytes);
     const logoDimns = logo.scale(0.5);
     page.drawImage(logo, {
       x: width / 2 - logoDimns.width / 2,
-      y: height - (logoDimns.height),
+      y: height - logoDimns.height,
       width: logoDimns.width,
       height: logoDimns.height,
     });
 
-    /* -----------------
-     *
-     * Title
-     *
-     *-------------------*/
-
+    // -----------------
+    // Title
+    // -----------------
     const titleFontSize = 30;
     const titleText = "Certificate Of Completion";
-    // title text width
-    const titleTextWidth = montserrat.widthOfTextAtSize(
-      titleText,
-      titleFontSize
-    );
+    const titleTextWidth = montserrat.widthOfTextAtSize(titleText, titleFontSize);
 
-    page.drawText("Certificate Of Completion", {
+    page.drawText(titleText, {
       x: width / 2 - titleTextWidth / 2,
       y: height - (logoDimns.height - 20),
       size: titleFontSize,
@@ -115,15 +97,11 @@ export async function GET(request) {
       color: rgb(0.0078, 0.2039, 0.4863),
     });
 
-    /* -----------------
-     *
-     * Name Label
-     *
-     *-------------------*/
+    // -----------------
+    // Name Label
+    // -----------------
     const nameLabelText = "This certificate is hereby bestowed upon";
-
     const nameLabelFontSize = 20;
-    // title text width
     const nameLabelTextWidth = montserratItalic.widthOfTextAtSize(
       nameLabelText,
       nameLabelFontSize
@@ -137,19 +115,12 @@ export async function GET(request) {
       color: rgb(0, 0, 0),
     });
 
-    /* -----------------
-     *
-     * Name
-     *
-     *-------------------*/
+    // -----------------
+    // Name
+    // -----------------
     const nameText = completionInfo.name;
-
     const nameFontSize = 40;
-    // title text width
-    const nameTextWidth = timesRomanFont.widthOfTextAtSize(
-      nameText,
-      nameFontSize
-    );
+    const nameTextWidth = timesRomanFont.widthOfTextAtSize(nameText, nameFontSize);
 
     page.drawText(nameText, {
       x: width / 2 - nameTextWidth / 2,
@@ -159,19 +130,11 @@ export async function GET(request) {
       color: rgb(0.0078, 0.2039, 0.4863),
     });
 
-    /* -----------------
-     *
-     * Details Info
-     *
-     *-------------------*/
+    // -----------------
+    // Details Info
+    // -----------------
     const detailsText = `This is to certify that ${completionInfo.name} successfully completed the ${completionInfo.courseName} course on ${completionInfo.completionDate} by ${completionInfo.instructor}`;
-
     const detailsFontSize = 16;
-    // title text width
-    const detailsTextWidth = montserrat.widthOfTextAtSize(
-      titleText,
-      titleFontSize
-    );
 
     page.drawText(detailsText, {
       x: width / 2 - 700 / 2,
@@ -183,11 +146,9 @@ export async function GET(request) {
       wordBreaks: [" "],
     });
 
-    /* -----------------
-     *
-     * Signatures
-     *
-     *-------------------*/
+    // -----------------
+    // Signatures
+    // -----------------
     const signatureBoxWidth = 300;
     page.drawText(completionInfo.instructor, {
       x: width - signatureBoxWidth,
@@ -202,7 +163,7 @@ export async function GET(request) {
       size: 10,
       font: timesRomanFont,
       color: rgb(0, 0, 0),
-      maxWidth: 250
+      maxWidth: 250,
     });
     page.drawLine({
       start: { x: width - signatureBoxWidth, y: 110 },
@@ -211,9 +172,9 @@ export async function GET(request) {
       color: rgb(0, 0, 0),
     });
 
-    const signUrl = `${process.env.NEXT_PUBLIC_BASE_URL}${completionInfo.sign}`;
-
-    const signBytes = await fetch("/sign.png").then((res) => res.arrayBuffer());
+    const signBytes = await fetch(`${baseUrl}${completionInfo.sign}`).then(res =>
+      res.arrayBuffer()
+    );
     const sign = await pdfDoc.embedPng(signBytes);
 
     page.drawImage(sign, {
@@ -223,12 +184,10 @@ export async function GET(request) {
       height: 54,
     });
 
-    // pattern
-    const patternUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/pattern.jpg`;
-
-    const patternBytes = await fetch("/pattern.jpg").then((res) =>
-      res.arrayBuffer()
-    );
+    // -----------------
+    // Pattern Background
+    // -----------------
+    const patternBytes = await fetch(`${baseUrl}/pattern.jpg`).then(res => res.arrayBuffer());
     const pattern = await pdfDoc.embedJpg(patternBytes);
 
     page.drawImage(pattern, {
@@ -238,16 +197,16 @@ export async function GET(request) {
       height: height,
       opacity: 0.2,
     });
-    /* -----------------
-     *
-     * Generate and send Response
-     *
-     *-------------------*/
+
+    // -----------------
+    // Save PDF and Respond
+    // -----------------
     const pdfBytes = await pdfDoc.save();
     return new Response(pdfBytes, {
       headers: { "content-type": "application/pdf" },
     });
   } catch (error) {
-    console.log(error);
+    console.error("PDF generation error:", error);
+    return new Response("Internal Server Error", { status: 500 });
   }
 }
