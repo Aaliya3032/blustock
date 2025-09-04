@@ -29,7 +29,7 @@ export const metadata = {
     icon: "/favicon.ico",
   },
    alternates: {
-    canonical: "https://blustockconsultants.com/",
+    canonical: "https://blustockconsultants.com",
   },
 };
 
