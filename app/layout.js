@@ -8,7 +8,8 @@ export const metadata = {
   description: "A stock market academy",
    keywords: [
     "Stock Market Academy Jaipur",
-    "Stock Market Academy Jothwara",
+    "Best Stock Market Institute in Jaipur",
+    "Stock Market Academy in Jothwara",
     "Institutes for Stock Market",
     "Trading Centres",
     "Option Trading Services",
