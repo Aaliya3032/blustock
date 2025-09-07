@@ -30,7 +30,8 @@ export function LoginForm() {
 
       if (!!response.error) {
           console.log("Login Error",response.error)
-          setError(response.error);
+          const cleanError = response.error.replace(/^.*?:\s*/, "");
+          setError(cleanError);
       } else {
         toast.success("Login Successful")
         window.location.href = "/account"
@@ -38,7 +39,8 @@ export function LoginForm() {
       }      
     } catch (e) {
       console.log("Login Error",e.message)
-      setError(e.message);
+      const cleanError = e.message.replace(/^.*?:\s*/, "");
+      setError(cleanError);
     }
   }
 
@@ -57,7 +59,7 @@ export function LoginForm() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-      {error && <p className="text-sm text-red-500 text-center mt-2">{error}</p>}
+      {error && <p className="text-sm text-red-500 text-center font-medium">{error}</p>}
         <form onSubmit={onSubmit}>
         <div className="grid gap-4">
           <div className="grid gap-2">
