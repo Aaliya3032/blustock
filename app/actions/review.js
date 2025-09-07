@@ -26,9 +26,15 @@ export async function createReview(data,loginid,courseId){
      if(!updateCourse){
         throw new Error("Failed to update the course testimonial")
      }
-     return newTestimonial;
+     return {
+      success: true,
+      testimonialId: newTestimonial._id.toString(),
+      rating: newTestimonial.rating,
+      content: newTestimonial.content,
+    };
 
    } catch (error) {
-     throw new Error(error)
+     console.error("createReview error:", error);
+    throw new Error(error?.message || "Something went wrong while creating review");
    }
 }
