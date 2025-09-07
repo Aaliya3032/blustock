@@ -30,8 +30,7 @@ export function LoginForm() {
 
       if (!!response.error) {
           console.log("Login Error",response.error)
-          const cleanError = response.error.replace(/^.*?:\s*/, "");
-          setError(cleanError);
+          setError(response.error);
       } else {
         toast.success("Login Successful")
         window.location.href = "/account"
@@ -39,8 +38,7 @@ export function LoginForm() {
       }      
     } catch (e) {
       console.log("Login Error",e.message)
-      const cleanError = e.message.replace(/^.*?:\s*/, "");
-      setError(cleanError);
+      setError(e.message);
     }
   }
 

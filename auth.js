@@ -33,12 +33,12 @@ export const {
         const user = await User.findOne({ email: credentials.email });
 
         if (!user) {
-          throw new CredentialsSignin("No account found with this email. Please sign up to continue.");
+          throw new CustomAuthError("No account found with this email. Please sign up to continue.");
         }
 
         const isMatch = await bcrypt.compare(credentials.password, user.password);
         if (!isMatch) {
-          throw new CredentialsSignin("Incorrect password. Please try again.");
+           throw new CustomAuthError("Incorrect password. Please try again.");
         }
 
         return {

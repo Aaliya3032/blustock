@@ -8,8 +8,11 @@ export async function credentialLogin(formData){
             password: formData.get("password"),
             redirect:false
         })
+        if (response?.error) {
+  throw new Error(response.error);
+}
         return response;
     } catch (error) {
-        throw new Error(error);
+         throw error instanceof Error ? error : new Error(String(error));
     }
 }
