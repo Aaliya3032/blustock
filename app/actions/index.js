@@ -9,10 +9,12 @@ export async function credentialLogin(formData){
             redirect:false
         })
         if (response?.error) {
-  throw new Error(response.error);
+  return { error: response.error };
 }
-        return response;
+        return { success: true };
     } catch (error) {
-         throw error instanceof Error ? error : new Error(String(error));
+        return {
+            error: error instanceof Error ? error.message : "Something went wrong"
+        };
     }
 }
