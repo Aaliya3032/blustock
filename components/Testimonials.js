@@ -24,9 +24,7 @@ const Testimonials = () => {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const res = await fetch(`${baseUrl}/api/testimonials`, {
-  cache: "no-store",
-});
+        const res = await fetch(`${baseUrl}/api/testimonials`);
         const data = await res.json();
        
         if (data.success) {
