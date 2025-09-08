@@ -22,7 +22,9 @@ const Testimonials = () => {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const res = await fetch("/api/testimonials");
+        const res = await fetch("/api/testimonials", {
+  cache: "no-store",
+});
         const data = await res.json();
        
         if (data.success) {
@@ -85,7 +87,7 @@ const Testimonials = () => {
           <p className="text-red-500 font-semibold flex justify-center items-center mt-4 text-xl">
             {error}
           </p>
-        ) : testimonials.length === 0 ? (
+        ) : !testimonials || testimonials.length === 0 ? (
           <p className="text-primary font-semibold flex justify-center items-center mt-4 text-xl">
             No Testimonials found.
           </p>
