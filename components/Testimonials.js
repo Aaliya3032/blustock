@@ -24,14 +24,18 @@ const Testimonials = () => {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const res = await fetch(`${baseUrl}/api/testimonials`);
-        const data = await res.json();
+        const res = await fetch(`${baseUrl}/api/testimonials`,{
+        cache: "no-store", 
+      });
+        const data = res.ok ? await res.json().catch(() => ({})) : {};
        
-        if (data.success) {
-         setTestimonials(data.testimonials ? data.testimonials : []);
+        if (data.success && Array.isArray(data.testimonials)) {
+        setTestimonials(data.testimonials);
+        setError(null);
       } else {
-        setError(data.error || "Failed to load testimonials");
-      }  
+        setTestimonials([]);  
+        setError(null);   
+      }
       } catch (err) {
         console.error("Error fetching testimonials:", err);
         setError("Something went wrong");

@@ -16,7 +16,7 @@ export async function GET() {
         profilePicture: t.user.profilePicture,
       },
     }));
-    return NextResponse.json({success: true, testimonials });
+    return NextResponse.json({success: true, testimonials: testimonials || [] });
   } catch (error) {
     console.error("Error fetching testimonials:", error);
     return NextResponse.json(
