@@ -28,7 +28,7 @@ const Testimonials = () => {
         const data = await res.json();
        
         if (data.success) {
-         setTestimonials(data.testimonials);
+         setTestimonials(data.testimonials ? data.testimonials : []);
       } else {
         setError(data.error || "Failed to load testimonials");
       }  
