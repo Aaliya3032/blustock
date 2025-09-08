@@ -10,6 +10,8 @@ import {
 import StarRating from "./star-rating";
 import Image from "next/image";
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
 
 const Testimonials = () => {
   const [emblaApi, setEmblaApi] = useState(null);
@@ -22,7 +24,7 @@ const Testimonials = () => {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const res = await fetch("/api/testimonials", {
+        const res = await fetch(`${baseUrl}/api/testimonials`, {
   cache: "no-store",
 });
         const data = await res.json();
