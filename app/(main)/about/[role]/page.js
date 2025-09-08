@@ -15,26 +15,12 @@ export const metadata = {
 
 const AboutPage = async({params}) => {
     const  { role }  = await params;
-    const rawTestimonials = await getAllTestimonials();
-
-    const testimonials = rawTestimonials.map(t => ({
-        id: t.id,
-        content: t.content,
-        rating: t.rating,
-        user: {
-          firstName: t.user.firstName,
-          lastName: t.user.lastName,
-          designation: t.user.designation,
-          profilePicture: t.user.profilePicture
-        }
-        // Remove or convert any non-serializable fields like courseId, ObjectId, etc.
-      }));
     
     return (
         <>
             <div>
             {role === 'overview' && <Overview/>}         
-            {role === 'testimonials' && <Testimonials testimonials={testimonials}/>}         
+            {role === 'testimonials' && <Testimonials/>}         
             {role === 'charts' && <Charts/>}         
             {role === 'gallery' && <Gallery/>}         
             {role === 'faq' && <FAQ/>}         
