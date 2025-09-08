@@ -46,6 +46,10 @@ const Header = ({ loggedInUser }) => {
       href: "/courses",
     },
     {
+      title: "Testimonials",
+      href: "/about/testimonials",
+    },
+    {
       title: "Charts Don't Lie",
       href: "/about/charts",
     },
@@ -138,9 +142,9 @@ const Header = ({ loggedInUser }) => {
                 <DropdownMenuItem className="cursor-pointer">
                   <Link href="/about/overview">Overview</Link>
                 </DropdownMenuItem>
-                {/* <DropdownMenuItem className="cursor-pointer">
+                <DropdownMenuItem className="cursor-pointer">
                   <Link href="/about/testimonials">Testimonials</Link>
-                </DropdownMenuItem> */}
+                </DropdownMenuItem>
                 <DropdownMenuItem className="cursor-pointer">
                   <Link href="/about/charts">Charts Don’t Lie</Link>
                 </DropdownMenuItem>

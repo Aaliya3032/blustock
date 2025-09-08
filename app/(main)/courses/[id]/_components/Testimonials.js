@@ -32,8 +32,8 @@ const Testimonials = ({ testimonials }) => {
                 className="md:basis-1/2 lg:basis-1/3"
               >
                 <div className="sm:break-inside-avoid">
-                  <blockquote className="rounded-lg bg-gray-50 p-6  sm:p-8 shadow-sm">
-                    <div className="flex items-center gap-4">
+                  <blockquote className="flex flex-col gap-4 rounded-lg bg-gray-50 p-6  sm:p-4 shadow-sm h-64 md:h-72 lg:h-84">
+                    <div className="flex items-center  gap-2 flex-none h-[40%]">
                       <Image
                         alt={`Profile ${testimonial?.user?.firstName}`}
                         src={
@@ -55,7 +55,7 @@ const Testimonials = ({ testimonials }) => {
                         </div>
                       </div>
                     </div>
-                    <p className="mt-4 text-gray-700 text-justify">
+                    <p className="text-gray-700 text-justify overflow-y-auto flex-1 min-h-0 pr-2">
                       {testimonial?.content}
                     </p>
                   </blockquote>
