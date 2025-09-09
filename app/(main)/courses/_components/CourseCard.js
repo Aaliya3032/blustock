@@ -8,7 +8,7 @@ import EnrollCourse from '@/components/enroll-course';
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
-const courseCard = () => {
+const CourseCard = () => {
    const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -99,7 +99,7 @@ const courseCard = () => {
   )
 }
 
-export default courseCard;
+export default CourseCard;
 
   //   <Link key={course.id} href={`/courses/${course.id}`}>
   //   <div className="group hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full">

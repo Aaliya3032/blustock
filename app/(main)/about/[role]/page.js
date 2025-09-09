@@ -1,5 +1,4 @@
 import React from 'react';
-import bg from '../../../../assets/login_bg.png'
 import FAQ from '@/components/FAQ';
 import Overview from '@/components/Overview';
 import Testimonials from '@/components/Testimonials';

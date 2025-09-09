@@ -1,6 +1,5 @@
 import React from "react";
 import { GoPlus } from "react-icons/go";
-import FAQs from '../assets/FAQs.png'
 
 const FAQ = () => {
   return (

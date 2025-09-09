@@ -1,11 +1,6 @@
 "use client";
 import React from "react";
-import AOS from "aos";
 import "aos/dist/aos.css";
-import longterm from "../assets/longterm.jpg";
-import portfolio from "../assets/portfolio.jpeg";
-import psycology from "../assets/psycology.png";
-import swingIntra from "../assets/swingIntra.jpg";
 import longterm2 from "../assets/longterm3.png";
 import { MdMoreTime } from "react-icons/md";
 import { GiDuration } from "react-icons/gi";

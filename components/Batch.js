@@ -1,6 +1,5 @@
 import React from "react";
 import bg from '../assets/Hero_bg.jpg';
-// import bg from '../assets/trading_bg1.webp';
 import ClientTabs from "./clientTabs";
 
 const Batch = () => {
