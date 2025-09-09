@@ -3,9 +3,9 @@ import React from "react";
 const Candidate = () => {
   return (
     <div className="py-2 flex flex-col gap-8 ">
-      <div className="font-bold text-xl"  data-aos="fade-right">
+      <h2 className="font-bold text-xl"  data-aos="fade-right">
         Who should attend this Stock Trading Course?
-      </div>
+      </h2>
       <p className="font-medium text-justify" data-aos="fade-down">
         The Stock Trading Course is tailored to benefit a broad range of
         individuals who are interested in the stock market, from novices to

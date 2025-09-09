@@ -3,9 +3,9 @@ import React from "react";
 const Included = () => {
   return (
     <div className="py-2 flex flex-col gap-8 ">
-      <div className="font-bold text-xl"  data-aos="fade-right"> 
+      <h2 className="font-bold text-xl"  data-aos="fade-right"> 
         Unlock More Benefits & Maximize Your Trading Potential
-      </div>
+      </h2>
       <p className="font-medium text-[#406191] text-justify"  data-aos="fade-down">
         BluStock Consultants Community is a place for traders and investors to
         connect, share insights, and discuss market trends. Members get access

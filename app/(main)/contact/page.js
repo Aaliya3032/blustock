@@ -6,8 +6,11 @@ import mail from "../../../assets/mail.png";
 import Link from "next/link";
 
 export const metadata = {
-  title: 'Contact Us - Blustock Consultants',
-  description: 'Get in touch with Blustock Consultants via phone, email, or contact form.',
+  title: 'Contact Blustock Consultants - Stock Market Academy Jaipur',
+  description: "Contact Blustock Consultants for stock market courses in Jaipur. Call +91 6376520654, email blustockconsultants@gmail.com or visit our Jhotwara office.",
+  alternates: {
+    canonical: "https://blustockconsultants.com/contact",
+  },
 };
 
 const Contact = () => {

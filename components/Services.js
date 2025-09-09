@@ -12,11 +12,11 @@ const Services = () => {
   return (
     <div className="w-full bg-[#f0f0f0]">
       <div className="w-[85%] mx-auto py-8">
-      <div
+      <h2
               className="md:text-4xl text-2xl font-bold md:mb-4 mb-8 flex justify-center text-primary"
             >
               Learn with Our Expert Training 
-            </div>
+            </h2>
         <div className="flex md:flex-row flex-col">
           <div className="md:w-[60%] w-full flex flex-col justify-center">
             <div className="text-md font-medium flex text-[#406191] text-justify">
