@@ -11,14 +11,7 @@ export async function GET() {
     '/about/gallery',       
     '/about/faq',       
     '/contact',   
-    '/courses',   
-    '/login',
-    '/register/student',
-    '/register/instructor',
-    '/account',
-    '/dashboard',
-    '/forgot-password',
-    '/reset-password',  
+    '/courses',    
   ];
 
   const instructors = await getAllInstructors();
