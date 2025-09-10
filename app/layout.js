@@ -4,9 +4,10 @@ import "./globals.css";
 import { connectDb } from "@/helper/db";
 
 export const metadata = {
-  title: "Blustock Consultants - Best Stock Market Academy in Jaipur",
+  title: "Stock Market Training in Jaipur (Jhotwara) | Blustock Consultants",
   description: "Join Blustock Consultants, Jaipur’s best stock market academy. Learn stock trading, investment, technical & fundamental analysis with expert mentors.",
    keywords: [
+    "Stock market training Jaipur Jhotwara",
     "Stock Market Academy Jaipur",
     "Best Stock Market Institute in Jaipur",
     "Stock Market Academy in Jothwara",
@@ -33,7 +34,7 @@ export const metadata = {
     canonical: "https://blustockconsultants.com",
   },
   openGraph: {
-    title: "Blustock Consultants - Stock Market Courses in Jaipur",
+    title: "Stock Market Training in Jaipur (Jhotwara) | Blustock Consultants",
     description:
       "Stock market courses in Jaipur: trading, investing, options & more. Learn with expert mentors at Blustock Consultants.",
     url: "https://blustockconsultants.com",
