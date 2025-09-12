@@ -19,7 +19,6 @@ export const Navbar = () => {
       try {
         const response = await fetch("/api/me");
         const data = await response.json();
-        // console.log(data);
         setLoggedInUser(data);
       } catch (error) {
         console.log(error);

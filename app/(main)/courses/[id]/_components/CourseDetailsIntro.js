@@ -37,7 +37,7 @@ const CourseDetailsIntro = async({course}) => {
                     Access Course
                   </Link>
                 ) : (
-                  <EnrollCourse/>
+                  <EnrollCourse courseId={course?.id} price={course?.price}/>
                 )
               }
               {/* <Link

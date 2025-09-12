@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import { Toaster } from "sonner";
 import "./globals.css";
 import { connectDb } from "@/helper/db";
+import Script from "next/script";
 
 export const metadata = {
   title: "Stock Market Training in Jaipur (Jhotwara) | Blustock Consultants",
@@ -82,7 +83,16 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
        <head>
-        <script
+        {/* Razorpay checkout script */}
+        <Script
+          id="razorpay-checkout-js"
+          src="https://checkout.razorpay.com/v1/checkout.js"
+          strategy="beforeInteractive"
+        />
+
+        {/* JSON-LD structured data */}
+        <Script
+          id="json-ld"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />

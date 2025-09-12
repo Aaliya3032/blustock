@@ -1,0 +1,21 @@
+1)   first request from client to server to create order
+2)   Open Razorpay checkout after creating order
+3)   Client → /verify API: send IDs + signature.
+4)   Server verifies: compare HMAC, update database, give user access.
+5)   Razorpay → /webhook: extra confirmation. (it notifies the server even if client browser is closed)
+
+
+1) Order API (/api/razorpay/order/route.js)
+Creates order with Razorpay SDK.
+Uses NEXT_PUBLIC_RAZORPAY_KEY_ID on client and secret on server. ✔️
+
+2) Verify API (/api/razorpay/verify/route.js)
+Generates HMAC using RAZORPAY_KEY_SECRET.
+Compares signatures and returns JSON. ✔️
+
+3) Client Component (EnrollCourse)
+Creates order, opens Razorpay checkout.
+Sends payment_id, order_id, signature to verify route in handler. ✔️
+
+4) Razorpay Script
+Added in RootLayout with <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="beforeInteractive" />. ✔️
