@@ -6,8 +6,8 @@ import Script from "next/script";
 
 export const metadata = {
   title: "Stock Market Training in Jaipur (Jhotwara) | Blustock Consultants",
-  description: "Join Blustock Consultants, Jaipur’s best stock market academy. Learn stock trading, investment, technical & fundamental analysis with expert mentors.",
-   keywords: [
+  description: "Join Blustock Consultants, Jaipur's best stock market academy. Learn stock trading, investment, technical & fundamental analysis with expert mentors.",
+  keywords: [
     "Stock market training Jaipur Jhotwara",
     "Stock Market Academy Jaipur",
     "Best Stock Market Institute in Jaipur",
@@ -28,10 +28,22 @@ export const metadata = {
     "Trading Courses in Jaipur",
     "Jaipur Stock Trading Academy"
   ],
-   icons: {
-    icon: "/favicon.ico",
+  authors: [{ name: "Blustock Consultants" }],
+  creator: "Blustock Consultants",
+  publisher: "Blustock Consultants",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
   },
-   alternates: {
+  metadataBase: new URL('https://blustockconsultants.com'),
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
+  manifest: "/manifest.json",
+  alternates: {
     canonical: "https://blustockconsultants.com",
   },
   openGraph: {
@@ -42,6 +54,35 @@ export const metadata = {
     siteName: "Blustock Consultants",
     locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: "https://blustockconsultants.com/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Blustock Consultants - Stock Market Training Academy",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Stock Market Training in Jaipur | Blustock Consultants",
+    description: "Learn stock trading, investment, and analysis with expert mentors at Jaipur's best stock market academy.",
+    images: ["https://blustockconsultants.com/logo.png"],
+    creator: "@BluStockCo",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: "your-google-verification-code", // Add your actual verification code
   },
 };
 
@@ -96,6 +137,10 @@ export default async function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+
+        {/* Google AdSense script */}
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7899721607734007"
+           crossorigin="anonymous" />
       </head>
       <body className={cn("w-full")}>
         {children}
