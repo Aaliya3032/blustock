@@ -177,11 +177,19 @@ const Footer = () => {
             reserved.
           </div>
           <div className="flex flex-row gap-4 items-center text-xs sm:text-sm">
-            <Link href="/privacy-policy" className="hover:underline">
+            <Link 
+              href="/privacy-policy" 
+              className="hover:underline cursor-pointer transition-colors duration-200"
+              prefetch={true}
+            >
               Privacy Policy
             </Link>
             <span>|</span>
-            <Link href="/terms-of-service" className="hover:underline">
+            <Link 
+              href="/terms-of-service" 
+              className="hover:underline cursor-pointer transition-colors duration-200"
+              prefetch={true}
+            >
               Terms of Service
             </Link>
           </div>
