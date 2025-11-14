@@ -171,10 +171,19 @@ const Footer = () => {
       </div>
       {/* Lower Footer */}
       <div className="w-full bg-gradient-to-r from-primary to-secondary">
-        <div className="w-[85%] mx-auto py-3 flex flex-row justify-between gap-4 items-center">
-          <div className="text-xs sm:text-sm">
+        <div className="w-[85%] mx-auto py-3 flex flex-col sm:flex-row justify-between gap-4 items-center">
+          <div className="text-xs sm:text-sm text-center sm:text-left">
             Copyright © 2025 by BluStock Consultants Pvt. Ltd. All rights
             reserved.
+          </div>
+          <div className="flex flex-row gap-4 items-center text-xs sm:text-sm">
+            <Link href="/privacy-policy" className="hover:underline">
+              Privacy Policy
+            </Link>
+            <span>|</span>
+            <Link href="/terms-of-service" className="hover:underline">
+              Terms of Service
+            </Link>
           </div>
           <div
             className="sm:text-3xl text-2xl hover:scale-105 ease-in-out duration-300 flex-none cursor-pointer"

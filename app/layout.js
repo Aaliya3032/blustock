@@ -124,26 +124,39 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
        <head>
-        {/* Razorpay checkout script */}
-        <Script
-          id="razorpay-checkout-js"
-          src="https://checkout.razorpay.com/v1/checkout.js"
-          strategy="beforeInteractive"
-        />
-
         {/* JSON-LD structured data */}
         <Script
           id="json-ld"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-
-        {/* Google AdSense script */}
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7899721607734007"
-           crossorigin="anonymous" />
       </head>
       <body className={cn("w-full")}>
         {children}
+
+        {/* Razorpay checkout script - moved to body to prevent hydration issues */}
+        <Script
+          id="razorpay-checkout-js"
+          src="https://checkout.razorpay.com/v1/checkout.js"
+          strategy="afterInteractive"
+        />
+
+        {/* Google AdSense script - client-side only to prevent hydration issues */}
+        <Script
+          id="google-adsense"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (typeof window !== 'undefined') {
+                const script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7899721607734007';
+                script.crossOrigin = 'anonymous';
+                document.head.appendChild(script);
+              }
+            `,
+          }}
+        />
 
         <Toaster richColors position="top-center" />
       </body>
