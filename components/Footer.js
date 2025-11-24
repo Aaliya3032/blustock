@@ -80,6 +80,12 @@ const Footer = () => {
                   <span className="ml-1 font-normal text-sm">Courses</span>
                 </div>
               </Link>
+              <Link href="/blog">
+                <div className="flex items-center pb-1 cursor-pointer hover:scale-105 ease-in-out duration-300">
+                  <IoMdArrowDropright className="text-lg flex-none" />
+                  <span className="ml-1 font-normal text-sm">Blog</span>
+                </div>
+              </Link>
             </ul>
           </div>
           <div className="flex flex-col lg:w-1/4 w-3/4 items-start px-4 py-4 bg-secondary bg-opacity-80 rounded-xl">

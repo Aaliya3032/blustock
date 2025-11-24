@@ -13,29 +13,36 @@ import Image from "next/image";
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 
-const Testimonials = () => {
+const Testimonials = ({ preloadedData = null }) => {
   const [emblaApi, setEmblaApi] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [totalSlides, setTotalSlides] = useState(0);
-  const [loading, setLoading] = useState(true);
+  // ✅ Initialize with preloaded data if available (SSR)
+  const [loading, setLoading] = useState(!preloadedData);
   const [error, setError] = useState(null);
-  const [testimonials, setTestimonials] = useState([]);
+  const [testimonials, setTestimonials] = useState(preloadedData || []);
 
   useEffect(() => {
+    // ✅ Only fetch if we don't have preloaded data (CSR fallback)
+    if (preloadedData) {
+      setLoading(false);
+      return;
+    }
+
     const fetchTestimonials = async () => {
       try {
-        const res = await fetch(`${baseUrl}/api/testimonials`,{
-        cache: "no-store", 
-      });
+        const res = await fetch(`${baseUrl}/api/testimonials`, {
+          cache: "no-store", 
+        });
         const data = res.ok ? await res.json().catch(() => ({})) : {};
        
         if (data.success && Array.isArray(data.testimonials)) {
-        setTestimonials(data.testimonials);
-        setError(null);
-      } else {
-        setTestimonials([]);  
-        setError(null);   
-      }
+          setTestimonials(data.testimonials);
+          setError(null);
+        } else {
+          setTestimonials([]);  
+          setError(null);   
+        }
       } catch (err) {
         console.error("Error fetching testimonials:", err);
         setError("Something went wrong");
@@ -44,7 +51,7 @@ const Testimonials = () => {
       }
     };
     fetchTestimonials();
-  }, []);
+  }, [preloadedData]);
 
   useEffect(() => {
     if (!emblaApi) return;

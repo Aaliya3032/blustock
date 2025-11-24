@@ -11,10 +11,16 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
 import { signOut } from "next-auth/react";
 
-export const Navbar = () => {
-  const [loggedInUser, setLoggedInUser] = useState(null);
+export const Navbar = ({ preloadedUser = null }) => {
+  // ✅ Initialize with preloaded data if available (SSR)
+  const [loggedInUser, setLoggedInUser] = useState(preloadedUser);
 
   useEffect(() => {
+    // ✅ Only fetch if we don't have preloaded data (CSR fallback)
+    if (preloadedUser) {
+      return;
+    }
+
     async function fetchMe() {
       try {
         const response = await fetch("/api/me");
@@ -25,7 +31,7 @@ export const Navbar = () => {
       }
     }
     fetchMe();
-  }, []);
+  }, [preloadedUser]);
   return (
     <div className="p-4 border-b h-full flex items-center bg-white shadow-sm">
       <MobileSidebar />

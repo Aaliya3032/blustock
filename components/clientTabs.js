@@ -6,14 +6,21 @@ import OnlineClient from "./OnlineClient";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
-const ClientTabs = () => {
-   const [activeTab, setActiveTab] = useState("offline");
-  const [categories, setCategories] = useState([]);
-  const [courses, setCourses] = useState([]);
-  const [loading, setLoading] = useState(true);
+const ClientTabs = ({ preloadedCategories = null, preloadedCourses = null }) => {
+  const [activeTab, setActiveTab] = useState("offline");
+  // ✅ Initialize with preloaded data if available (SSR)
+  const [categories, setCategories] = useState(preloadedCategories || []);
+  const [courses, setCourses] = useState(preloadedCourses || []);
+  const [loading, setLoading] = useState(!preloadedCategories || !preloadedCourses);
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    // ✅ Only fetch if we don't have preloaded data (CSR fallback)
+    if (preloadedCategories && preloadedCourses) {
+      setLoading(false);
+      return;
+    }
+
     async function fetchData() {
       try {
         const [catRes, courseRes] = await Promise.all([
@@ -35,7 +42,7 @@ const ClientTabs = () => {
       }
     }
     fetchData();
-  }, []);
+  }, [preloadedCategories, preloadedCourses]);
 
 
   const offlineCourses = courses.filter(

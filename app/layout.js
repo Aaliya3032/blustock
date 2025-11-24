@@ -82,13 +82,23 @@ export const metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code", // Add your actual verification code
+    // Get your Google verification code from:
+    // 1. Go to https://search.google.com/search-console
+    // 2. Add your property (blustockconsultants.com)
+    // 3. Choose "HTML tag" verification method
+    // 4. Copy the content value from the meta tag
+    // Example: <meta name="google-site-verification" content="YOUR_CODE_HERE" />
+    // Replace "YOUR_CODE_HERE" below with the actual code
+    google: process.env.GOOGLE_VERIFICATION_CODE || "your-google-verification-code",
   },
 };
 
 export default async function RootLayout({ children }) {
-    const conn = await connectDb();
-    console.log("database connected",conn)
+    // Connect to database (connection is cached)
+    await connectDb();
+    
+    // Note: Database connection logging removed for production
+    // If needed for debugging, use: if (process.env.NODE_ENV === 'development') console.log(...)
 
      // JSON-LD structured data
   const jsonLd = {
@@ -121,14 +131,31 @@ export default async function RootLayout({ children }) {
     ]
   };
 
+  // Get Google verification code from environment variable or use placeholder
+  const googleVerificationCode = process.env.GOOGLE_VERIFICATION_CODE || "your-google-verification-code";
+
   return (
     <html lang="en" suppressHydrationWarning>
        <head>
+        {/* Google Site Verification - Get code from Google Search Console */}
+        {googleVerificationCode !== "your-google-verification-code" && (
+          <meta name="google-site-verification" content={googleVerificationCode} />
+        )}
+        
         {/* JSON-LD structured data */}
         <Script
           id="json-ld"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        
+        {/* Google AdSense - MUST be in <head> tag as per Google requirements */}
+        {/* Using regular script tag to avoid Next.js Script hydration issues */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7899721607734007"
+          crossOrigin="anonymous"
+          suppressHydrationWarning
         />
       </head>
       <body className={cn("w-full")}>
@@ -139,23 +166,6 @@ export default async function RootLayout({ children }) {
           id="razorpay-checkout-js"
           src="https://checkout.razorpay.com/v1/checkout.js"
           strategy="afterInteractive"
-        />
-
-        {/* Google AdSense script - client-side only to prevent hydration issues */}
-        <Script
-          id="google-adsense"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              if (typeof window !== 'undefined') {
-                const script = document.createElement('script');
-                script.async = true;
-                script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7899721607734007';
-                script.crossOrigin = 'anonymous';
-                document.head.appendChild(script);
-              }
-            `,
-          }}
         />
 
         <Toaster richColors position="top-center" />

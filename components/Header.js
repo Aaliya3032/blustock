@@ -46,6 +46,10 @@ const Header = ({ loggedInUser }) => {
       href: "/courses",
     },
     {
+      title: "Blog",
+      href: "/blog",
+    },
+    {
       title: "Testimonials",
       href: "/about/testimonials",
     },
@@ -165,6 +169,16 @@ const Header = ({ loggedInUser }) => {
               }`}
             >
               Courses
+            </Link>
+            <Link
+              href="/blog"
+              className={`${
+                pathname === "/blog" || pathname.startsWith("/blog/")
+                  ? "font-medium border-b-2 border-primary"
+                  : ""
+              }`}
+            >
+              Blog
             </Link>
             <Link
               href="/contact"

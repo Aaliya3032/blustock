@@ -11,35 +11,31 @@ import { formatMyDate } from "@/lib/date";
 
 const CourseDetails = ({ course }) => {
   return (
-    <section className="py-8 md:py-12 lg:py-24">
-      <div className="container">
-        <span className="bg-green-500 px-4 py-0.5 rounded-full text-xs font-medium text-white inline-block">
-          {course?.category?.title}
-        </span>
-        <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary font-bold 2xl:text-5xl mt-3">
-          {course?.title}
-        </h3>
-        <p className="mt-3 text-gray-600 text-sm">{course?.subtitle}</p>
-        {/*  */}
-        <div className="flex sm:items-center gap-5 flex-col sm:flex-row sm:gap-6 md:gap-20 mt-6">
-          <div className="flex items-center gap-2">
+    <section className="mb-12">
+      <div className="bg-white rounded-lg p-8 shadow-lg">
+        {/* Instructor and Date Info */}
+        <div className="flex sm:items-center gap-5 flex-col sm:flex-row sm:gap-6 md:gap-8 mb-8 pb-6 border-b">
+          <div className="flex items-center gap-3">
             <Image
-              className="w-[40px] h-[40px] rounded-full"
+              className="w-[50px] h-[50px] rounded-full border-2 border-secondary/20"
               src={
                 course?.instructor?.profilePicture
                   ? course.instructor.profilePicture
                   : "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
               }
-              width={20}
-              height={20}
+              width={50}
+              height={50}
               alt={course?.instructor?.firstName}
             />
-            <p className="font-bold text-gray-700">
-              {course?.instructor?.firstName} {course?.instructor?.lastName}
-            </p>
+            <div>
+              <p className="font-bold text-primary text-lg">
+                {course?.instructor?.firstName} {course?.instructor?.lastName}
+              </p>
+              <p className="text-sm text-gray-600">Instructor</p>
+            </div>
           </div>
           <div className="flex items-center gap-2 text-sm">
-            <span className="text-success font-semibold text-gray-700">
+            <span className="font-semibold text-gray-700">
               Last Updated:{" "}
             </span>
             <span className="text-gray-600">
@@ -49,31 +45,29 @@ const CourseDetails = ({ course }) => {
         </div>
 
         {/* Tab */}
-        <div className="my-6">
+        <div>
           <Tabs defaultValue="overview" className="w-full">
-            <TabsList className="grid w-full grid-cols-3 my-6 max-w-[768px] text-primary">
-              <TabsTrigger value="overview">
+            <TabsList className="grid w-full grid-cols-3 mb-8 text-primary bg-gray-50">
+              <TabsTrigger value="overview" className="data-[state=active]:bg-white">
                 <Kanban className="sm:w-5 w-3 mr-2 flex-none" />
                 Overview
               </TabsTrigger>
-              <TabsTrigger value="curriculum">
+              <TabsTrigger value="curriculum" className="data-[state=active]:bg-white">
                 <NotebookTabs className="sm:w-5 w-3 mr-2 flex-none" />
                 Curriculum
               </TabsTrigger>
-              <TabsTrigger value="instructor">
+              <TabsTrigger value="instructor" className="data-[state=active]:bg-white">
                 <ContactRound className="sm:w-5 w-3 mr-2 flex-none" />
                 Instructor
               </TabsTrigger>
-              {/* <TabsTrigger value="reviews">Reviews</TabsTrigger> */}
             </TabsList>
-            <TabsContent value="overview">
-              {/* each tab content can be independent component */}
+            <TabsContent value="overview" className="mt-6">
               <CourseOverview course={course} />
             </TabsContent>
-            <TabsContent value="curriculum">
+            <TabsContent value="curriculum" className="mt-6">
               <CourseCurriculam course={course} />
             </TabsContent>
-            <TabsContent value="instructor">
+            <TabsContent value="instructor" className="mt-6">
               <CourseInstructor course={course} />
             </TabsContent>
           </Tabs>

@@ -1,8 +1,21 @@
 import React from "react";
 import bg from '../assets/Hero_bg.jpg';
 import ClientTabs from "./clientTabs";
+import { getCategories } from "@/queries/categories";
+import { getCourseList } from "@/queries/courses";
 
-const Batch = () => {
+const Batch = async () => {
+  // ✅ Fetch data server-side
+  let preloadedCategories = [];
+  let preloadedCourses = [];
+  try {
+    [preloadedCategories, preloadedCourses] = await Promise.all([
+      getCategories(),
+      getCourseList()
+    ]);
+  } catch (error) {
+    console.error("Error preloading batch data:", error);
+  }
 
   return (
     <div
@@ -22,7 +35,7 @@ const Batch = () => {
           Choose Your Batch
         </div>
        
-          <ClientTabs/>
+          <ClientTabs preloadedCategories={preloadedCategories} preloadedCourses={preloadedCourses} />
       
       </div>
     </div>

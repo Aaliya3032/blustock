@@ -26,9 +26,11 @@ export const {
       async authorize(credentials) {
         if (credentials == null) return null;
 
-         console.log("🔗 Connecting DB inside authorize...");
-        await connectDb(); // ✅ ALWAYS connect here!
-        console.log("✅ DB connected");
+        // Connect to database (only log in development)
+        await connectDb();
+        if (process.env.NODE_ENV === 'development') {
+          console.log("🔗 DB connected for authentication");
+        }
 
         const user = await User.findOne({ email: credentials.email });
 

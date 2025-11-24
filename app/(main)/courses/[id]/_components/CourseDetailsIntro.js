@@ -16,69 +16,59 @@ const CourseDetailsIntro = async({course}) => {
   const  hasEnrollment = await hasEnrollmentForCourse(course?.id,loggedInUser?.id)
 
   return (
-    <div className="overflow-x-hidden  grainy">
-    <section className="pt-12  sm:pt-16">
-      <div className="container">
-        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto text-center">
-            <h1 className="px-6 text-lg text-gray-600 font-inter">
-              {course?.subtitle}
-            </h1>
-            <p className="mt-5 text-4xl font-bold leading-tight text-primary sm:leading-tight sm:text-5xl lg:text-6xl lg:leading-tight font-sans">
-                <span className="relative">{course?.title}</span>
-            </p>
+    <div className="mb-12">
+      <div className="bg-white rounded-lg p-8 shadow-lg mb-8">
+        {/* Category Badge */}
+        <div className="mb-4">
+          <span className="text-xs font-semibold text-secondary bg-secondary/10 px-3 py-1 rounded">
+            {course?.category?.title || "Course"}
+          </span>
+        </div>
 
-            <div className="mt-6 flex items-center justify-center flex-wrap gap-3">
-              {
-                hasEnrollment ? (
-                  <Link href={`/courses/${course?.id}/lesson`} className={cn(
-                    buttonVariants({size: "lg"})
-                  )}>
-                    Access Course
-                  </Link>
-                ) : (
-                  <EnrollCourse courseId={course?.id} price={course?.price}/>
-                )
-              }
-              {/* <Link
-                href=""
-                className={cn(
-                  buttonVariants({ variant: "outline", size: "lg" })
-                )}
-              >
-                See Intro
-              </Link> */}
-              <Link
-                    href=""
-                    className={cn(
-                      buttonVariants({ variant: "destructive", size: "lg" })
-                    )}
-                  >
-                   Price : {formatPrice(course?.price)}
-                  </Link>
-            </div>
+        {/* Title */}
+        <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+          {course?.title}
+        </h1>
+
+        {/* Subtitle */}
+        {course?.subtitle && (
+          <p className="text-lg text-gray-700 mb-6">
+            {course?.subtitle}
+          </p>
+        )}
+
+        {/* Action Buttons */}
+        <div className="flex items-center justify-start flex-wrap gap-4 mb-6">
+          {
+            hasEnrollment ? (
+              <Link href={`/courses/${course?.id}/lesson`} className={cn(
+                buttonVariants({size: "lg"}),
+                "bg-secondary text-white hover:bg-secondary/90"
+              )}>
+                Access Course
+              </Link>
+            ) : (
+              <EnrollCourse courseId={course?.id} price={course?.price}/>
+            )
+          }
+          <div className="px-6 py-3 bg-primary/10 text-primary rounded-lg font-semibold">
+            Price: {formatPrice(course?.price)}
           </div>
         </div>
 
-        <div className="pb-12  mt-6">
-          <div className="relative">
-            <div className="absolute inset-0 h-2/3"></div>
-            <div className="relative mx-auto">
-              <div className="lg:max-w-3xl lg:mx-auto">
-                <Image
-                  className="w-full rounded-lg"
-                  width={768}
-                  height={463}
-                  src={`/assets/${course?.thumbnail}`}
-                  alt="name"
-                />
-              </div>
-            </div>
+        {/* Course Image */}
+        <div className="mt-8 flex justify-center">
+          <div className="relative w-full max-w-2xl aspect-video rounded-lg overflow-hidden shadow-md border border-gray-200">
+            <Image
+              className="object-cover"
+              fill
+              src={`/assets/${course?.thumbnail}`}
+              alt={course?.title || "Course thumbnail"}
+            />
           </div>
         </div>
       </div>
-    </section>
-  </div>
+    </div>
   )
 }
 
