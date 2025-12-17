@@ -16,8 +16,34 @@ const PersonalDetails = ({ userInfo }) => {
     designation: userInfo.designation,
     bio: userInfo.bio,
     profilePicture: userInfo.profilePicture,
+    aadhar: userInfo.aadhar || "",
   });
   const router = useRouter()
+
+  const DEFAULT_AVATAR =
+    "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png";
+
+  const hasCustomProfile =
+    infoState.profilePicture && infoState.profilePicture !== DEFAULT_AVATAR;
+  const hasAadhar = !!infoState.aadhar;
+  const isInstructorVerified = !!userInfo.isInstructorVerified;
+
+  let statusLabel = "Profile incomplete";
+  let statusColorClasses = "bg-red-100 text-red-700 border border-red-300";
+  let statusDescription =
+    "Please upload your profile picture and Aadhar PDF to request verification.";
+
+  if (isInstructorVerified) {
+    statusLabel = "Verified account";
+    statusColorClasses = "bg-green-100 text-green-700 border border-green-300";
+    statusDescription =
+      "Your account has been verified by the instructor. You can enroll for courses.";
+  } else if (hasCustomProfile && hasAadhar) {
+    statusLabel = "Pending verification";
+    statusColorClasses = "bg-yellow-100 text-yellow-700 border border-yellow-300";
+    statusDescription =
+      "Your documents are submitted. Within 24 hours an instructor will verify your profile and then you can enroll for courses.";
+  }
 
   const handleChange = (event) => {
     const field = event.target.name;
@@ -62,6 +88,52 @@ const PersonalDetails = ({ userInfo }) => {
     }
 };
 
+  const handleAadharChange = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    // Client-side validation for file type and size
+    if (file.type !== "application/pdf") {
+      toast.error("Only PDF files are allowed for Aadhar.");
+      return;
+    }
+
+    const maxSizeBytes = 2 * 1024 * 1024; // 2 MB
+    if (file.size && file.size > maxSizeBytes) {
+      toast.error("Aadhar PDF must be smaller than 2MB.");
+      return;
+    }
+
+    try {
+      const formData = new FormData();
+      formData.append("aadhar", file);
+      formData.append("email", userInfo.email);
+
+      const res = await fetch("/api/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}));
+        throw new Error(errorData.error || "Aadhar upload failed");
+      }
+
+      const data = await res.json();
+
+      setInfoState((prev) => ({
+        ...prev,
+        aadhar: data.fileName,
+      }));
+
+      toast.success("Aadhar PDF uploaded successfully!");
+      router.refresh();
+    } catch (error) {
+      console.error("Aadhar upload error:", error);
+      toast.error(error.message || "Aadhar upload failed");
+    }
+  };
+
   const handleUpdate = async (event) => {
     event.preventDefault();
     try {
@@ -77,6 +149,14 @@ const PersonalDetails = ({ userInfo }) => {
       <h5 className="text-lg font-semibold mb-4 text-primary">
         Personal Detail :
       </h5>
+      <div className="mb-4">
+        <span
+          className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${statusColorClasses}`}
+        >
+          {statusLabel}
+        </span>
+        <p className="mt-2 text-xs text-gray-600">{statusDescription}</p>
+      </div>
       <form onSubmit={handleUpdate}>
         <div className="grid lg:grid-cols-2 grid-cols-1 gap-5">
           <div>
@@ -135,6 +215,40 @@ const PersonalDetails = ({ userInfo }) => {
         <div className="mt-5">
           <Label className="mb-2 block text-tertiary">Profile Picture :</Label>
           <Input type="file" accept="image/*" onChange={handleFileChange} />
+          {infoState?.profilePicture && (
+            <div className="mt-2 flex items-center gap-3">
+              <img
+                src={infoState.profilePicture}
+                alt="Profile picture"
+                className="w-12 h-12 rounded-full border border-gray-300 object-cover"
+              />
+              <a
+                href={infoState.profilePicture}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 underline text-xs"
+              >
+                View full image
+              </a>
+            </div>
+          )}
+        </div>
+        <div className="mt-5">
+          <Label className="mb-2 block text-tertiary">Aadhar (PDF) :</Label>
+          <Input type="file" accept="application/pdf" onChange={handleAadharChange} />
+          {infoState?.aadhar && (
+            <p className="mt-1 text-xs">
+              <span className="text-gray-500 mr-2">Aadhar file uploaded.</span>
+              <a
+                href={infoState.aadhar}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 underline"
+              >
+                View PDF
+              </a>
+            </p>
+          )}
         </div>
         {/*end grid*/}
         <div className="grid grid-cols-1">

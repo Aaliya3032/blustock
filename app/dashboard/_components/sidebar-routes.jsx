@@ -1,17 +1,18 @@
 "use client";
 
-import { BarChart } from "lucide-react";
-
-import { BookOpen } from "lucide-react";
+import { BarChart, Users, BookOpen, Radio } from "lucide-react";
 import { SidebarItem } from "./sidebar-item";
-import { BookA } from "lucide-react";
-import { Radio } from "lucide-react";
 
 const routes = [
   {
     icon: BarChart,
     label: "Analytics",
     href: "/dashboard",
+  },
+  {
+    icon: Users,
+    label: "Users",
+    href: "/dashboard/users",
   },
   {
     icon: BookOpen,

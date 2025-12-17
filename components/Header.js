@@ -202,31 +202,16 @@ const Header = ({ loggedInUser }) => {
                 >
                   Login
                 </Link>
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <div
-                      className={`${
-                        pathname === "/register/instructor" ||
-                        pathname === "/register/student"
-                          ? "font-medium cursor-pointer"
-                          : "cursor-pointer border-2 border-primary bg-primary text-white rounded-full p-1.5 text-xs flex items-center"
-                      }`}
-                    >
-                      Register
-                    </div>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent
-                    align="end"
-                    className="w-56 mt-4 bg-white text-primary"
-                  >
-                    <DropdownMenuItem className="cursor-pointer">
-                      <Link href="/register/student">Student</Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem className="cursor-pointer">
-                      <Link href="/register/instructor">Instructor</Link>
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                <Link
+                  href="/register/student"
+                  className={`${
+                    pathname === "/register/student"
+                      ? "font-medium"
+                      : "border-2 border-primary bg-primary text-white rounded-full p-1.5 text-xs flex items-center"
+                  }`}
+                >
+                  Register
+                </Link>
               </>
             )}
           </div>

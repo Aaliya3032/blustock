@@ -1,12 +1,6 @@
 import React from "react";
 import { useLockBody } from "@/hooks/use-lock-body";
 import { cn } from "@/lib/utils";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -44,23 +38,13 @@ const MobileNav = ({ navLinks , closeMenu , loginSession}) => {
                 >
                   Login
                 </Link>
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                  <div
-                  className={`${pathname === "/signup" ? "font-bold" : "border-2 border-primary bg-primary text-white rounded-full p-1.5 text-xs flex items-center"}`}
+                <Link
+                  href="/register/student"
+                  className={`${pathname === "/register/student" ? "font-bold" : "border-2 border-primary bg-primary text-white rounded-full p-1.5 text-xs flex items-center"}`}
+                  onClick={closeMenu}
                 >
                   Register
-                </div>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align='end' className='w-56 mt-4 bg-white text-primary'>
-                    <DropdownMenuItem className="cursor-pointer">
-                         <Link href='/register/student' onClick={closeMenu}>Student</Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem className="cursor-pointer">
-                         <Link href='/register/instructor' onClick={closeMenu}>Instructor</Link>
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                </Link>
         </div>
         )}
         

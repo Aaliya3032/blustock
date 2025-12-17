@@ -52,5 +52,32 @@ const userSchema = new Schema({
     resetTokenExpiry:{
       type: Date,
     },
+    isVerified:{
+      type: Boolean,
+      default: false,
+    },
+    verificationToken:{
+      type: String,
+    },
+    verificationTokenExpiry:{
+      type: Date,
+    },
+    // KYC / enrollment gating fields
+    aadhar:{
+      type: String,
+    },
+    isInstructorVerified:{
+      type: Boolean,
+      default: false,
+    },
+    isPaymentVerified:{
+      type: Boolean,
+      default: false,
+    },
+    pendingCourseId:{
+      type: Schema.ObjectId,
+      ref: "Course",
+      default: null,
+    },
 });
 export const User = mongoose.models?.User ?? mongoose.model("User",userSchema);

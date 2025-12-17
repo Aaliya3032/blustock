@@ -38,6 +38,13 @@ export const {
           throw new CustomAuthError("No account found with this email. Please sign up to continue.");
         }
 
+        // Check if email is verified (skip for instructors)
+        if (user.role !== "instructor" && !user.isVerified) {
+          throw new CustomAuthError(
+            "Please verify your email address before logging in. Check your inbox for the verification link."
+          );
+        }
+
         const isMatch = await bcrypt.compare(credentials.password, user.password);
         if (!isMatch) {
            throw new CustomAuthError("Incorrect password. Please try again.");
