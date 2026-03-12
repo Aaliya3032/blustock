@@ -209,4 +209,5 @@ export async function GET(request) {
     console.error("PDF generation error:", error);
     return new Response("Internal Server Error", { status: 500 });
   }
+  
 }
