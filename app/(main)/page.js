@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import Batch from "@/components/Batch";
 import FAQ from "@/components/FAQ";
 import Hero from "@/components/Hero";
@@ -5,6 +7,7 @@ import Network from "@/components/Network";
 import Overview from "@/components/Overview";
 import Services from "@/components/Services";
 import Script from "next/script";
+
 
 export default function Home() {
 
